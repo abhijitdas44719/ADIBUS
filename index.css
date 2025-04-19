@@ -8,3 +8,126 @@ body {
 h1 {
     font-size: 25px;
 }
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  padding: 20px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #d32f2f; /* redBus red */
+  padding: 15px 30px;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.logo img {
+  height: 40px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease-in-out;
+}
+
+nav a:hover {
+  color: #ffe082;
+}
+
+.auth-buttons button {
+  background-color: white;
+  color: #d32f2f;
+  padding: 6px 15px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.auth-buttons button:hover {
+  background-color: #ffcdd2;
+}
+
+/* Page Content */
+h1 {
+  margin-top: 30px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+/* -------------------------------------
+   Responsive Styles for Smaller Devices
+---------------------------------------- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .auth-buttons {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+
+  .logo img {
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  nav ul {
+    font-size: 14px;
+  }
+
+  .auth-buttons button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
