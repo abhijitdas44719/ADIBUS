@@ -1,12 +1,8 @@
-// index.js
-
-// Toggle dropdown for mobile view
 document.addEventListener('DOMContentLoaded', () => {
   const dropdown = document.querySelector('.dropdown');
-  const dropdownLink = dropdown.querySelector('a');
+  const link = dropdown.querySelector('a');
 
-  dropdownLink.addEventListener('click', (e) => {
-    // Prevent default link behavior
+  link.addEventListener('click', (e) => {
     if (window.innerWidth <= 768) {
       e.preventDefault();
       dropdown.classList.toggle('active');
