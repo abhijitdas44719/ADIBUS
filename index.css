@@ -207,3 +207,8 @@ input {
     height:50px;
     width:250px;
 }
+btn   {
+    background-color:red;
+    text-color:white;
+
+}
