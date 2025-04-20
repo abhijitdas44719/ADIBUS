@@ -198,8 +198,8 @@ button {
   }
 }
 footer  {
-    background-color:blue;
+    background-color:white;
     padding:50px 30px;
-    
+    border-radius:4px;
     
 }
