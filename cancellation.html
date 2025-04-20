@@ -48,6 +48,132 @@ nav a:hover {
 .auth-buttons button:hover {
   background-color: #ffcdd2;
 }
+h1 {
+  margin-top: 30px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+/* -------------------------------------
+   Responsive Styles for Smaller Devices
+---------------------------------------- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .auth-buttons {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+
+  .logo img {
+    height: 50px;
+      width: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  nav ul {
+    font-size: 14px;
+  }
+
+  .auth-buttons button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+    .logo img{
+        height: 40px;
+        width: 40px;
+    }
+}
+/* Dropdown Styles */
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* Attach right below the parent */
+  left: 0;
+  background-color: white;
+  color: #d32f2f;
+  min-width: 180px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  z-index: 1000;
+  transition: all 0.2s ease-in-out;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f3f3f3;
+}
+
+.dropdown-menu a {
+  color: #d32f2f;
+  text-decoration: none;
+  display: block;
+}
+
+/* Avoid flickering issue */
+.dropdown-menu:hover {
+  display: block;
+}
+
+
+/* Responsive Fix: Show dropdown on click for small screens */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background-color: #fff5f5;
+    display: none;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+}
             </style>
         </head>
         <body>
