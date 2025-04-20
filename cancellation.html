@@ -1,7 +1,54 @@
 <DOCTYPE html>
     <html>
         <head>
+            <style>
+                header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff; /* redBus red */
+  padding: 15px 30px;
+  color: white;
+  flex-wrap: wrap;
+}
 
+.logo img {
+  height: 140px;
+    width: 140px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease-in-out;
+}
+
+nav a:hover {
+  color: #ffe082;
+}
+
+.auth-buttons button {
+  background-color: white;
+  color: #d32f2f;
+  padding: 6px 15px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.auth-buttons button:hover {
+  background-color: #ffcdd2;
+}
+            </style>
         </head>
         <body>
               <header>
