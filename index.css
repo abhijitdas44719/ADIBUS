@@ -27,7 +27,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #d32f2f; /* redBus red */
+  background-color: #ffffff; /* redBus red */
   padding: 15px 30px;
   color: white;
   flex-wrap: wrap;
