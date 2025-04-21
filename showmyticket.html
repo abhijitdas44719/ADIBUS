@@ -177,6 +177,55 @@ button {
 .idiv {
     display: flex;
 }
+ /* General styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .ticket-logo {
+            width: 200px;
+            height: 100px;
+            background-color: #ffcc00;
+            border-radius: 10px;
+            border: 3px solid #e1a500;
+            position: relative;
+            text-align: center;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .ticket-logo::before, .ticket-logo::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #e1a500;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .ticket-logo::before {
+            left: -10px;
+            border-top-left-radius: 50%;
+            border-bottom-left-radius: 50%;
+        }
+
+        .ticket-logo::after {
+            right: -10px;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+
+        .ticket-text {
+            line-height: 100px;
+        }
             </style>
         </head>
         <body>
@@ -195,7 +244,7 @@ button {
                         </ul>
                         </li>
                         <li><a href="#" style="color:black;">Hotels</a></li>
-                        <li><a href="#"style="color:black;">Bus Booking</a></li>
+                        
                         <li><a href="#"style="color:black;">Offers</a></li>
                         <li><a href="#"style="color:black;">Help</a></li>
                       </ul>
@@ -209,7 +258,9 @@ button {
             <div class="idiv" align="center">
                 <div>
             <label>TICKET NUMBER</label><br>
-            <input placeholder="Enter your ticket number">
+            <div class="ticket-logo">
+                <div class="ticket-text">TICKET</div>
+            </div><input placeholder="Enter your ticket number">
                 </div>
                 <div>
             <label>MOBILE NUMBER</label><br>
