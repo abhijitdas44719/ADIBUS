@@ -37,20 +37,30 @@
     </div>
   </header>
 
+<div class="main-content">
   <h1>Welcome to ADIBUS</h1>
-  <div>
-  <label> From </label>
-   <input type="text" placeholder="Enter Boarding Point" class="curve">
-  <label> To </label>
-  <input type="text" placeholder="Enter Dropping Point" class="curve">
-    <button class="btn"> Search Buses </button>
-</div>
-  
-  
   <p>Your smart solution for booking buses with ease.</p>
-  <button>Book a Bus</button>
+  
+  <div class="search-form">
+    <div>
+      <label for="from">From</label><br />
+      <input type="text" id="from" placeholder="Enter Boarding Point" />
+    </div>
+    <div>
+      <label for="to">To</label><br />
+      <input type="text" id="to" placeholder="Enter Dropping Point" />
+    </div>
+    <div>
+      <label for="date">Date</label><br />
+      <input type="date" id="date" placeholder="Enter Date" />
+    </div>
+    <div style="align-self: flex-end;">
+      <button class="btn">Search Buses</button>
+    </div>
+  </div>
 
-  <img src="" alt="ADIBUS Local Logo" width="150" />
+  <button class="btn">Book a Bus</button>
+</div>
 
 
   <script src="index.js"></script>
