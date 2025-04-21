@@ -197,12 +197,7 @@ button {
     display: block;
   }
 }
-footer  {
-    background-color:white;
-    padding:30px 20px;
-    border-radius:4px;
-    
-}
+
 input {
     height:50px;
     width:250px;
