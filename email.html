@@ -177,6 +177,45 @@ button {
 .idiv {
     display: flex;
 }
+.ticket-form {
+  margin: 30px auto;
+  text-align: center;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.input-icon img {
+  height: 24px;
+  width: 24px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 220px;
+  font-size: 14px;
+}
+
             </style>
         </head>
         <body>
@@ -204,18 +243,26 @@ button {
                       <button>Login</button>
                     </div>
               </header>
-            <h2 align="center">SMS AND EMAIL TICKET</h2>
-            <h4 align="center"> Verify your details and <span style="color: red;">EMAIL/SMS</span> your tickets</h4>
-            <div class="idiv" align="center">
-                <div>
-            <label>TICKET NUMBER</label><br>
-            <img src="tickets.png"><input placeholder="Enter your ticket number">
-                </div>
-                <div>
-            <label>MOBILE NUMBER</label><br>
-            <input placeholder="">
-                </div>
-            </div>
+            <section class="ticket-form">
+  <h2 align="center">SMS AND EMAIL TICKET</h2>
+  <h4 align="center">Verify your details and <span style="color: red;">EMAIL/SMS</span> your tickets</h4>
+
+  <div class="form-container">
+    <div class="form-group">
+      <label for="ticket-number">TICKET NUMBER</label>
+      <div class="input-icon">
+        <img src="tickets.png" alt="Ticket Icon" />
+        <input type="text" id="ticket-number" placeholder="Enter your ticket number" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="mobile-number">MOBILE NUMBER</label>
+      <input type="text" id="mobile-number" placeholder="Enter your mobile number" />
+    </div>
+  </div>
+</section>
+
             <script>
                 document.addEventListener('DOMContentLoaded', () => {
                 const dropdown = document.querySelector('.dropdown');
