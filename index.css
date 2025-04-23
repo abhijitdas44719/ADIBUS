@@ -276,3 +276,13 @@ input {
 .search-form .btn:hover {
   background-color: #b71c1c;
 }
+.p1   {
+  max-width: 800px;
+  margin: 60px auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center; 
+
+}
