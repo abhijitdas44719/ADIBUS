@@ -69,8 +69,6 @@ nav a:hover {
 .auth-buttons button:hover {
   background-color: #ffcdd2;
 }
-
-/* Page Content */
 h1 {
   margin-top: 30px;
 }
@@ -197,7 +195,6 @@ button {
     display: block;
   }
 }
-
 input {
     height:50px;
     width:250px;
