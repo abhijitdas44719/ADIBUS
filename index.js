@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       dropdown.classList.toggle('active');
     }
-  });
-});
-const questions = document.querySelectorAll('.faq-question');
+  const questions =                 document.querySelectorAll('.faq-question');
 
-questions.forEach(question => {
+  questions.forEach(question => {
   question.addEventListener('click', () => {
     const item = question.parentElement;
     item.classList.toggle('active');
+     });
+   });
   });
 });
