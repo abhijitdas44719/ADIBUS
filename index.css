@@ -391,9 +391,22 @@ element.style {
   width: 1.5rem;
   height: 1.5rem;
 }
-.boxes  {
+.box1  {
   border: 1px solid;
   border-color: #d32f2f;
+  align: left;
   
+
+}
+.box2  {
+  border: 1px solid;
+  border-color: #d32f2f;
+  align: center;
+
+}
+.box3  {
+  border: 1px solid;
+  border-color: #d32f2f;
+  align: right;
 
 }
