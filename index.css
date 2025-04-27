@@ -395,18 +395,21 @@ element.style {
   border: 1px solid;
   border-color: #d32f2f;
   align: left;
-  
+  border-radius: 15px;
+  padding:10px 20px;
 
 }
 .box2  {
   border: 1px solid;
   border-color: #d32f2f;
   align: center;
-
+  border-radius: 15px;
+  padding:10px 20px;
 }
 .box3  {
   border: 1px solid;
   border-color: #d32f2f;
   align: right;
-
+  border-radius: 15px;
+  padding:10px 20px;
 }
