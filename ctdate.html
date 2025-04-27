@@ -1,0 +1,633 @@
+<DOCTYPE html>
+    <html>
+        <head>
+            <style>
+                header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f6f0e7; /* redBus red */
+  padding: 15px 30px;
+  color: white;
+  flex-wrap: wrap;
+  }
+  
+  .logo img {
+  height: 140px;
+    width: 140px;
+  }
+  
+  nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  }
+  
+  nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease-in-out;
+  }
+  
+  nav a:hover {
+  color: #ffe082;
+  }
+  
+  .auth-buttons button {
+  background-color: white;
+  color: #d32f2f;
+  padding: 6px 15px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  }
+  
+  .auth-buttons button:hover {
+  background-color: #ffcdd2;
+  }
+  h1 {
+  margin-top: 30px;
+  }
+  
+  button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  }
+  
+  /* -------------------------------------
+   Responsive Styles for Smaller Devices
+  ---------------------------------------- */
+  @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .auth-buttons {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+  
+  .logo img {
+    height: 50px;
+      width: 50px;
+  }
+  }
+  
+  @media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  
+  h1 {
+    font-size: 22px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  nav ul {
+    font-size: 14px;
+  }
+  
+  .auth-buttons button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+    .logo img{
+        height: 40px;
+        width: 40px;
+    }
+  }
+  /* Dropdown Styles */
+  /* Dropdown Styles */
+  .dropdown {
+  position: relative;
+  }
+  
+  .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* Attach right below the parent */
+  left: 0;
+  background-color: white;
+  color: #d32f2f;
+  min-width: 180px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  z-index: 1000;
+  transition: all 0.2s ease-in-out;
+  }
+  
+  .dropdown:hover .dropdown-menu,
+  .dropdown:focus-within .dropdown-menu {
+  display: block;
+  }
+  
+  .dropdown-menu li {
+  padding: 10px;
+  white-space: nowrap;
+  }
+  
+  .dropdown-menu li:hover {
+  background-color: #f3f3f3;
+  }
+  
+  .dropdown-menu a {
+  color: #d32f2f;
+  text-decoration: none;
+  display: block;
+  }
+  
+  /* Avoid flickering issue */
+  .dropdown-menu:hover {
+  display: block;
+  }
+  
+  
+  /* Responsive Fix: Show dropdown on click for small screens */
+  @media (max-width: 768px) {
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background-color: #fff5f5;
+    display: none;
+  }
+  
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+  }
+  .idiv {
+    display: flex;
+  }
+  .ticket-form {
+  margin: 30px auto;
+  text-align: center;
+  padding-bottom: 200px;
+  }
+  
+  .form-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  }
+  
+  .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+  
+  .input-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+  }
+  
+  .input-icon img {
+  height: 24px;
+  width: 24px;
+  }
+  
+  input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 230px;
+  font-size: 14px;
+  }
+  .footer {
+    background-color: #f7f7f7;
+    color: #3e3e52;
+    padding: 3rem 7.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    line-height: 20px;
+  }
+  
+  .footer_links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .footer_link_section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 17rem;
+  }
+  
+  .footer_link_section_title {
+    font-size: 1.125rem;
+    color: #1d1d1d;
+    margin: 0;
+  }
+  
+  .footer_link_section_item {
+    text-decoration: none;
+    color: #3e3e52;
+    font-size: 0.875rem;
+  }
+  
+  .footer_link_section_item:hover {
+    text-decoration: underline;
+  }
+  
+  .footer_main_logos img {
+    width: 6.25rem;
+    height: auto;
+  }
+  
+  .horizontal_separator {
+    background-color: #e5e5e5;
+    height: 1px;
+    width: 100%;
+    margin: 1rem 0;
+  }
+  
+  .social_section {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .social_icon_item img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  
+            </style>
+        </head>
+        <body>
+              <header>
+                    <div class="logo">
+                      <img src="ADIBUS.png" alt="ADIBUS Logo" />
+                    </div>
+                    <nav>
+                      <ul>
+                        <li class="dropdown">
+                        <a href="#" style="color:black;">Bus Tickets</a>
+                        <ul class="dropdown-menu">
+                          <li><a href="cancellation.html" style="color:black;">Cancellation</a></li>
+                          <li><a href="#" style="color:black;">Change Travel Date</a></li>
+                          <li><a href="showmyticket.html"style=color:black;>Show My Ticket</a></li>
+                          <li><a href="email.html"style="color:black;">Email</a></li>
+                        </ul>
+                        </li>
+                        <li><a href="#" style="color:black;">Hotels</a></li>
+                        
+                        <li><a href="#"style="color:black;">Offers</a></li>
+                        <li><a href="#"style="color:black;">Help</a></li>
+                      </ul>
+                    </nav>
+                    <div class="auth-buttons">
+                      <button>Login</button>
+                    </div>
+              </header>
+            
+              <h2 align="center">CHANGE TRAVEL DATE</h2>
+  <h4 align="center">Verify your details and <span style="color: red;">Change Travel Date</span></h4>
+  
+  <section class="ticket-form">
+  <div class="form-container">
+    <div class="form-group">
+      <label for="ticket-number">TICKET NUMBER</label>
+      <div class="input-icon">
+        <img src="tickets.png" alt="Ticket Icon" />
+        <input type="text" id="ticket-number" placeholder="Enter your ticket number" />
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="mobile-number">MOBILE NUMBER</label>
+      <input type="text" id="mobile-number" placeholder="Enter your mobile number" />
+    </div>
+    <div class="form-group">
+      <button type="button" style="background-color: #d32f2f; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">SEARCH</button>
+    </div>
+  </div>
+  </section>
+  <footer id="rh_footer_new" style="background: #f7f7f7;">
+                      
+    <style>
+        .rb_footer{
+            background-color: #F7F7F7;
+            color: #3e3e52;
+            padding: 3rem 7.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            line-height: 20px;
+        }
+         .footer_link_section {
+                &:before {
+                    content: unset;
+                }
+         }
+         .social_icon::before {
+                color: #000000;
+                font-size: 1.5rem;
+            }
+    </style>
+    
+    <div class="rb_footer" style="max-width: 1200px; margin: auto; padding-left: 0; padding-right: 0;">
+            <ul style=" max-width: 1200px; margin-bottom: 3rem;">
+                
+    
+    <style>
+        .seoLinkSection > a{
+            line-height: 2em;
+            text-decoration: none;
+            color: #444343;
+            font-size: 13px;
+            display: inline;
+        }
+        .seoLinkSection > a:not(:last-child):after {
+            content: " | ";
+            padding: 0px 4px;
+            color: #444343;
+            font-size: 0.813rem;
+        }
+    </style>
+    
+    <li style="display: flex; flex-direction: column; gap: 2rem;">
+    <div class="interLinkContainer" style="display: flex; flex-direction: column; cursor: pointer;" id="0">
+                <div style=" display: flex; align-items: center; justify-content: space-between;">
+                    <h3 style=" font-size: 1.125rem; font-weight: 700; line-height: 1.25rem; ">Popular Bus Routes</h3>
+                    <i class="interLink icon icon-down" style=" font-size: 1rem;"></i>
+                </div>
+                <div class="seoLinkSection hide" style="margin: .5rem 0;">
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Delhi To Manali Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Delhi To Rishikesh Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Delhi To Shimla Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Delhi To Nainital Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Delhi To Katra Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Bangalore To Goa Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Bangalore To Hyderabad Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Bangalore To Tirupathi Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Bangalore To Chennai Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Bangalore To Pondicherry Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Hyderabad To Bangalore Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Hyderabad To Goa Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Hyderabad To Srisailam Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Hyderabad To Vijayawada Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Hyderabad To Tirupathi Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Pune To Goa Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Pune To Mumbai Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Pune To Nagpur Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Pune To Kolhapur Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Pune To Nashik Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Mumbai To Goa Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Mumbai To Pune Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Mumbai To Shirdi Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Mumbai To Mahabaleshwar Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Mumbai To Kolhapur Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Kolkata To Digha Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Kolkata To Siliguri Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Kolkata To Puri Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Kolkata To Bakkhali Bus</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Kolkata To Mandarmani Bus</a>
+                </div>
+                <div style=" background-color: #C4C4C4; height: 1px; width: 100%; margin-top: .5rem;"></div>
+            </div>
+    <div class="interLinkContainer" style="display: flex; flex-direction: column; cursor: pointer;" id="1">
+                <div style=" display: flex; align-items: center; justify-content: space-between;">
+                    <h3 style=" font-size: 1.125rem; font-weight: 700; line-height: 1.25rem; ">Popular Cities</h3>
+                    <i class="interLink icon icon-down" style=" font-size: 1rem;"></i>
+                </div>
+                <div class="seoLinkSection hide" style="margin: .5rem 0;">
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Hyderabad Bus Booking</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Bangalore Bus Booking</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Chennai Bus Booking</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Pune Bus Booking</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Delhi Bus Booking</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Mumbai Bus Booking</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Kolkata Bus Booking</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Ernakulam Bus Booking</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Ahmedabad Bus Booking</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Vijayawada Bus Booking</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Jaipur Bus Booking</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Indore Bus Booking</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Lucknow Bus Booking</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Bhopal Bus Booking</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Goa Bus Booking</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Ayodhya Bus Booking</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Prayagraj Bus Booking</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Varanasi Bus Booking</a>
+                </div>
+                <div style=" background-color: #C4C4C4; height: 1px; width: 100%; margin-top: .5rem;"></div>
+            </div>
+    <div class="interLinkContainer" style="display: flex; flex-direction: column; cursor: pointer;" id="2">
+                <div style=" display: flex; align-items: center; justify-content: space-between;">
+                    <h3 style=" font-size: 1.125rem; font-weight: 700; line-height: 1.25rem; ">Popular Bus Operators</h3>
+                    <i class="interLink icon icon-down" style=" font-size: 1rem;"></i>
+                </div>
+                <div class="seoLinkSection hide" style="margin: .5rem 0;">
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">No 1 Air Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">YBM Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Sri SMS Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Svkdt Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">RKT Tours and Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Royal Cars</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Rahul Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">JBT Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Raj Express</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Vaishali Express</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Rahul Travels Indore</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Delhi Tours And Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Ashok Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Greenline Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Pawan Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Ravi Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">VRL Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Dolphin Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Ganesh Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Kaveri Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">National Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Bharathi Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">City Land Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">KKaveri Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">KK Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Mahadev Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Maharaja Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">M R Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">New Payal Travels</a>
+                        <a class="footer_seo_link footer_link_new" href="#" target="_blank">Paras Travels</a>
+                </div>
+                <div style=" background-color: #C4C4C4; height: 1px; width: 100%; margin-top: .5rem;"></div>
+            </div>
+    </li>
+    
+    
+                        
+            </ul>
+        <ul class="footer_links" style=" display: flex; width: 100%; justify-content: space-between;">
+            <li class="footer_link_section main_footer_item" style="display: flex; flex-direction: column; gap: 0.5rem; width: 17rem;">
+                <div class="footer_main_logos">
+                     <picture>
+                        <source srcset="WADIBUS.png" type="image/webp">
+                        <img src="WADIBUS.png" alt="adiBus" title="adiBus" class="rb_footer_logo" style="width: 6.25rem; height: 6.25rem;">
+                    </picture>
+                </div>
+                <span class="footer_text" style="display: block; text-align: left; font-size: 1rem; line-height: 1.5; margin: 1rem 0; color: #3e3e52;">
+                    AdiBus is the world's largest online bus ticket booking service trusted by over 25 million happy customers globally. 
+                    AdiBus offers bus ticket booking through its website for all major routes.
+                  </span>
+            </li>
+                    <li class="footer_link_section" id="about_redbus_title_footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <strong class="footer_link_section_title" style="font-size: 1.125rem; color: #1d1d1d; margin: 0;">About AdiBus</strong>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="about_us_footer" target="_blank" style="color: #3e3e52;">
+                                    About us
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="investor_relations_footer" target="_blank" style="color: #3e3e52;">
+                                    Investor Relations
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="contact_us_footer" target="_blank" style="color: #3e3e52;">
+                                    Contact us
+                                </a>
+                                
+                                <a class="footer_link_section_item footer_link_new" href="#" id="sitemap_footer" target="_blank" style="color: #3e3e52;">
+                                    Sitemap
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="offers_footer" target="_blank" style="color: #3e3e52;">
+                                    Offers
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="careers_footer" target="_blank" style="color: #3e3e52;">
+                                    Careers
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="values_footer" target="_blank" style="color: #3e3e52;">
+                                    Values
+                                </a>
+                    </li>
+                    <li class="footer_link_section" id="info_title_footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <strong class="footer_link_section_title" style="font-size: 1.125rem; color: #1d1d1d; margin: 0;">Info</strong>
+                                <a class="footer_link_section_item footer_link_new" href="" id="terms_n_conditions_footer" target="_blank" style="color: #3e3e52;">
+                                    T&amp;C
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="privacy_policy_footer" target="_blank" style="color: #3e3e52;">
+                                    Privacy policy
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="faq_footer" target="_blank" style="color: #3e3e52;">
+                                    FAQ
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="blog_footer" target="_blank" style="color: #3e3e52;">
+                                    Blog
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="bus_operator_registration_footer" target="_blank" style="color: #3e3e52;">
+                                    Bus operator registration
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="agent_registration_footer" target="_blank" style="color: #3e3e52;">
+                                    Agent registration
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="insurance_partner_footer" target="_blank" style="color: #3e3e52;">
+                                    Insurance partner
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="user_agreement_footer" target="_blank" style="color: #3e3e52;">
+                                    User agreement
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" target="_blank" style="color: #3e3e52;">
+                                    Primo Bus
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" target="_blank" style="color: #3e3e52;">
+                                    Bus Timetable
+                                </a>
+                    </li>
+                    <li class="footer_link_section" id="global_sites_title_footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <strong class="footer_link_section_title" style="font-size: 1.125rem; color: #1d1d1d; margin: 0;">Global Sites</strong>
+                                <a class="footer_link_section_item footer_link_new" href="" id="India_site_footer" target="_blank" style="color: #3e3e52;">
+                                    India
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="singapore_site_footer" target="_blank" style="color: #3e3e52;">
+                                    Singapore
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="malaysia_site_footer" target="_blank" style="color: #3e3e52;">
+                                    Malaysia
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="indonesia_site_footer" target="_blank" style="color: #3e3e52;">
+                                    Indonesia
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="peru_site_footer" target="_blank" style="color: #3e3e52;">
+                                    Peru
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="colombia_site_footer" target="_blank" style="color: #3e3e52;">
+                                    Colombia
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="cambodia_site_footer" target="_blank" style="color: #3e3e52;">
+                                    Cambodia
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="#" id="vietnam_site_footer" target="_blank" style="color: #3e3e52;">
+                                    Vietnam
+                                </a>
+                    </li>
+                    <li class="footer_link_section" id="our_partners_title_footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <strong class="footer_link_section_title" style="font-size: 1.125rem; color: #1d1d1d; margin: 0;">Our Partners</strong>
+                                <a class="footer_link_section_item footer_link_new" href="https://www.goibibo.com/bus/" id="goibibo_bus_footer" target="_blank" rel="nofollow" style="color: #3e3e52;">
+                                    Goibibo Bus
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="https://www.goibibo.com/hotels/" id="goibibo_hotels_footer" target="_blank" rel="nofollow" style="color: #3e3e52;">
+                                    Goibibo Hotels
+                                </a>
+                                <a class="footer_link_section_item footer_link_new" href="https://www.makemytrip.com/hotels/" id="makemytrip_hotels_footer" target="_blank" rel="nofollow" style="color: #3e3e52;">
+                                    Makemytrip Hotels
+                                </a>
+                    </li>
+        </ul>
+        <div class="horizontal_seperator" style="background-color: #e5e5e5; height: 1px; width: 100%;"></div>
+        <div class="copyright_social_section" style="display: flex; justify-content: space-between;">
+            <span class="footer_copyright_text">Ⓒ 2025 ADIBUS All Rights Reserved</span>
+                <div class="social_section" style="display: flex; gap: 1.5rem;">
+                            <a class="social_icon_item footer_link_new" id="redbus_facebook" href="#" target="_blank" style="cursor: pointer;">
+                                    <img src="https://st.redbus.in/web/images/layout/social_facebook_new.svg" class="social_img" alt="redbus_facebook" loading="lazy" style=" width: 1.5rem; height: 1.5rem;">
+                            </a>
+                            <a class="social_icon_item footer_link_new" id="redbus_linkedin" href="#" target="_blank" style="cursor: pointer;">
+                                    <img src="https://st.redbus.in/web/images/layout/social_linkedin_new.svg" class="social_img" alt="redbus_linkedin" loading="lazy" style=" width: 1.5rem; height: 1.5rem;">
+                            </a>
+                            <a class="social_icon_item footer_link_new" id="redbus_twitter" href="#" target="_blank" style="cursor: pointer;">
+                                    <img src="https://st.redbus.in/web/images/layout/social_twitter_new.svg" class="social_img" alt="redbus_twitter" loading="lazy" style=" width: 1.5rem; height: 1.5rem;">
+                            </a>
+                            <a class="social_icon_item footer_link_new" id="redbus_instagram" href="#" target="_blank" style="cursor: pointer;">
+                                    <img src="https://st.redbus.in/web/images/layout/social_instagram_new.svg" class="social_img" alt="redbus_instagram" loading="lazy" style=" width: 1.5rem; height: 1.5rem;">
+                            </a>
+                </div>
+        </div>
+    </div>
+                    </footer>
+  
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                const dropdown = document.querySelector('.dropdown');
+                const link = dropdown.querySelector('a');
+  
+                link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+                }
+            });
+        });
+            </script>
+        </body>
+    </html>
+  </DOCTYPE>
