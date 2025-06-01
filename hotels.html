@@ -1,23 +1,125 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>HOTELS</title>
-    <style>
-      h3{
-        position: absolute;
-        background: #f6f0e7;
-        border-radius: 0px 0px 30% 30%;
-        width: 100%;
-        height: 260px;
-        top: 0px;
-        left: 0px;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h3>Book Hotels and Homestays</h3>
-    </header>
-    <footer></footer>
-  </body>
+<head>
+  <title>HOTELS</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+    }
+
+    h3 {
+      position: absolute;
+      background: #f6f0e7;
+      border-radius: 0px 0px 30% 30%;
+      width: 100%;
+      height: 260px;
+      top: 0px;
+      left: 0px;
+      font-size: 32px;
+      padding-top: 100px;
+    }
+
+    .hotel-section {
+      margin-top: 280px;
+      padding: 20px;
+    }
+
+    .hotel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .hotel-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .hotel-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .hotel-image {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .hotel-details {
+      padding: 15px;
+    }
+
+    .hotel-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .hotel-desc {
+      color: #555;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .book-btn {
+      display: inline-block;
+      padding: 8px 12px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      padding: 20px;
+      background: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h3 align="center">Book Hotels and Homestays</h3>
+  </header>
+
+  <section class="hotel-section">
+    <div class="hotel-grid">
+      <div class="hotel-card">
+        <img src="https://via.placeholder.com/300x160" alt="Hotel 1" class="hotel-image">
+        <div class="hotel-details">
+          <div class="hotel-title">Grand Palace Hotel</div>
+          <div class="hotel-desc">Located near the city center with luxurious rooms and spa.</div>
+          <a href="#" class="book-btn">Book Now</a>
+        </div>
+      </div>
+
+      <div class="hotel-card">
+        <img src="https://via.placeholder.com/300x160" alt="Hotel 2" class="hotel-image">
+        <div class="hotel-details">
+          <div class="hotel-title">Ocean View Resort</div>
+          <div class="hotel-desc">Beachside stay with modern amenities and sunset views.</div>
+          <a href="#" class="book-btn">Book Now</a>
+        </div>
+      </div>
+
+      <div class="hotel-card">
+        <img src="https://via.placeholder.com/300x160" alt="Hotel 3" class="hotel-image">
+        <div class="hotel-details">
+          <div class="hotel-title">Mountain Lodge</div>
+          <div class="hotel-desc">Perfect retreat in nature with cozy wooden interiors.</div>
+          <a href="#" class="book-btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Your Hotel Booking Site
+  </footer>
+</body>
 </html>
