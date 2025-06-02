@@ -446,4 +446,12 @@ element.style {
 .faq-item.active .faq-answer {
   max-height: 200px; 
 }
+.faq-item .answer {
+  display: none;
+}
+
+.faq-item.active .answer {
+  display: block;
+}
+
 
