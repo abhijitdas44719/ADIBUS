@@ -1,599 +1,721 @@
-<DOCTYPE html>
-  <html>
-      <head>
-          <style>
-              header {
-display: flex;
-align-items: center;
-justify-content: space-between;
-background-color: #f6f0e7; /* redBus red */
-padding: 15px 30px;
-color: white;
-flex-wrap: wrap;
-}
-
-.logo img {
-height: 140px;
-  width: 140px;
-}
-
-nav ul {
-display: flex;
-list-style: none;
-gap: 20px;
-}
-
-nav a {
-color: white;
-text-decoration: none;
-font-weight: bold;
-transition: color 0.2s ease-in-out;
-}
-
-nav a:hover {
-color: #ffe082;
-}
-
-.auth-buttons button {
-background-color: white;
-color: #d32f2f;
-padding: 6px 15px;
-border: none;
-border-radius: 4px;
-font-weight: bold;
-cursor: pointer;
-transition: background-color 0.2s;
-}
-
-.auth-buttons button:hover {
-background-color: #ffcdd2;
-}
-h1 {
-margin-top: 30px;
-}
-
-button {
-margin-top: 15px;
-padding: 10px 20px;
-font-size: 16px;
-}
-
-/* -------------------------------------
- Responsive Styles for Smaller Devices
----------------------------------------- */
-@media (max-width: 768px) {
-header {
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 15px;
-}
-
-nav ul {
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  margin-top: 10px;
-}
-
-.auth-buttons {
-  align-self: flex-end;
-  margin-top: 10px;
-}
-
-.logo img {
-  height: 50px;
-    width: 50px;
-}
-}
-
-@media (max-width: 480px) {
-body {
-  padding: 10px;
-}
-
-h1 {
-  font-size: 22px;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-}
-
-nav ul {
-  font-size: 14px;
-}
-
-.auth-buttons button {
-  padding: 8px 12px;
-  font-size: 14px;
-}
-  .logo img{
-      height: 40px;
-      width: 40px;
-  }
-}
-/* Dropdown Styles */
-/* Dropdown Styles */
-.dropdown {
-position: relative;
-}
-
-.dropdown-menu {
-display: none;
-position: absolute;
-top: 100%; /* Attach right below the parent */
-left: 0;
-background-color: white;
-color: #d32f2f;
-min-width: 180px;
-border: 1px solid #ccc;
-border-radius: 4px;
-z-index: 1000;
-transition: all 0.2s ease-in-out;
-}
-
-.dropdown:hover .dropdown-menu,
-.dropdown:focus-within .dropdown-menu {
-display: block;
-}
-
-.dropdown-menu li {
-padding: 10px;
-white-space: nowrap;
-}
-
-.dropdown-menu li:hover {
-background-color: #f3f3f3;
-}
-
-.dropdown-menu a {
-color: #d32f2f;
-text-decoration: none;
-display: block;
-}
-
-/* Avoid flickering issue */
-.dropdown-menu:hover {
-display: block;
-}
-
-
-/* Responsive Fix: Show dropdown on click for small screens */
-@media (max-width: 768px) {
-.dropdown-menu {
-  position: static;
-  box-shadow: none;
-  border: none;
-  background-color: #fff5f5;
-  display: none;
-}
-
-.dropdown.active .dropdown-menu {
-  display: block;
-}
-}
-.idiv {
-  display: flex;
-}
-.ticket-form {
-margin: 30px auto;
-text-align: center;
-padding-bottom: 200px;
-}
-
-.form-container {
-display: flex;
-justify-content: center;
-gap: 40px;
-flex-wrap: wrap;
-margin-top: 20px;
-}
-
-.form-group {
-display: flex;
-flex-direction: column;
-align-items: center;
-}
-
-.input-icon {
-display: flex;
-align-items: center;
-gap: 10px;
-margin-top: 5px;
-}
-
-.input-icon img {
-height: 24px;
-width: 24px;
-}
-
-input[type="text"] {
-padding: 10px;
-border: 1px solid #ccc;
-border-radius: 4px;
-width: 230px;
-font-size: 14px;
-}
-.footer {
-  background-color: #f7f7f7;
-  color: #3e3e52;
-  padding: 3rem 7.5rem 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  line-height: 20px;
-}
-
-.footer_links {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.footer_link_section {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 17rem;
-}
-
-.footer_link_section_title {
-  font-size: 1.125rem;
-  color: #1d1d1d;
-  margin: 0;
-}
-
-.footer_link_section_item {
-  text-decoration: none;
-  color: #3e3e52;
-  font-size: 0.875rem;
-}
-
-.footer_link_section_item:hover {
-  text-decoration: underline;
-}
-
-.footer_main_logos img {
-  width: 6.25rem;
-  height: auto;
-}
-
-.horizontal_separator {
-  background-color: #e5e5e5;
-  height: 1px;
-  width: 100%;
-  margin: 1rem 0;
-}
-
-.social_section {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.social_icon_item img {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.offers {
-    display: flex;
-    justify-content: center; /* Center the offer boxes */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    gap: 30px; /* Space between offer boxes */
-    padding: 30px 15px; /* Add some padding around the section */
-    max-width: 1200px; /* Limit the maximum width of the offers container */
-    margin: 30px auto; /* Center the offers container on the page */
-}
-
-.subdiv {
-    height: 250px;
-    width: 280px; /* Slightly increase width for better content display */
-    background-color: #bfbebd;
-    display: flex; /* Use flexbox for centering content */
-    align-items: center; /* Vertically center content */
-    justify-content: center; /* Horizontally center content */
-    text-align: center;
-    padding: 15px; /* Add some internal padding */
-    box-sizing: border-box; /* Include padding in the width/height */
-    border-radius: 8px; /* Slightly rounded corners for aesthetics */
-    color: #333; /* Darker text for readability */
-    font-size: 1.1em; /* Slightly larger font size */
-    line-height: 1.4;
-}
-
-@media (max-width: 768px) {
-    .subdiv {
-        width: 45%; /* Two columns on medium screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .subdiv {
-        width: 90%; /* Single column on small screens */
-        height: auto; /* Adjust height based on content */
-    }
-}
-
-          </style>
-      </head>
-      <body>
-            <header>
-                  <div class="logo">
-                    <img src="ADIBUS.png" alt="ADIBUS Logo" />
-                  </div>
-                  <nav>
-                    <ul>
-                      <li class="dropdown">
-                      <a href="#" style="color:black;">Bus Tickets</a>
-                      <ul class="dropdown-menu">
-                        <li><a href="cancellation.html" style="color:black;">Cancellation</a></li>
-                        <li><a href="ctdate.html" style="color:black;">Change Travel Date</a></li>
-                        <li><a href="#"style=color:black;>Show My Ticket</a></li>
-                        <li><a href="email.html"style="color:black;">Email</a></li>
-                      </ul>
-                      </li>
-                      <li><a href="#" style="color:black;">Hotels</a></li>
-                      
-                      <li><a href="#"style="color:black;">Offers</a></li>
-                      <li><a href="#"style="color:black;">Help</a></li>
-                    </ul>
-                  </nav>
-                  <div class="auth-buttons">
-                    <button>Login</button>
-                  </div>
-            </header>
-            
-            <section>
-              <div class="Offers">
-                <div class="subdiv">
-                  <p>Save up to Rs 250 on bus tickets</p>
-                </div>
-                <div class="subdiv">
-                  <p>Save upto Rs 500 with ICICI Netbanking</p>
-                </div>
-                <div class="subdiv">
-                  <p>Save up to Rs. 300 in AP, Telangana routes</p>
-                </div>
-              </div>
-              
-              
-              <div class="Offers">
-                <div class="subdiv">
-                  Save up to Rs 200 on Primo operators
-                </div>
-                <div class="subdiv">
-                  <p>Save up to Rs 300 on Chartered Bus</p>
-                </div>
-                <div class="subdiv">
-                  <p>Save 25% up to Rs 100 on SBSTC bus tickets.</p>
-                </div>
-              </div>
-              
-              
-              <div class="Offers">
-                <div class="subdiv">
-                  <p>Save up to Rs 50 on bus tickets</p>
-                </div>
-                <div class="subdiv">
-                  <p>Save 10% Discount on bus tickets</p>
-                </div>
-                <div class="subdiv">
-                  <p>Get Up to Rs 100 Discount</p>
-                </div>
-              </div>
-              
-              
-              <div class="Offers">
-                <div class="subdiv">
-                  <p>Save Flat Rs.100 Discount on Humsafar Travels</p>
-                </div>
-                <div class="subdiv">
-                  <p>Save Flat Rs.100 Discount on Prasanna Purple Mobility Solutions Pvt Ltd</p>
-                </div>
-                <div class="subdiv">
-                  <p>Save up to Rs 50 on bus tickets</p>
-                </div>
-              </div>
-            </section>
-          
-<footer id="rh_footer_new" style="background: #f7f7f7;">
-                    
-  <style>
-      .rb_footer{
-          background-color: #F7F7F7;
-          color: #3e3e52;
-          padding: 3rem 7.5rem 2rem;
-          display: flex;
-          flex-direction: column;
-          gap: 2rem;
-          line-height: 20px;
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #f6f0e7; /* redBus red */
+        padding: 15px 30px;
+        color: white;
+        flex-wrap: wrap;
       }
-       .footer_link_section {
-              &:before {
-                  content: unset;
-              }
-       }
-       .social_icon::before {
-              color: #000000;
-              font-size: 1.5rem;
-          }
-  </style>
-  
-  <div class="rb_footer" style="max-width: 1200px; margin: auto; padding-left: 0; padding-right: 0;">
-          <ul style=" max-width: 1200px; margin-bottom: 3rem;">
-              
-  
-  <style>
-      .seoLinkSection > a{
-          line-height: 2em;
-          text-decoration: none;
-          color: #444343;
-          font-size: 13px;
-          display: inline;
+
+      .logo img {
+        height: 140px;
+        width: 140px;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.2s ease-in-out;
+      }
+
+      nav a:hover {
+        color: #ffe082;
+      }
+
+      .auth-buttons button {
+        background-color: white;
+        color: #d32f2f;
+        padding: 6px 15px;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .auth-buttons button:hover {
+        background-color: #ffcdd2;
+      }
+      h1 {
+        margin-top: 30px;
+      }
+
+      button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+
+      /* -------------------------------------
+Responsive Styles for Smaller Devices
+---------------------------------------- */
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 15px;
+        }
+
+        nav ul {
+          flex-direction: column;
+          gap: 10px;
+          width: 100%;
+          margin-top: 10px;
+        }
+
+        .auth-buttons {
+          align-self: flex-end;
+          margin-top: 10px;
+        }
+
+        .logo img {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 10px;
+        }
+
+        h1 {
+          font-size: 22px;
+        }
+
+        button {
+          width: 100%;
+          padding: 12px;
+          font-size: 16px;
+        }
+
+        nav ul {
+          font-size: 14px;
+        }
+
+        .auth-buttons button {
+          padding: 8px 12px;
+          font-size: 14px;
+        }
+        .logo img {
+          height: 40px;
+          width: 40px;
+        }
+      }
+      /* Dropdown Styles */
+      /* Dropdown Styles */
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%; /* Attach right below the parent */
+        left: 0;
+        background-color: white;
+        color: #d32f2f;
+        min-width: 180px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        z-index: 1000;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .dropdown:hover .dropdown-menu,
+      .dropdown:focus-within .dropdown-menu {
+        display: block;
+      }
+
+      .dropdown-menu li {
+        padding: 10px;
+        white-space: nowrap;
+      }
+
+      .dropdown-menu li:hover {
+        background-color: #f3f3f3;
+      }
+
+      .dropdown-menu a {
+        color: #d32f2f;
+        text-decoration: none;
+        display: block;
+      }
+
+      /* Avoid flickering issue */
+      .dropdown-menu:hover {
+        display: block;
+      }
+
+      /* Responsive Fix: Show dropdown on click for small screens */
+      @media (max-width: 768px) {
+        .dropdown-menu {
+          position: static;
+          box-shadow: none;
+          border: none;
+          background-color: #fff5f5;
+          display: none;
+        }
+
+        .dropdown.active .dropdown-menu {
+          display: block;
+        }
+      }
+      .idiv {
+        display: flex;
+      }
+      .ticket-form {
+        margin: 30px auto;
+        text-align: center;
+        padding-bottom: 200px;
+      }
+
+      .form-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .input-icon {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 5px;
+      }
+
+      .input-icon img {
+        height: 24px;
+        width: 24px;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 230px;
+        font-size: 14px;
+      }
+      .footer {
+        background-color: #f7f7f7;
+        color: #3e3e52;
+        padding: 3rem 7.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        line-height: 20px;
+      }
+
+      .footer_links {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .footer_link_section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 17rem;
+      }
+
+      .footer_link_section_title {
+        font-size: 1.125rem;
+        color: #1d1d1d;
+        margin: 0;
+      }
+
+      .footer_link_section_item {
+        text-decoration: none;
+        color: #3e3e52;
+        font-size: 0.875rem;
+      }
+
+      .footer_link_section_item:hover {
+        text-decoration: underline;
+      }
+
+      .footer_main_logos img {
+        width: 6.25rem;
+        height: auto;
+      }
+
+      .horizontal_separator {
+        background-color: #e5e5e5;
+        height: 1px;
+        width: 100%;
+        margin: 1rem 0;
+      }
+
+      .social_section {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .social_icon_item img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      .offers {
+        display: flex;
+        justify-content: center; /* Center the offer boxes */
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        gap: 30px; /* Space between offer boxes */
+        padding: 30px 15px; /* Add some padding around the section */
+        max-width: 1200px; /* Limit the maximum width of the offers container */
+        margin: 30px auto; /* Center the offers container on the page */
+      }
+
+      .subdiv {
+        height: 250px;
+        width: 280px; /* Slightly increase width for better content display */
+        display: flex; /* Use flexbox for centering content */
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Vertically center content */
+        justify-content: center; /* Horizontally center content */
+        text-align: center;
+        padding: 15px; /* Add some internal padding */
+        box-sizing: border-box; /* Include padding in the width/height */
+        border-radius: 8px; /* Slightly rounded corners for aesthetics */
+        color: #fff; /* White text for better contrast on background image */
+        font-size: 1.1em; /* Slightly larger font size */
+        line-height: 1.4;
+        background-size: cover; /* Cover the entire div */
+        background-position: center; /* Center the background image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        position: relative; /* Needed for overlay */
+        overflow: hidden; /* Hide overflowing parts of the image */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      }
+
+      .subdiv::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+        z-index: 1; /* Place overlay above background image */
+        border-radius: 8px; /* Match parent border-radius */
+      }
+
+      .subdiv * {
+        position: relative; /* Bring content above the overlay */
+        z-index: 2;
+      }
+
+      .subdiv:hover {
+        transform: translateY(-5px); /* Lift effect on hover */
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+      }
+
+      .subdiv p {
+        margin: 0; /* Remove default paragraph margin */
+        font-weight: 600; /* Make the offer text slightly bolder */
+        color: #fff; /* Ensure text color is white on the dark overlay */
+      }
+
+      /* Specific background images for each offer */
+      .offer-1 {
+        background-image: url('Save up to Rs 250 on bus tickets.png'); /* Example image */
+      }
+      .offer-2 {
+        background-image: url('Save upto Rs 500 with ICICI Netbanking.png'); /* Example image */
+      }
+      .offer-3 {
+        background-image: url('Save up to Rs. 300 in AP, Telangana routes.png'); /* Example image */
+      }
+      .offer-4 {
+        background-image: url('Save up to Rs 200 on Primo operators.png'); /* Example image */
+      }
+      .offer-5 {
+        background-image: url('Save up to Rs 300 on Chartered Bus.png'); /* Example image */
+      }
+      .offer-6 {
+        background-image: url('Save 25% up to Rs 100 on SBSTC bus tickets.png'); /* Example image */
+      }
+      .offer-7 {
+        background-image: url('Save up to Rs 50 on bus tickets.png'); /* Example image */
+      }
+      .offer-8 {
+        background-image: url('Save 10% Discount on bus tickets.png'); /* Example image */
+      }
+      .offer-9 {
+        background-image: url('Get Up to Rs 100 Discount.png'); /* Example image */
+      }
+      .offer-10 {
+        background-image: url('Save Flat Rs.100 Discount on Humsafar Travels.png'); /* Example image */
+      }
+      .offer-11 {
+        background-image: url('Save Flat Rs.100 Discount on Prasanna Purple Mobility Solutions Pvt Ltd.png'); /* Example image */
+      }
+      .offer-12 {
+        background-image: url('Save up to Rs 50 on bus tickets.png'); /* Example image */
+      }
+
+
+      @media (max-width: 768px) {
+        .subdiv {
+          width: 45%; /* Two columns on medium screens */
+        }
+      }
+
+      @media (max-width: 480px) {
+        .subdiv {
+          width: 90%; /* Single column on small screens */
+          height: auto; /* Adjust height based on content */
+        }
+      }
+      /* Dropdown Styles */
+      /* Dropdown Styles */
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%; /* Attach right below the parent */
+        left: 0;
+        background-color: white;
+        color: #d32f2f;
+        min-width: 180px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        z-index: 1000;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .dropdown:hover .dropdown-menu,
+      .dropdown:focus-within .dropdown-menu {
+        display: block;
+      }
+
+      .dropdown-menu li {
+        padding: 10px;
+        white-space: nowrap;
+      }
+
+      .dropdown-menu li:hover {
+        background-color: #f3f3f3;
+      }
+
+      .dropdown-menu a {
+        color: #d32f2f;
+        text-decoration: none;
+        display: block;
+      }
+
+      /* Avoid flickering issue */
+      .dropdown-menu:hover {
+        display: block;
+      }
+
+      /* Responsive Fix: Show dropdown on click for small screens */
+      @media (max-width: 768px) {
+        .dropdown-menu {
+          position: static;
+          box-shadow: none;
+          border: none;
+          background-color: #fff5f5;
+          display: none;
+        }
+
+        .dropdown.active .dropdown-menu {
+          display: block;
+        }
+      }
+      .rb_footer {
+        background-color: #f7f7f7;
+        color: #3e3e52;
+        padding: 3rem 7.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        line-height: 20px;
+      }
+      .footer_link_section {
+        &:before {
+          content: unset;
+        }
+      }
+      .social_icon::before {
+        color: #000000;
+        font-size: 1.5rem;
+      }
+      .seoLinkSection > a {
+        line-height: 2em;
+        text-decoration: none;
+        color: #444343;
+        font-size: 13px;
+        display: inline;
       }
       .seoLinkSection > a:not(:last-child):after {
-          content: " | ";
-          padding: 0px 4px;
-          color: #444343;
-          font-size: 0.813rem;
+        content: " | ";
+        padding: 0px 4px;
+        color: #444343;
+        font-size: 0.813rem;
       }
-  </style>
-  
-  <li style="display: flex; flex-direction: column; gap: 2rem;">
-  <div class="interLinkContainer" style="display: flex; flex-direction: column; cursor: pointer;" id="0">
-              
-  </li>
-  
-  
-                      
-          </ul>
-      <ul class="footer_links" style=" display: flex; width: 100%; justify-content: space-between;">
-          <li class="footer_link_section main_footer_item" style="display: flex; flex-direction: column; gap: 0.5rem; width: 17rem;">
-              <div class="footer_main_logos">
-                   <picture>
-                      <source srcset="WADIBUS.png" type="image/webp">
-                      <img src="WADIBUS.png" alt="adiBus" title="adiBus" class="rb_footer_logo" style="width: 6.25rem; height: 6.25rem;">
-                  </picture>
-              </div>
-              <span class="footer_text" style="display: block; text-align: left; font-size: 1rem; line-height: 1.5; margin: 1rem 0; color: #3e3e52;">
-                  AdiBus is the world's largest online bus ticket booking service trusted by over 25 million happy customers globally. 
-                  AdiBus offers bus ticket booking through its website for all major routes.
-                </span>
-          </li>
-                  <li class="footer_link_section" id="about_redbus_title_footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
-                      <strong class="footer_link_section_title" style="font-size: 1.125rem; color: #1d1d1d; margin: 0;">About AdiBus</strong>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="about_us_footer" target="_blank" style="color: #3e3e52;">
-                                  About us
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="investor_relations_footer" target="_blank" style="color: #3e3e52;">
-                                  Investor Relations
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="contact_us_footer" target="_blank" style="color: #3e3e52;">
-                                  Contact us
-                              </a>
-                              
-                              <a class="footer_link_section_item footer_link_new" href="#" id="sitemap_footer" target="_blank" style="color: #3e3e52;">
-                                  Sitemap
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="offers_footer" target="_blank" style="color: #3e3e52;">
-                                  Offers
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="careers_footer" target="_blank" style="color: #3e3e52;">
-                                  Careers
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="values_footer" target="_blank" style="color: #3e3e52;">
-                                  Values
-                              </a>
-                  </li>
-                  <li class="footer_link_section" id="info_title_footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
-                      <strong class="footer_link_section_title" style="font-size: 1.125rem; color: #1d1d1d; margin: 0;">Info</strong>
-                              <a class="footer_link_section_item footer_link_new" href="" id="terms_n_conditions_footer" target="_blank" style="color: #3e3e52;">
-                                  T&amp;C
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="privacy_policy_footer" target="_blank" style="color: #3e3e52;">
-                                  Privacy policy
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="faq_footer" target="_blank" style="color: #3e3e52;">
-                                  FAQ
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="blog_footer" target="_blank" style="color: #3e3e52;">
-                                  Blog
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="bus_operator_registration_footer" target="_blank" style="color: #3e3e52;">
-                                  Bus operator registration
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="agent_registration_footer" target="_blank" style="color: #3e3e52;">
-                                  Agent registration
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="insurance_partner_footer" target="_blank" style="color: #3e3e52;">
-                                  Insurance partner
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="user_agreement_footer" target="_blank" style="color: #3e3e52;">
-                                  User agreement
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" target="_blank" style="color: #3e3e52;">
-                                  Primo Bus
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" target="_blank" style="color: #3e3e52;">
-                                  Bus Timetable
-                              </a>
-                  </li>
-                  <li class="footer_link_section" id="global_sites_title_footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
-                      <strong class="footer_link_section_title" style="font-size: 1.125rem; color: #1d1d1d; margin: 0;">Global Sites</strong>
-                              <a class="footer_link_section_item footer_link_new" href="" id="India_site_footer" target="_blank" style="color: #3e3e52;">
-                                  India
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="singapore_site_footer" target="_blank" style="color: #3e3e52;">
-                                  Singapore
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="malaysia_site_footer" target="_blank" style="color: #3e3e52;">
-                                  Malaysia
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="indonesia_site_footer" target="_blank" style="color: #3e3e52;">
-                                  Indonesia
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="peru_site_footer" target="_blank" style="color: #3e3e52;">
-                                  Peru
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="colombia_site_footer" target="_blank" style="color: #3e3e52;">
-                                  Colombia
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="cambodia_site_footer" target="_blank" style="color: #3e3e52;">
-                                  Cambodia
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="#" id="vietnam_site_footer" target="_blank" style="color: #3e3e52;">
-                                  Vietnam
-                              </a>
-                  </li>
-                  <li class="footer_link_section" id="our_partners_title_footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
-                      <strong class="footer_link_section_title" style="font-size: 1.125rem; color: #1d1d1d; margin: 0;">Our Partners</strong>
-                              <a class="footer_link_section_item footer_link_new" href="https://www.goibibo.com/bus/" id="goibibo_bus_footer" target="_blank" rel="nofollow" style="color: #3e3e52;">
-                                  Goibibo Bus
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="https://www.goibibo.com/hotels/" id="goibibo_hotels_footer" target="_blank" rel="nofollow" style="color: #3e3e52;">
-                                  Goibibo Hotels
-                              </a>
-                              <a class="footer_link_section_item footer_link_new" href="https://www.makemytrip.com/hotels/" id="makemytrip_hotels_footer" target="_blank" rel="nofollow" style="color: #3e3e52;">
-                                  Makemytrip Hotels
-                              </a>
-                  </li>
-      </ul>
-      <div class="horizontal_seperator" style="background-color: #e5e5e5; height: 1px; width: 100%;"></div>
-      <div class="copyright_social_section" style="display: flex; justify-content: space-between;">
-          <span class="footer_copyright_text">Ⓒ 2025 ADIBUS All Rights Reserved</span>
-              <div class="social_section" style="display: flex; gap: 1.5rem;">
-                          <a class="social_icon_item footer_link_new" id="redbus_facebook" href="#" target="_blank" style="cursor: pointer;">
-                                  <img src="https://st.redbus.in/web/images/layout/social_facebook_new.svg" class="social_img" alt="redbus_facebook" loading="lazy" style=" width: 1.5rem; height: 1.5rem;">
-                          </a>
-                          <a class="social_icon_item footer_link_new" id="redbus_linkedin" href="#" target="_blank" style="cursor: pointer;">
-                                  <img src="https://st.redbus.in/web/images/layout/social_linkedin_new.svg" class="social_img" alt="redbus_linkedin" loading="lazy" style=" width: 1.5rem; height: 1.5rem;">
-                          </a>
-                          <a class="social_icon_item footer_link_new" id="redbus_twitter" href="#" target="_blank" style="cursor: pointer;">
-                                  <img src="https://st.redbus.in/web/images/layout/social_twitter_new.svg" class="social_img" alt="redbus_twitter" loading="lazy" style=" width: 1.5rem; height: 1.5rem;">
-                          </a>
-                          <a class="social_icon_item footer_link_new" id="redbus_instagram" href="#" target="_blank" style="cursor: pointer;">
-                                  <img src="https://st.redbus.in/web/images/layout/social_instagram_new.svg" class="social_img" alt="redbus_instagram" loading="lazy" style=" width: 1.5rem; height: 1.5rem;">
-                          </a>
-              </div>
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="ADIBUS.png" alt="ADIBUS Logo" />
       </div>
-  </div>
-                  </footer>
+      <nav>
+        <ul>
+          <li class="dropdown">
+            <a href="#" style="color: black">Bus Tickets</a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="cancellation.html" style="color: black">Cancellation</a>
+              </li>
+              <li>
+                <a href="ctdate.html" style="color: black"
+                  >Change Travel Date</a
+                >
+              </li>
+              <li>
+                <a href="#" style="color: black">Show My Ticket</a>
+              </li>
+              <li>
+                <a href="email.html" style="color: black">Email</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#" style="color: black">Hotels</a></li>
 
-          <script>
-              document.addEventListener('DOMContentLoaded', () => {
-              const dropdown = document.querySelector('.dropdown');
-              const link = dropdown.querySelector('a');
+          <li><a href="#" style="color: black">Offers</a></li>
+          <li><a href="#" style="color: black">Help</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button>Login</button>
+      </div>
+    </header>
 
-              link.addEventListener('click', (e) => {
-              if (window.innerWidth <= 768) {
-              e.preventDefault();
-              dropdown.classList.toggle('active');
-              }
-          });
+    <section>
+      <div class="offers">
+        <div class="subdiv offer-1">
+          <p>Save up to Rs 250 on bus tickets</p>
+        </div>
+        <div class="subdiv offer-2">
+          <p>Save upto Rs 500 with ICICI Netbanking</p>
+        </div>
+        <div class="subdiv offer-3">
+          <p>Save up to Rs. 300 in AP, Telangana routes</p>
+        </div>
+      </div>
+
+      <div class="offers">
+        <div class="subdiv offer-4">
+          <p>Save up to Rs 200 on Primo operators</p>
+        </div>
+        <div class="subdiv offer-5">
+          <p>Save up to Rs 300 on Chartered Bus</p>
+        </div>
+        <div class="subdiv offer-6">
+          <p>Save 25% up to Rs 100 on SBSTC bus tickets.</p>
+        </div>
+      </div>
+
+      <div class="offers">
+        <div class="subdiv offer-7">
+          <p>Save up to Rs 50 on bus tickets</p>
+        </div>
+        <div class="subdiv offer-8">
+          <p>Save 10% Discount on bus tickets</p>
+        </div>
+        <div class="subdiv offer-9">
+          <p>Get Up to Rs 100 Discount</p>
+        </div>
+      </div>
+
+      <div class="offers">
+        <div class="subdiv offer-10">
+          <p>Save Flat Rs.100 Discount on Humsafar Travels</p>
+        </div>
+        <div class="subdiv offer-11">
+          <p>Save Flat Rs.100 Discount on Prasanna Purple Mobility Solutions Pvt Ltd</p>
+        </div>
+        <div class="subdiv offer-12">
+          <p>Save up to Rs 50 on bus tickets</p>
+        </div>
+      </div>
+    </section>
+
+    <footer id="rh_footer_new" style="background: #f7f7f7">
+      <div class="rb_footer" style="max-width: 1200px; margin: auto; padding-left: 0; padding-right: 0;">
+        <ul style="max-width: 1200px; margin-bottom: 3rem;">
+          <li style="display: flex; flex-direction: column; gap: 2rem;">
+            <div class="interLinkContainer" style="display: flex; flex-direction: column; cursor: pointer;" id="0"></div>
+          </li>
+        </ul>
+        <ul class="footer_links" style="display: flex; width: 100%; justify-content: space-between;">
+          <li class="footer_link_section main_footer_item" style="display: flex; flex-direction: column; gap: 0.5rem; width: 17rem;">
+            <div class="footer_main_logos">
+              <picture>
+                <source srcset="WADIBUS.png" type="image/webp" />
+                <img src="WADIBUS.png" alt="adiBus" title="adiBus" class="rb_footer_logo" style="width: 6.25rem; height: 6.25rem;" />
+              </picture>
+            </div>
+            <span class="footer_text" style="display: block; text-align: left; font-size: 1rem; line-height: 1.5; margin: 1rem 0; color: #3e3e52;">
+              AdiBus is the world's largest online bus ticket booking service trusted by over 25 million happy customers globally. AdiBus offers bus ticket booking through its website for all major routes.
+            </span>
+          </li>
+          <li class="footer_link_section" id="about_redbus_title_footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <strong class="footer_link_section_title" style="font-size: 1.125rem; color: #1d1d1d; margin: 0;">About AdiBus</strong>
+            <a class="footer_link_section_item footer_link_new" href="#" id="about_us_footer" target="_blank" style="color: #3e3e52;">
+              About us
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="investor_relations_footer" target="_blank" style="color: #3e3e52;">
+              Investor Relations
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="contact_us_footer" target="_blank" style="color: #3e3e52;">
+              Contact us
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="sitemap_footer" target="_blank" style="color: #3e3e52;">
+              Sitemap
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="offers_footer" target="_blank" style="color: #3e3e52;">
+              Offers
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="careers_footer" target="_blank" style="color: #3e3e52;">
+              Careers
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="values_footer" target="_blank" style="color: #3e3e52;">
+              Values
+            </a>
+          </li>
+          <li class="footer_link_section" id="info_title_footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <strong class="footer_link_section_title" style="font-size: 1.125rem; color: #1d1d1d; margin: 0;">Info</strong>
+            <a class="footer_link_section_item footer_link_new" href="" id="terms_n_conditions_footer" target="_blank" style="color: #3e3e52;">
+              T&amp;C
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="privacy_policy_footer" target="_blank" style="color: #3e3e52;">
+              Privacy policy
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="faq_footer" target="_blank" style="color: #3e3e52;">
+              FAQ
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="blog_footer" target="_blank" style="color: #3e3e52;">
+              Blog
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="bus_operator_registration_footer" target="_blank" style="color: #3e3e52;">
+              Bus operator registration
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="agent_registration_footer" target="_blank" style="color: #3e3e52;">
+              Agent registration
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="insurance_partner_footer" target="_blank" style="color: #3e3e52;">
+              Insurance partner
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" target="_blank" style="color: #3e3e52;">
+              User agreement
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" target="_blank" style="color: #3e3e52;">
+              Primo Bus
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" target="_blank" style="color: #3e3e52;">
+              Bus Timetable
+            </a>
+          </li>
+          <li class="footer_link_section" id="global_sites_title_footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <strong class="footer_link_section_title" style="font-size: 1.125rem; color: #1d1d1d; margin: 0;">Global Sites</strong>
+            <a class="footer_link_section_item footer_link_new" href="" id="India_site_footer" target="_blank" style="color: #3e3e52;">
+              India
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="singapore_site_footer" target="_blank" style="color: #3e3e52;">
+              Singapore
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="malaysia_site_footer" target="_blank" style="color: #3e3e52;">
+              Malaysia
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="indonesia_site_footer" target="_blank" style="color: #3e3e52;">
+              Indonesia
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="peru_site_footer" target="_blank" style="color: #3e3e52;">
+              Peru
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="colombia_site_footer" target="_blank" style="color: #3e3e52;">
+              Colombia
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="cambodia_site_footer" target="_blank" style="color: #3e3e52;">
+              Cambodia
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="#" id="vietnam_site_footer" target="_blank" style="color: #3e3e52;">
+              Vietnam
+            </a>
+          </li>
+          <li class="footer_link_section" id="our_partners_title_footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <strong class="footer_link_section_title" style="font-size: 1.125rem; color: #1d1d1d; margin: 0;">Our Partners</strong>
+            <a class="footer_link_section_item footer_link_new" href="https://www.goibibo.com/bus/" id="goibibo_bus_footer" target="_blank" rel="nofollow" style="color: #3e3e52;">
+              Goibibo Bus
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="https://www.goibibo.com/hotels/" id="goibibo_hotels_footer" target="_blank" rel="nofollow" style="color: #3e3e52;">
+              Goibibo Hotels
+            </a>
+            <a class="footer_link_section_item footer_link_new" href="https://www.makemytrip.com/hotels/" id="makemytrip_hotels_footer" target="_blank" rel="nofollow" style="color: #3e3e52;">
+              Makemytrip Hotels
+            </a>
+          </li>
+        </ul>
+        <div class="horizontal_seperator" style="background-color: #e5e5e5; height: 1px; width: 100%;"></div>
+        <div class="copyright_social_section" style="display: flex; justify-content: space-between;">
+          <span class="footer_copyright_text">Ⓒ 2025 ADIBUS All Rights Reserved</span>
+          <div class="social_section" style="display: flex; gap: 1.5rem;">
+            <a class="social_icon_item footer_link_new" id="redbus_facebook" href="#" target="_blank" style="cursor: pointer;">
+              <img src="https://st.redbus.in/web/images/layout/social_facebook_new.svg" class="social_img" alt="redbus_facebook" loading="lazy" style="width: 1.5rem; height: 1.5rem;" />
+            </a>
+            <a class="social_icon_item footer_link_new" id="redbus_linkedin" href="#" target="_blank" style="cursor: pointer;">
+              <img src="https://st.redbus.in/web/images/layout/social_linkedin_new.svg" class="social_img" alt="redbus_linkedin" loading="lazy" style="width: 1.5rem; height: 1.5rem;" />
+            </a>
+            <a class="social_icon_item footer_link_new" id="redbus_twitter" href="#" target="_blank" style="cursor: pointer;">
+              <img src="https://st.redbus.in/web/images/layout/social_twitter_new.svg" class="social_img" alt="redbus_twitter" loading="lazy" style="width: 1.5rem; height: 1.5rem;" />
+            </a>
+            <a class="social_icon_item footer_link_new" id="redbus_instagram" href="#" target="_blank" style="cursor: pointer;">
+              <img src="https://st.redbus.in/web/images/layout/social_instagram_new.svg" class="social_img" alt="redbus_instagram" loading="lazy" style="width: 1.5rem; height: 1.5rem;" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector(".dropdown");
+        const link = dropdown.querySelector("a");
+
+        link.addEventListener("click", (e) => {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdown.classList.toggle("active");
+          }
+        });
       });
-          </script>
-      </body>
-  </html>
-</DOCTYPE>
+    </script>
+  </body>
+</html>
