@@ -424,6 +424,7 @@ element.style {
 .faq-item {
   border-bottom: 1px solid #ccc;
   padding: 10px 0;
+  background-color: white;
 }
 
 .faq-question {
