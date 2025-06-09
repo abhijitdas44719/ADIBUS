@@ -459,4 +459,97 @@ element.style {
   display: block;
 }
 
+.offers {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  margin: 40px 0;
+}
 
+.offers h2 {
+  font-size: 32px;
+  color: #d32f2f;
+  margin-bottom: 30px;
+}
+
+.offers-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.offer-card {
+  width: 280px;
+  height: 380px;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+}
+
+.offer-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 20px;
+  text-align: left;
+}
+
+.offer-content h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.offer-content p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.redeem-code {
+  background: #d32f2f;
+  padding: 8px 12px;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.view-all-btn {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 30px;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.view-all-btn:hover {
+  background-color: #b71c1c;
+}
+
+@media (max-width: 768px) {
+  .offers-container {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    padding: 20px 10px;
+  }
+  
+  .offer-card {
+    min-width: 250px;
+  }
+}
