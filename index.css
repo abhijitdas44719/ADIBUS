@@ -24,13 +24,17 @@ color: #333;
 
 /* Header */
 header {
-display: flex;
-align-items: center;
-justify-content: space-between;
-background-color: #f6f0e7; /* redBus red */
-padding: 15px 30px;
-color: white;
-flex-wrap: wrap;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f6f0e7;
+  padding: 15px 0; /* Changed from 15px 30px */
+  color: white;
+  flex-wrap: wrap;
+  margin: 0 -20px; /* Counteract body padding */
+  width: calc(100% + 40px); /* Extend width */
+  margin-top: -30px;
 }
 
 .logo img {
