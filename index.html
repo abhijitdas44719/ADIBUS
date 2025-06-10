@@ -3,818 +3,448 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ADIBUS</title>
+  <title>ADIBUS - Your Journey Starts Here</title>
   <link rel="icon" href="https://media-hosting.imagekit.io/3a38ffeb7f3d489e/ChatGPT%20Image%20Apr%2018,%202025,%2003_11_14%20PM.png" type="image/png" />
-  
-  <!-- External CSS -->
   <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body style="background-image: url('busbackground.jpg'); background-size: auto;">
-
-  <!-- Header -->
-  <header>
-    <div class="logo">
-      <img src="ADIBUS.png" alt="ADIBUS Logo" />
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="ADIBUS.png" alt="ADIBUS" />
+        <span>ADIBUS</span>
+      </div>
+      
+      <div class="nav-menu" id="nav-menu">
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link">
+            <i class="fas fa-bus"></i>
+            Bus Tickets
+            <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-content">
+            <a href="cancellation.html"><i class="fas fa-times-circle"></i>Cancellation</a>
+            <a href="ctdate.html"><i class="fas fa-calendar-alt"></i>Change Travel Date</a>
+            <a href="showmyticket.html"><i class="fas fa-ticket-alt"></i>Show My Ticket</a>
+            <a href="email.html"><i class="fas fa-envelope"></i>Email Ticket</a>
+          </div>
+        </div>
+        <a href="hotels.html" class="nav-link">
+          <i class="fas fa-hotel"></i>
+          Hotels
+        </a>
+        <a href="offers.html" class="nav-link">
+          <i class="fas fa-tags"></i>
+          Offers
+        </a>
+        <a href="help.html" class="nav-link">
+          <i class="fas fa-question-circle"></i>
+          Help
+        </a>
+      </div>
+      
+      <div class="nav-auth">
+        <button class="login-btn">
+          <i class="fas fa-user"></i>
+          Login
+        </button>
+      </div>
+      
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-    <nav>
-      <ul>
-        <li class="dropdown">
-        <a href="#" style="color:black;">Bus Tickets</a>
-        <ul class="dropdown-menu">
-          <li><a href="cancellation.html" style="color:black;">Cancellation</a></li>
-          <li><a href="ctdate.html" style="color:black;">Change Travel Date</a></li>
-          <li><a href="showmyticket.html"style=color:black;>Show My Ticket</a></li>
-          <li><a href="email.html"style="color:black;">Email</a></li>
-        </ul>
-        </li
-        <li><a href="hotels.html" style="color:black;">Hotels</a></li>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-background">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Your Journey
+          <span class="gradient-text">Starts Here</span>
+        </h1>
+        <p class="hero-subtitle">
+          Book bus tickets with ease. Travel comfortably. Arrive safely.
+        </p>
+      </div>
+      
+      <div class="search-card">
+        <div class="search-header">
+          <h3>Find Your Perfect Journey</h3>
+        </div>
+        <form class="search-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>From</label>
+              <div class="input-wrapper">
+                <i class="fas fa-map-marker-alt"></i>
+                <input type="text" placeholder="Departure city" />
+              </div>
+            </div>
+            <div class="swap-btn">
+              <i class="fas fa-exchange-alt"></i>
+            </div>
+            <div class="form-group">
+              <label>To</label>
+              <div class="input-wrapper">
+                <i class="fas fa-map-marker-alt"></i>
+                <input type="text" placeholder="Destination city" />
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Departure Date</label>
+              <div class="input-wrapper">
+                <i class="fas fa-calendar"></i>
+                <input type="date" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Passengers</label>
+              <div class="input-wrapper">
+                <i class="fas fa-users"></i>
+                <select>
+                  <option>1 Passenger</option>
+                  <option>2 Passengers</option>
+                  <option>3 Passengers</option>
+                  <option>4+ Passengers</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="search-btn">
+            <i class="fas fa-search"></i>
+            Search Buses
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Choose ADIBUS?</h2>
+        <p>Experience the best in bus travel with our premium services</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Safe & Secure</h3>
+          <p>Your safety is our priority with verified operators and secure payments</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3>24/7 Support</h3>
+          <p>Round-the-clock customer support for all your travel needs</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-route"></i>
+          </div>
+          <h3>Wide Network</h3>
+          <p>Extensive network covering 15+ bus operators across major routes</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Easy Booking</h3>
+          <p>Book tickets instantly with our user-friendly platform</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offers Section -->
+  <section class="offers">
+    <div class="container">
+      <div class="section-header">
+        <h2>Exclusive Offers</h2>
+        <p>Save more on your next journey with our special deals</p>
+      </div>
+      <div class="offers-slider">
+        <div class="offer-card">
+          <div class="offer-image" style="background-image: url('Save up to Rs 250 on bus tickets.png');">
+            <div class="offer-badge">Limited Time</div>
+          </div>
+          <div class="offer-content">
+            <h3>Save up to ₹350</h3>
+            <p>Use promo code for instant discount</p>
+            <div class="promo-code">
+              <span>ADI250</span>
+              <button class="copy-btn"><i class="fas fa-copy"></i></button>
+            </div>
+          </div>
+        </div>
         
-        <li><a href="offers.html"style="color:black;">Offers</a></li>
-        <li><a href="help.html"style="color:black;">Help</a></li>
-      </ul>
-    </nav>
-    <div class="auth-buttons">
-      <button>Login</button>
+        <div class="offer-card">
+          <div class="offer-image" style="background-image: url('Save upto Rs 500 with ICICI Netbanking.png');">
+            <div class="offer-badge">Bank Offer</div>
+          </div>
+          <div class="offer-content">
+            <h3>ICICI Bank Special</h3>
+            <p>Save ₹500 with ICICI Netbanking</p>
+            <div class="promo-code">
+              <span>ICICI500</span>
+              <button class="copy-btn"><i class="fas fa-copy"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="offer-card">
+          <div class="offer-image" style="background-image: url('Save up to Rs. 300 in AP, Telangana routes.png');">
+            <div class="offer-badge">Regional</div>
+          </div>
+          <div class="offer-content">
+            <h3>AP & Telangana Routes</h3>
+            <p>Special discount for regional travel</p>
+            <div class="promo-code">
+              <span>APTL300</span>
+              <button class="copy-btn"><i class="fas fa-copy"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="offer-card">
+          <div class="offer-image" style="background-image: url('Save up to Rs 200 on Primo operators.png');">
+            <div class="offer-badge">Premium</div>
+          </div>
+          <div class="offer-content">
+            <h3>Primo Operators</h3>
+            <p>Premium travel experience with savings</p>
+            <div class="promo-code">
+              <span>PRIMO200</span>
+              <button class="copy-btn"><i class="fas fa-copy"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="offers-nav">
+        <button class="offers-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="offers-next"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="text-center">
+        <a href="offers.html" class="view-all-btn">View All Offers</a>
+      </div>
     </div>
-  </header>
+  </section>
 
-<div class="main-content">
-  <h1>Welcome to ADIBUS</h1>
-  <p>Your smart solution for booking buses with ease.</p>
-  
-  <div class="search-form">
-    <div>
-      <label for="from">From</label><br />
-      <input type="text" id="from" placeholder="Enter Boarding Point" />
-    </div>
-    <div>
-      <label for="to">To</label><br />
-      <input type="text" id="to" placeholder="Enter Dropping Point" />
-    </div>
-    <div>
-      <label for="date">Date</label><br />
-      <input type="date" id="date" placeholder="Enter Date" />
-    </div>
-    <div style="align-self: flex-end;">
-      <button class="btn">Search Buses</button>
-    </div>
-  </div>
-
-
-
-  
-</div>
-
-<section class="offers">
-  <h2>Exclusive Offers</h2>
-  <div class="offers-container">
-    <div class="offer-card" style="background-image: url('Save up to Rs 250 on bus tickets.png');">
-      <div class="offer-content">
-        <h3>Limited Time Offer! Save upto Rs.350 </h3>
-        <p>Use Promo Code ADI250</p>
-        <div class="redeem-code">
-          <span>Use code: <strong>ADI250</strong></span>
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Our Customers Say</h2>
+        <p>Real experiences from real travelers</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p>"Incredible journey! The booking process was smooth and the bus was comfortable. Highly recommended!"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="author-info">
+              <h4>Sayan Das</h4>
+              <span>Verified Customer</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p>"Enjoyed my trip very much! The atmosphere was great and the service was excellent. Will book again!"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="author-info">
+              <h4>Rishikesh Jana</h4>
+              <span>Verified Customer</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p>"Very good atmosphere and professional service. I recommend ADIBUS to everyone looking for quality travel."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="author-info">
+              <h4>Sanchita Choudhary</h4>
+              <span>Verified Customer</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="offer-card" style="background-image: url('Save upto Rs 500 with ICICI Netbanking.png');">
-      <div class="offer-content">
-        <h3>ICICI Bank Featuring Offer!</h3>
-        <p>Save Rs.500 By Using ICICI Netbanking</p>
-        <div class="redeem-code">
-          <span>Use code: <strong>ICICI500</strong></span>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">25M+</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3500+</div>
+          <div class="stat-label">Bus Operators</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Bus Categories</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Customer Support</div>
         </div>
       </div>
     </div>
-    <div class="offer-card" style="background-image: url('Save up to Rs. 300 in AP, Telangana routes.png');">
-      <div class="offer-content">
-        <h3>AP , Telangana route Special Offer!</h3>
-        <p>Save Rs.300 By traveling in AP , Telangana Routes</p>
-        <div class="redeem-code">
-          <span>Use code: <strong>APTL300</strong></span>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Find answers to common questions about our services</p>
+      </div>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Why should I book tickets from ADIBUS?</span>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>ADIBUS offers the best bus operators with top-class services. Our platform makes bus booking easy with numerous buses available at just one click, competitive prices, and excellent customer support.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Does online bus booking cost more?</span>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>No, booking buses online costs the same as nearby bus operators. We also provide many offers to our customers, making prices even more affordable than traditional booking methods.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Why should I trust ADIBUS?</span>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Our website provides a secure environment for online payments with no third-party involvement between customers and ADIBUS. We're trusted by over 25 million customers worldwide.</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="offer-card" style="background-image: url('Save up to Rs 200 on Primo operators.png');">
-      <div class="offer-content">
-        <h3>Primo Operator Special Offer!</h3>
-        <p>Save Rs.200 using Primo Operators</p>
-        <div class="redeem-code">
-          <span>Use code: <strong>PRIMO200</strong></span>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="WADIBUS.png" alt="ADIBUS" />
+            <h3>ADIBUS</h3>
+          </div>
+          <p>ADIBUS is the world's largest online bus ticket booking service trusted by over 25 million happy customers globally.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>About ADIBUS</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Investor Relations</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Values</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Info</h4>
+          <ul>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Bus Operator Registration</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Global Sites</h4>
+          <ul>
+            <li><a href="#">India</a></li>
+            <li><a href="#">Singapore</a></li>
+            <li><a href="#">Malaysia</a></li>
+            <li><a href="#">Indonesia</a></li>
+            <li><a href="#">Vietnam</a></li>
+          </ul>
         </div>
       </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 ADIBUS. All Rights Reserved.</p>
+      </div>
     </div>
-  </div>
-  <a href="https://abhijitdas44719.github.io/ADIBUS/offers.html"><button class="view-all-btn">View All Offers</button></a>
-</section>
+  </footer>
 
-
-
-  
-<div class="info-box">
-  <h3>Wide Range of Buses</h3>
-  <p>We provide over 15+ buslines including sleeper,seater and premium classes</p>
-</div>
-<div class="info-box">
-  <h3>Customer Satisfaction</h3>
-  <p>We care about our customers so they can enjoy their lovely trips</p>
-</div>
-<div class="info-box">
-  <h3>Suitable Prices</h3>
-  <p>Our Bus Service provides suitable prices for buses at no extra costs </p>
-</div>
-<div class="heading1">
-<h1 align="left"><strong>Testimonials</strong></h1>
-<p align="left">Hear from our own customers</p>
-<div class="container">
-  <div class="box1">
-    <p>Incredible Journey! Giving 5 stars </p>
-    <b><p>Sayan Das</p></b>
-  </div>
-  <div class="box2">
-    <p>Enjoyed my trip very much! Was very comfortable</p>
-    <b><p>Rishikesh Jana</p></b>
-  </div>
-  <div class="box3">
-    <p>Very Good atmosphere, Recommended for everyone </p>
-    <b><p>Sanchita Choudhary</p></b>
-  </div>
-</div>
-
-</div>
-
-<div>
-<h1 class="heading" style=color:red;><strong><u>BOOK BUS TICKETS ONLINE</u></strong><h1><br>
-<p class="p1" style="color:red; font-family: Arial, sans-serif; font-style: italic;">
-
-Book your journey with ease and convenience through our hassle-free online bus booking platform. Whether you're planning a quick weekend getaway or a long-distance trip, we offer a wide range of buses to suit your comfort and budget. Compare prices, check seat availability, and choose your preferred operator—all in just a few clicks. With secure payments and instant booking confirmation, your next travel adventure starts right here.
-</p>
-</div>
-<div class="faq-item">
-  <button class="faq-question">Why should I buy ticket from ADIBUS? </button>
-  <div class="faq-answer">
-    <p>Our website shows customers the best bus operators and gives the best-in-class services. Bus Booking has became easy with our website,Numerousnumber of buses is there for you at just one click</p>
-  </div>
-</div>
-
-<div class="faq-item">
-  <button class="faq-question">Does online bus booking costs more?</button>
-  <div class="faq-answer">
-    <p> Booking buses online costs same as nearby bus operators, we also give many offers to our customers so the prices can be affordable </p>
-  </div>
-</div>
-<div class="faq-item">
-  <button class="faq-question">Why should I trust ADIBUS?</button>
-  <div class="faq-answer">
-    <p>Our Website gives good environment for online payments, there is no third-party between the customer and ADIBUS, so there is no need to worry.</p>
-  </div>
-</div>
-
-
-  <footer id="rh_footer_new" style="background: #f7f7f7;">
-                    
-<style>
-    .rb_footer{
-        background-color: #F7F7F7;
-        color: #3e3e52;
-        padding: 3rem 7.5rem 2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        line-height: 20px;
-    }
-     .footer_link_section {
-            &:before {
-                content: unset;
-            }
-     }
-     .social_icon::before {
-            color: #000000;
-            font-size: 1.5rem;
-        }
-</style>
-
-<div class="rb_footer" style="max-width: 1200px; margin: auto; padding-left: 0; padding-right: 0;">
-        <ul style=" max-width: 1200px; margin-bottom: 3rem;">
-            
-
-<style>
-    .seoLinkSection > a{
-        line-height: 2em;
-        text-decoration: none;
-        color: #444343;
-        font-size: 13px;
-        display: inline;
-    }
-    .seoLinkSection > a:not(:last-child):after {
-        content: " | ";
-        padding: 0px 4px;
-        color: #444343;
-        font-size: 0.813rem;
-    }
-</style>
-<div class="seoPartilsWrapper" style="padding: 0 1rem 1rem">   
-  <article class="paragraphPartial">
-    <h2 class="paragraphTitle">Online Bus Ticket Booking on ADIBUS</h2>
-    <div class="paragraphContent"><p dir="ltr">ADIBUS is India’s most trusted bus ticket booking platform. The platform offers an easy-to-use online bus booking service with over 36 million satisfied customers. Partnering with over 3500+ bus operators, ADIBUS offers affordable prices and various bus types to choose from. Also, provides secure payment options and exclusive offers for a smooth and convenient booking experience.</p>
-      <p dir="ltr">Planning a trip with RTC, Government bus operators like APSRTC, TGSRTC, KSRTC (Kerala), RSRTC or private operators like VRL and Orange Travels? ADIBUS offers easy access to lakhs of routes and a wide range of bus types such as AC or Non-AC, Sleeper, Seater, Volvo and more. With a wide range of bus options and services, ADIBUS ensures a reliable and comfortable journey for every passenger.</p>
-      <h3 dir="ltr">How to Book Bus Tickets on ADIBUS?</h3>
-      <p dir="ltr">Booking a bus ticket online on the ADIBUS app or website is very simple. Follow the stepwise process for bus booking on ADIBUS.&nbsp;</p>
-      <ul padding-inline-start:48px;="">
-        <li dir="ltr" aria-level="1">
-          <p dir="ltr" role="presentation"><strong>Enter Travel Details:</strong> Enter your source, destination &amp; travel date to check the top-rated bus services available.&nbsp;</p>
-        </li>
-        <li dir="ltr" aria-level="1">
-          <p dir="ltr" role="presentation"><strong>Search Buses</strong>: Filter bus type, duration, bus timings, boarding and dropping point, number of seats available, user ratings &amp; amenities for your desired route.&nbsp;</p>
-        </li>
-        <li dir="ltr" aria-level="1">
-          <p dir="ltr" role="presentation"><strong>Choose Buses:</strong> Select your preferred seat, boarding and dropping points. Once selected, check the ticket price details and proceed to pay.&nbsp;</p>
-        </li>
-        <li dir="ltr" aria-level="1">
-          <p dir="ltr" role="presentation"><strong>Enter Passenger Details:</strong> Fill in the passenger information and contact details.</p>
-        </li>
-        <li dir="ltr" aria-level="1">
-          <p dir="ltr" role="presentation"><strong>Payment: &nbsp;</strong>Once you fill in the information, click on “Proceed” to pay to complete the payment process.&nbsp;</p>
-        </li>
-        <li dir="ltr" aria-level="1">
-          <p dir="ltr" role="presentation"><strong>Ticket Confirmation: </strong>After the payment process, receive the bus ticket confirmation on your registered email ID or mobile number.&nbsp;</p>
-        </li>
-      </ul>
-      <p dir="ltr">With ADIBUS, get assured safe &amp; secure payment methods and guaranteed travel with the best seat and bus operator of your choice at an affordable bus ticket price.&nbsp;</p>
-      <br class="Apple-interchange-newline"></div></article><style>.paragraphPartial {
-    margin-bottom: 0.75rem;
-    background: #fff;
-  }
-  .paragraphTitle {
-    color: #1d1d1d;
-    font-size: 1.375rem;
-    font-weight: 700;
-    letter-spacing: -0.4px;
-    line-height: 1.75rem;
-    margin: 0;
-    padding: 0.75rem 0;
-  }
-  .paragraphContent {
-    color: rgba(29, 29, 29, 0.639);
-    font-size: 0.875rem;
-    font-weight: 400;
-    letter-spacing: -0.08px;
-    line-height: 1.25rem;
-    text-align: justify;
-  }
-
-  @media (min-width: 768px) {
-    .paragraphPartial {
-      padding: 0 1rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .paragraphPartial {
-      max-width: 1280px;
-      margin: auto;
-      padding: 0 1rem;
-      margin-bottom: 0.75rem;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .paragraphPartial {
-      padding: 0 2rem;
-    }
-  }</style>     <article class="paragraphPartial"><h2 class="paragraphTitle">Reasons for Bus Booking on ADIBUS</h2><div class="paragraphContent"><p dir="ltr">ADIBUS offers key services that benefit passengers when booking bus tickets online, such as:</p><br><ul padding-inline-start:48px;=""><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Free Cancellation:</strong> Cancel bus tickets without paying cancellation charges. Receive a full refund 6 hours prior to departure.&nbsp;</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Change Travel Date: </strong>Select a Flexi ticket to modify your travel date at least 8 hours before departure. Receive a 50% refund for cancelling bus tickets 12 hours before the scheduled journey date.&nbsp;</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Booking for Women: </strong>Access exclusive deals for women travellers, view the number of women on your bus, enjoy priority helplines, and find buses preferred by women.</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Assurance Program:</strong> Secure a trip against the cancellation of tickets by bus operators and receive up to 500 INR in your wallet.&nbsp;</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Earn Rewards:</strong> Refer your friend and get INR 100 in your ADIBUS wallet after they complete their first trip.&nbsp;</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Primo Services: </strong>Select top-rated bus operators that offer timely and customer-friendly Primo services.</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>24/7 Customer Support: </strong>Receive 24/7 customer service for any assistance related to bus ticket bookings.</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Instant Refund:</strong> Get an instant refund for cancellation or booking-related issues.&nbsp;</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Live Bus Tracking</strong>: Track your bus in real-time and plan your journey more efficiently.</p></li></ul></div></article><style>.paragraphPartial {
-    margin-bottom: 0.75rem;
-    background: #fff;
-  }
-  .paragraphTitle {
-    color: #1d1d1d;
-    font-size: 1.375rem;
-    font-weight: 700;
-    letter-spacing: -0.4px;
-    line-height: 1.75rem;
-    margin: 0;
-    padding: 0.75rem 0;
-  }
-  .paragraphContent {
-    color: rgba(29, 29, 29, 0.639);
-    font-size: 0.875rem;
-    font-weight: 400;
-    letter-spacing: -0.08px;
-    line-height: 1.25rem;
-    text-align: justify;
-  }
-
-  @media (min-width: 768px) {
-    .paragraphPartial {
-      padding: 0 1rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .paragraphPartial {
-      max-width: 1280px;
-      margin: auto;
-      padding: 0 1rem;
-      margin-bottom: 0.75rem;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .paragraphPartial {
-      padding: 0 2rem;
-    }
-  }</style>     <div class="seoRedDealPartial"><h2 class="redDealTitle">Bus Booking Deals on ADIBUS </h2><div class="desc"><p>Don't miss out on these incredible offers, book your bus tickets now and travel with convenience and affordability. Hurry, grab the best bus booking deals before they're gone!</p>
-</div>
-<div class="mainContent"><div class="title" style="font-size: 0.9rem"> Unlock Unbeatable Exclusive Deals! <b style="color: #c92e10">20% OFF</b></div><div class="stats"> 4450 Deals . 1902 Bus Operators . 778749 Routes </div></div><button class="bookNowBtn" onclick="scrollToTop()"> Book now </button></div></div><script>function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }</script><style>.seoRedDealPartial {
-    background-color: #fff;
-    margin-bottom: 0.75rem;
-  }
-  .redDealTitle {
-    color: #1d1d1d;
-    font-size: 1.375rem;
-    font-weight: 700;
-    letter-spacing: -0.4px;
-    line-height: 1.75rem;
-    margin: 0;
-    padding: 0.75rem 0;
-  }
-  .desc {
-    color: #1d1d1da3;
-    font-size: 0.875rem;
-    font-weight: 400;
-    letter-spacing: -0.08px;
-    line-height: 1.25rem;
-    text-align: justify;
-  }
-  .desc p {
-    margin: 0;
-  }
-  .redDealCard {
-    align-items: start;
-    border: 1px solid #e5e5e5;
-    border-radius: 1rem;
-    color: #1d1d1d;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 0.75rem;
-    padding: 1rem;
-  }
-  .mainContent {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    width: 100%;
-  }
-  .mainContent .title {
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: -0.18px;
-    line-height: 1.5rem;
-  }
-  .mainContent .stats {
-    font-size: 0.75rem;
-    font-weight: 400;
-    line-height: 1rem;
-  }
-
-  .bookNowBtn {
-    font-size: 1rem;
-    letter-spacing: -0.18px;
-    line-height: 1.5rem;
-    width: 100%;
-    background-color: #d63941;
-    color: #fcfcfc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 3rem;
-    border-radius: 999px;
-    font-weight: 700;
-    border: none;
-    padding: 0 20px;
-    align: center;
-  }
-
-  @media (min-width: 768px) {
-    .seoRedDealPartial {
-      padding: 0 1rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .seoRedDealPartial {
-      max-width: 1280px;
-      margin: auto;
-      padding: 0 1rem;
-      margin-bottom: 0.75rem;
-    }
-  }
-  @media (min-width: 1280px) {
-    .seoRedDealPartial {
-      padding: 0 2rem;
-    }
-  }
-  @media (min-width: 768px) {
-    .redDealCard {
-      flex-direction: row;
-      align-items: center;
-    }
-
-    .bookNowBtn {
-      max-width: 296px;
-    }
-  }</style>    <style>.faqContainer {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .faqTitle {
-    padding: 0.75rem 1rem;
-    font-size: 1.375rem;
-    font-weight: 700;
-    line-height: 1.75rem;
-    letter-spacing: -0.4px;
-    color: #1d1d1d;
-    margin: 0;
-  }
-
-  .tabsWrapper {
-    position: relative;
-    display: flex;
-    border-bottom: 1px solid #e5e5e5;
-    overflow-x: auto;
-  }
-
-  .tabsWrapper .slider {
-    position: absolute;
-    bottom: 0px;
-    height: 3px;
-    background-color: #d84e55;
-    border-radius: 3px 3px 0px 0px;
-    transition: all 0.4s ease;
-  }
-
-  .tabsWrapper .sectionTab {
-    display: flex;
-    align-items: center;
-    padding: 0 1rem;
-    height: 3rem;
-    color: #1d1d1d;
-    font-size: 0.875rem;
-    font-weight: 500;
-    line-height: 1.25rem;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .tabsWrapper .sectionTab:hover {
-      background: #1d1d1d14;
-    }
-  }
-
-  .tabsWrapper .selectedTab {
-    color: #d63941;
-    font-weight: 700;
-  }
-
-  .sectionContent {
-    display: none;
-  }
-
-  .faqContainer .faqItem {
-    padding: 0.75rem 1rem;
-  }
-
-  .faqContainer .faqItem .faqQuestion {
-    color: #1d1d1d;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.5rem;
-    letter-spacing: -0.18px;
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-  }
-
-  .faqContainer .faqItem .faqQuestion::-webkit-details-marker {
-    display: none;
-  }
-
-  .faqContainer .faqItem .faqAnswer {
-    margin: 0;
-    color: #1d1d1da3;
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 1.25rem;
-    letter-spacing: -0.08px;
-  }
-
-  .faqContainer .faqItem[open] .faqIcon {
-    transform: rotate(180deg);
-  }
-  .faqContainer .dividerFullWidth {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    border-top: 1px solid #e5e5e5;
-  }
-  @media (min-width: 1024px) {
-    .faqContainer {
-      max-width: 1280px;
-      margin: auto;
-      margin-bottom: 0.75rem;
-    }
-  }
-  @media (min-width: 1280px) {
-    .faqContainer {
-      padding: 0 1rem;
-    }
-  }</style><script>document.addEventListener('DOMContentLoaded', function () {
-    const tabsWrapper = document.querySelector('.tabsWrapper');
-    const tabs = document.querySelectorAll('.sectionTab');
-    const sections = document.querySelectorAll('.sectionContent');
-    const slider = document.querySelector('.slider');
-
-    function updateSlider(tab) {
-      const wrapperRect = tabsWrapper.getBoundingClientRect();
-      const tabRect = tab.getBoundingClientRect();
-      const relativeLeft = tabRect.left - wrapperRect.left + tabsWrapper.scrollLeft;
-      slider.style.width = `${tabRect.width - 32}px`;
-      slider.style.left = `${relativeLeft + 16}px`;
-    }
-
-    tabs[0].classList.add('selectedTab');
-    sections[0].style.display = 'block';
-    updateSlider(tabs[0]);
-
-    tabs.forEach((tab, index) => {
-      tab.addEventListener('click', function () {
-        tabs.forEach((tab) => tab.classList.remove('selectedTab'));
-        tab.classList.add('selectedTab');
-        sections.forEach((section) => (section.style.display = 'none'));
-        sections[index].style.display = 'block';
-        updateSlider(tab);
-      });
-    });
-  });
-
-   <article class="paragraphPartial"><h2 class="paragraphTitle">Online Bus Ticket Booking on ADIBUS</h2><div class="paragraphContent"><p dir="ltr">ADIBUS is India’s most trusted bus ticket booking platform. The platform offers an easy-to-use online bus booking service with over 36 million satisfied customers. Partnering with over 3500+ bus operators, ADIBUS offers affordable prices and various bus types to choose from. Also, provides secure payment options and exclusive offers for a smooth and convenient booking experience.</p><p dir="ltr">Planning a trip with RTC, Government bus operators like APSRTC, TGSRTC, KSRTC (Kerala), RSRTC or private operators like VRL and Orange Travels? ADIBUS offers easy access to lakhs of routes and a wide range of bus types such as AC or Non-AC, Sleeper, Seater, Volvo and more. With a wide range of bus options and services, ADIBUS ensures a reliable and comfortable journey for every passenger.</p><h3 dir="ltr">How to Book Bus Tickets on ADIBUS?</h3><p dir="ltr">Booking a bus ticket online on the ADIBUS app or website is very simple. Follow the stepwise process for bus booking on ADIBUS.&nbsp;</p><ul padding-inline-start:48px;=""><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Enter Travel Details:</strong> Enter your source, destination &amp; travel date to check the top-rated bus services available.&nbsp;</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Search Buses</strong>: Filter bus type, duration, bus timings, boarding and dropping point, number of seats available, user ratings &amp; amenities for your desired route.&nbsp;</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Choose Buses:</strong> Select your preferred seat, boarding and dropping points. Once selected, check the ticket price details and proceed to pay.&nbsp;</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Enter Passenger Details:</strong> Fill in the passenger information and contact details.</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Payment: &nbsp;</strong>Once you fill in the information, click on “Proceed” to pay to complete the payment process.&nbsp;</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Ticket Confirmation: </strong>After the payment process, receive the bus ticket confirmation on your registered email ID or mobile number.&nbsp;</p></li></ul><p dir="ltr">With ADIBUS, get assured safe &amp; secure payment methods and gs offers affordable prices and various bus types to choose from. Also, provides secure payment options and exclusive offers for a smooth and convenient booking experience.</p><p dir="ltr">Planning a trip with RTC, Government bus operators like APSRTC, TGSRTC, KSRTC (Kerala), RSRTC or private operators like VRL and Orange Travels? ADIBUS offers easy access to lakhs of routes and a wide range of bus types such as AC or Non-AC, Sleeper, Seater, Volvo and more. With a wide range of bus options and services, ADIBUS ensures a reliable and comfortable journey for every passenger.</p><h3 dir="ltr">How to Book Bus Tickets on ADIBUS?</h3><p dir="ltr">Booking a bus ticket online on the ADIBUS app or website is very simple. Follow the stepwise process for bus booking on ADIBUS.&nbsp;</p><ul padding-inline-start:48px;=""><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Enter Travel Details:</strong> Enter your source, destination &amp; travel date to check the top-rated bus services available.&nbsp;</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Search Buses</strong>: Filter bus type, duration, bus timings, boarding and dropping point, number of seats available, user ratings &amp; amenities for your desired route.&nbsp;</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Choose Buses:</strong> Select your preferred seat, boarding and dropping points. Once selected, check the ticket price details and proceed to pay.&nbsp;</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Enter Passenger Details:</strong> Fill in the passenger information and contact details.</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Payment: &nbsp;</strong>Once you fill in the information, click on “Proceed” to pay to complete the payment process.&nbsp;</p></li><li dir="ltr" aria-level="1"><p dir="ltr" role="presentation"><strong>Ticket Confirmation: </strong>After the payment process, receive the bus ticket confirmation on your registered email ID or mobile number.&nbsp;</p></li></ul><p dir="ltr">With ADIBUS, get assured safe &amp; secure payment methods and guaranteed travel with the best seat and bus operator of your choice at an affordable bus ticket price.&nbsp;</p><br class="Apple-interchange-newline"></div></article>
-  
-  
-  
-  </script><div class="faqContainer" itemscope="" itemtype="https://schema.org/FAQPage">
-<li style="display: flex; flex-direction: column; gap: 2rem;">
-<div class="interLinkContainer" style="display: flex; flex-direction: column; cursor: pointer;" id="0">
-            <div style=" display: flex; align-items: center; justify-content: space-between;">
-                <h3 style=" font-size: 1.125rem; font-weight: 700; line-height: 1.25rem; ">Popular Bus Routes</h3>
-                <i class="interLink icon icon-down" style=" font-size: 1rem;"></i>
-            </div>
-            <div class="seoLinkSection hide" style="margin: .5rem 0;">
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Delhi To Manali Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Delhi To Rishikesh Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Delhi To Shimla Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Delhi To Nainital Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Delhi To Katra Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Bangalore To Goa Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Bangalore To Hyderabad Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Bangalore To Tirupathi Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Bangalore To Chennai Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Bangalore To Pondicherry Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Hyderabad To Bangalore Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Hyderabad To Goa Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Hyderabad To Srisailam Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Hyderabad To Vijayawada Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Hyderabad To Tirupathi Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Pune To Goa Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Pune To Mumbai Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Pune To Nagpur Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Pune To Kolhapur Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Pune To Nashik Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Mumbai To Goa Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Mumbai To Pune Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Mumbai To Shirdi Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Mumbai To Mahabaleshwar Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Mumbai To Kolhapur Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Kolkata To Digha Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Kolkata To Siliguri Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Kolkata To Puri Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Kolkata To Bakkhali Bus</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Kolkata To Mandarmani Bus</a>
-            </div>
-            <div style=" background-color: #C4C4C4; height: 1px; width: 100%; margin-top: .5rem;"></div>
-        </div>
-<div class="interLinkContainer" style="display: flex; flex-direction: column; cursor: pointer;" id="1">
-            <div style=" display: flex; align-items: center; justify-content: space-between;">
-                <h3 style=" font-size: 1.125rem; font-weight: 700; line-height: 1.25rem; ">Popular Cities</h3>
-                <i class="interLink icon icon-down" style=" font-size: 1rem;"></i>
-            </div>
-            <div class="seoLinkSection hide" style="margin: .5rem 0;">
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Hyderabad Bus Booking</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Bangalore Bus Booking</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Chennai Bus Booking</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Pune Bus Booking</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Delhi Bus Booking</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Mumbai Bus Booking</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Kolkata Bus Booking</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Ernakulam Bus Booking</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Ahmedabad Bus Booking</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Vijayawada Bus Booking</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Jaipur Bus Booking</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Indore Bus Booking</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Lucknow Bus Booking</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Bhopal Bus Booking</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Goa Bus Booking</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Ayodhya Bus Booking</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Prayagraj Bus Booking</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Varanasi Bus Booking</a>
-            </div>
-            <div style=" background-color: #C4C4C4; height: 1px; width: 100%; margin-top: .5rem;"></div>
-        </div>
-<div class="interLinkContainer" style="display: flex; flex-direction: column; cursor: pointer;" id="2">
-            <div style=" display: flex; align-items: center; justify-content: space-between;">
-                <h3 style=" font-size: 1.125rem; font-weight: 700; line-height: 1.25rem; ">Popular Bus Operators</h3>
-                <i class="interLink icon icon-down" style=" font-size: 1rem;"></i>
-            </div>
-            <div class="seoLinkSection hide" style="margin: .5rem 0;">
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">No 1 Air Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">YBM Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Sri SMS Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Svkdt Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">RKT Tours and Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Royal Cars</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Rahul Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">JBT Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Raj Express</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Vaishali Express</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Rahul Travels Indore</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Delhi Tours And Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Ashok Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Greenline Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Pawan Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Ravi Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">VRL Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Dolphin Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Ganesh Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Kaveri Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">National Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Bharathi Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">City Land Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">KKaveri Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">KK Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Mahadev Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Maharaja Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">M R Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">New Payal Travels</a>
-                    <a class="footer_seo_link footer_link_new" href="#" target="_blank">Paras Travels</a>
-            </div>
-            <div style=" background-color: #C4C4C4; height: 1px; width: 100%; margin-top: .5rem;"></div>
-        </div>
-</li>
-
-
-                    
-        </ul>
-    <ul class="footer_links" style=" display: flex; width: 100%; justify-content: space-between;">
-        <li class="footer_link_section main_footer_item" style="display: flex; flex-direction: column; gap: 0.5rem; width: 17rem;">
-            <div class="footer_main_logos">
-                 <picture>
-                    <source srcset="WADIBUS.png" type="image/webp">
-                    <img src="WADIBUS.png" alt="adiBus" title="adiBus" class="rb_footer_logo" style="width: 6.25rem; height: 6.25rem;">
-                </picture>
-            </div>
-            <span class="footer_text" style="display: block; text-align: left; font-size: 1rem; line-height: 1.5; margin: 1rem 0; color: #3e3e52;">
-                ADIBUS is the world's largest online bus ticket booking service trusted by over 25 million happy customers globally. 
-                ADIBUS offers bus ticket booking through its website for all major routes.
-              </span>
-        </li>
-                <li class="footer_link_section" id="about_redbus_title_footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
-                    <strong class="footer_link_section_title" style="font-size: 1.125rem; color: #1d1d1d; margin: 0;">About ADIBUS</strong>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="about_us_footer" target="_blank" style="color: #3e3e52;">
-                                About us
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="investor_relations_footer" target="_blank" style="color: #3e3e52;">
-                                Investor Relations
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="contact_us_footer" target="_blank" style="color: #3e3e52;">
-                                Contact us
-                            </a>
-                            
-                            <a class="footer_link_section_item footer_link_new" href="#" id="sitemap_footer" target="_blank" style="color: #3e3e52;">
-                                Sitemap
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="offers_footer" target="_blank" style="color: #3e3e52;">
-                                Offers
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="careers_footer" target="_blank" style="color: #3e3e52;">
-                                Careers
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="values_footer" target="_blank" style="color: #3e3e52;">
-                                Values
-                            </a>
-                </li>
-                <li class="footer_link_section" id="info_title_footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
-                    <strong class="footer_link_section_title" style="font-size: 1.125rem; color: #1d1d1d; margin: 0;">Info</strong>
-                            <a class="footer_link_section_item footer_link_new" href="" id="terms_n_conditions_footer" target="_blank" style="color: #3e3e52;">
-                                T&amp;C
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="privacy_policy_footer" target="_blank" style="color: #3e3e52;">
-                                Privacy policy
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="faq_footer" target="_blank" style="color: #3e3e52;">
-                                FAQ
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="blog_footer" target="_blank" style="color: #3e3e52;">
-                                Blog
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="bus_operator_registration_footer" target="_blank" style="color: #3e3e52;">
-                                Bus operator registration
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="agent_registration_footer" target="_blank" style="color: #3e3e52;">
-                                Agent registration
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="insurance_partner_footer" target="_blank" style="color: #3e3e52;">
-                                Insurance partner
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="user_agreement_footer" target="_blank" style="color: #3e3e52;">
-                                User agreement
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" target="_blank" style="color: #3e3e52;">
-                                Primo Bus
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" target="_blank" style="color: #3e3e52;">
-                                Bus Timetable
-                            </a>
-                </li>
-                <li class="footer_link_section" id="global_sites_title_footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
-                    <strong class="footer_link_section_title" style="font-size: 1.125rem; color: #1d1d1d; margin: 0;">Global Sites</strong>
-                            <a class="footer_link_section_item footer_link_new" href="" id="India_site_footer" target="_blank" style="color: #3e3e52;">
-                                India
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="singapore_site_footer" target="_blank" style="color: #3e3e52;">
-                                Singapore
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="malaysia_site_footer" target="_blank" style="color: #3e3e52;">
-                                Malaysia
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="indonesia_site_footer" target="_blank" style="color: #3e3e52;">
-                                Indonesia
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="peru_site_footer" target="_blank" style="color: #3e3e52;">
-                                Peru
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="colombia_site_footer" target="_blank" style="color: #3e3e52;">
-                                Colombia
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="cambodia_site_footer" target="_blank" style="color: #3e3e52;">
-                                Cambodia
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="#" id="vietnam_site_footer" target="_blank" style="color: #3e3e52;">
-                                Vietnam
-                            </a>
-                </li>
-                <li class="footer_link_section" id="our_partners_title_footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
-                    <strong class="footer_link_section_title" style="font-size: 1.125rem; color: #1d1d1d; margin: 0;">Our Partners</strong>
-                            <a class="footer_link_section_item footer_link_new" href="https://www.goibibo.com/bus/" id="goibibo_bus_footer" target="_blank" rel="nofollow" style="color: #3e3e52;">
-                                Goibibo Bus
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="https://www.goibibo.com/hotels/" id="goibibo_hotels_footer" target="_blank" rel="nofollow" style="color: #3e3e52;">
-                                Goibibo Hotels
-                            </a>
-                            <a class="footer_link_section_item footer_link_new" href="https://www.makemytrip.com/hotels/" id="makemytrip_hotels_footer" target="_blank" rel="nofollow" style="color: #3e3e52;">
-                                Makemytrip Hotels
-                            </a>
-                </li>
-    </ul>
-    <div class="horizontal_seperator" style="background-color: #e5e5e5; height: 1px; width: 100%;"></div>
-    <div class="copyright_social_section" style="display: flex; justify-content: space-between;">
-        <span class="footer_copyright_text">Ⓒ 2025 ADIBUS All Rights Reserved</span>
-            <div class="social_section" style="display: flex; gap: 1.5rem;">
-                        <a class="social_icon_item footer_link_new" id="redbus_facebook" href="#" target="_blank" style="cursor: pointer;">
-                                <img src="https://st.redbus.in/web/images/layout/social_facebook_new.svg" class="social_img" alt="redbus_facebook" loading="lazy" style=" width: 1.5rem; height: 1.5rem;">
-                        </a>
-                        <a class="social_icon_item footer_link_new" id="redbus_linkedin" href="#" target="_blank" style="cursor: pointer;">
-                                <img src="https://st.redbus.in/web/images/layout/social_linkedin_new.svg" class="social_img" alt="redbus_linkedin" loading="lazy" style=" width: 1.5rem; height: 1.5rem;">
-                        </a>
-                        <a class="social_icon_item footer_link_new" id="redbus_twitter" href="#" target="_blank" style="cursor: pointer;">
-                                <img src="https://st.redbus.in/web/images/layout/social_twitter_new.svg" class="social_img" alt="redbus_twitter" loading="lazy" style=" width: 1.5rem; height: 1.5rem;">
-                        </a>
-                        <a class="social_icon_item footer_link_new" id="redbus_instagram" href="#" target="_blank" style="cursor: pointer;">
-                                <img src="https://st.redbus.in/web/images/layout/social_instagram_new.svg" class="social_img" alt="redbus_instagram" loading="lazy" style=" width: 1.5rem; height: 1.5rem;">
-                        </a>
-            </div>
-    </div>
-</div>
-                </footer>
   <script src="index.js"></script>
 </body>
 </html>
