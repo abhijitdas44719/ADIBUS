@@ -1,125 +1,600 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>HOTELS</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-    }
-
-    h3 {
-      position: absolute;
-      background: #f6f0e7;
-      border-radius: 0px 0px 30% 30%;
-      width: 100%;
-      height: 160px;
-      top: 0px;
-      left: 0px;
-      font-size: 32px;
-      padding-top: 100px;
-    }
-
-    .hotel-section {
-      margin-top: 350px;
-      padding: 20px;
-    }
-
-    .hotel-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .hotel-card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.2s ease;
-    }
-
-    .hotel-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .hotel-image {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-    }
-
-    .hotel-details {
-      padding: 15px;
-    }
-
-    .hotel-title {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-
-    .hotel-desc {
-      color: #555;
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-
-    .book-btn {
-      display: inline-block;
-      padding: 8px 12px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      padding: 20px;
-      background: #f1f1f1;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADIBUS Hotels - Book Your Perfect Stay</title>
+  <link rel="icon" href="https://media-hosting.imagekit.io/3a38ffeb7f3d489e/ChatGPT%20Image%20Apr%2018,%202025,%2003_11_14%20PM.png" type="image/png" />
+  <link rel="stylesheet" href="hotels.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <h3 align="center">Book Hotels and Homestays</h3>
-  </header>
-
-  <section class="hotel-section">
-    <div class="hotel-grid">
-      <div class="hotel-card">
-        <img src="https://via.placeholder.com/300x160" alt="Hotel 1" class="hotel-image">
-        <div class="hotel-details">
-          <div class="hotel-title">Grand Palace Hotel</div>
-          <div class="hotel-desc">Located near the city center with luxurious rooms and spa.</div>
-          <a href="#" class="book-btn">Book Now</a>
-        </div>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="ADIBUS.png" alt="ADIBUS" />
+        <span>ADIBUS</span>
       </div>
-
-      <div class="hotel-card">
-        <img src="https://via.placeholder.com/300x160" alt="Hotel 2" class="hotel-image">
-        <div class="hotel-details">
-          <div class="hotel-title">Ocean View Resort</div>
-          <div class="hotel-desc">Beachside stay with modern amenities and sunset views.</div>
-          <a href="#" class="book-btn">Book Now</a>
+      
+      <div class="nav-menu" id="nav-menu">
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link">
+            <i class="fas fa-bus"></i>
+            Bus Tickets
+            <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-content">
+            <a href="cancellation.html"><i class="fas fa-times-circle"></i>Cancellation</a>
+            <a href="ctdate.html"><i class="fas fa-calendar-alt"></i>Change Travel Date</a>
+            <a href="showmyticket.html"><i class="fas fa-ticket-alt"></i>Show My Ticket</a>
+            <a href="email.html"><i class="fas fa-envelope"></i>Email Ticket</a>
+          </div>
         </div>
+        <a href="hotels.html" class="nav-link active">
+          <i class="fas fa-hotel"></i>
+          Hotels
+        </a>
+        <a href="offers.html" class="nav-link">
+          <i class="fas fa-tags"></i>
+          Offers
+        </a>
+        <a href="help.html" class="nav-link">
+          <i class="fas fa-question-circle"></i>
+          Help
+        </a>
+        <a href="index.html" class="nav-link">
+          <i class="fas fa-home"></i>
+          Home
+        </a>
       </div>
+      
+      <div class="nav-auth">
+        <button class="login-btn">
+          <i class="fas fa-user"></i>
+          Login
+        </button>
+      </div>
+      
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
 
-      <div class="hotel-card">
-        <img src="https://via.placeholder.com/300x160" alt="Hotel 3" class="hotel-image">
-        <div class="hotel-details">
-          <div class="hotel-title">Mountain Lodge</div>
-          <div class="hotel-desc">Perfect retreat in nature with cozy wooden interiors.</div>
-          <a href="#" class="book-btn">Book Now</a>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-background">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Find Your Perfect
+          <span class="gradient-text">Stay</span>
+        </h1>
+        <p class="hero-subtitle">
+          Discover amazing hotels and homestays at unbeatable prices
+        </p>
+      </div>
+      
+      <div class="search-card">
+        <div class="search-header">
+          <h3>Search Hotels & Homestays</h3>
+        </div>
+        <form class="search-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Destination</label>
+              <div class="input-wrapper">
+                <i class="fas fa-map-marker-alt"></i>
+                <input type="text" placeholder="Where are you going?" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Check-in</label>
+              <div class="input-wrapper">
+                <i class="fas fa-calendar"></i>
+                <input type="date" id="checkin-date" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Check-out</label>
+              <div class="input-wrapper">
+                <i class="fas fa-calendar"></i>
+                <input type="date" id="checkout-date" />
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Guests</label>
+              <div class="input-wrapper">
+                <i class="fas fa-users"></i>
+                <select>
+                  <option>1 Guest</option>
+                  <option>2 Guests</option>
+                  <option>3 Guests</option>
+                  <option>4+ Guests</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Rooms</label>
+              <div class="input-wrapper">
+                <i class="fas fa-bed"></i>
+                <select>
+                  <option>1 Room</option>
+                  <option>2 Rooms</option>
+                  <option>3 Rooms</option>
+                  <option>4+ Rooms</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="search-btn">
+            <i class="fas fa-search"></i>
+            Search Hotels
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters Section -->
+  <section class="filters-section">
+    <div class="container">
+      <div class="filters-header">
+        <h3>Filter Your Search</h3>
+        <button class="clear-filters">Clear All</button>
+      </div>
+      <div class="filters-grid">
+        <div class="filter-group">
+          <label>Price Range</label>
+          <div class="price-range">
+            <input type="range" min="500" max="10000" value="5000" class="price-slider">
+            <div class="price-display">₹500 - ₹10,000</div>
+          </div>
+        </div>
+        <div class="filter-group">
+          <label>Star Rating</label>
+          <div class="star-filters">
+            <button class="star-filter" data-rating="5">5 Star</button>
+            <button class="star-filter" data-rating="4">4 Star</button>
+            <button class="star-filter" data-rating="3">3 Star</button>
+            <button class="star-filter" data-rating="2">2 Star</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <label>Amenities</label>
+          <div class="amenity-filters">
+            <button class="amenity-filter" data-amenity="wifi">WiFi</button>
+            <button class="amenity-filter" data-amenity="pool">Pool</button>
+            <button class="amenity-filter" data-amenity="gym">Gym</button>
+            <button class="amenity-filter" data-amenity="spa">Spa</button>
+            <button class="amenity-filter" data-amenity="parking">Parking</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <label>Property Type</label>
+          <div class="type-filters">
+            <button class="type-filter" data-type="hotel">Hotel</button>
+            <button class="type-filter" data-type="resort">Resort</button>
+            <button class="type-filter" data-type="homestay">Homestay</button>
+            <button class="type-filter" data-type="apartment">Apartment</button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>
-    © 2025 ADIBUS All Rights Reserved
+  <!-- Featured Hotels Section -->
+  <section class="featured-hotels">
+    <div class="container">
+      <div class="section-header">
+        <h2>Featured Hotels</h2>
+        <p>Handpicked accommodations for an unforgettable stay</p>
+      </div>
+      <div class="hotels-grid">
+        <div class="hotel-card" data-price="3500" data-rating="5" data-type="hotel">
+          <div class="hotel-image">
+            <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg" alt="Grand Palace Hotel" />
+            <div class="hotel-badge">Featured</div>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="hotel-content">
+            <div class="hotel-header">
+              <h3>Grand Palace Hotel</h3>
+              <div class="hotel-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="rating-text">4.8 (245 reviews)</span>
+              </div>
+            </div>
+            <div class="hotel-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Downtown, Mumbai</span>
+            </div>
+            <div class="hotel-amenities">
+              <span class="amenity"><i class="fas fa-wifi"></i> WiFi</span>
+              <span class="amenity"><i class="fas fa-swimming-pool"></i> Pool</span>
+              <span class="amenity"><i class="fas fa-dumbbell"></i> Gym</span>
+              <span class="amenity"><i class="fas fa-car"></i> Parking</span>
+            </div>
+            <div class="hotel-description">
+              Luxurious 5-star hotel in the heart of Mumbai with world-class amenities and exceptional service.
+            </div>
+            <div class="hotel-footer">
+              <div class="price-section">
+                <span class="original-price">₹4,500</span>
+                <span class="current-price">₹3,500</span>
+                <span class="per-night">per night</span>
+              </div>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hotel-card" data-price="2800" data-rating="4" data-type="resort">
+          <div class="hotel-image">
+            <img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg" alt="Ocean View Resort" />
+            <div class="hotel-badge">Best Deal</div>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="hotel-content">
+            <div class="hotel-header">
+              <h3>Ocean View Resort</h3>
+              <div class="hotel-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="rating-text">4.5 (189 reviews)</span>
+              </div>
+            </div>
+            <div class="hotel-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Beachfront, Goa</span>
+            </div>
+            <div class="hotel-amenities">
+              <span class="amenity"><i class="fas fa-wifi"></i> WiFi</span>
+              <span class="amenity"><i class="fas fa-swimming-pool"></i> Pool</span>
+              <span class="amenity"><i class="fas fa-spa"></i> Spa</span>
+              <span class="amenity"><i class="fas fa-utensils"></i> Restaurant</span>
+            </div>
+            <div class="hotel-description">
+              Beachfront resort with stunning ocean views, perfect for a relaxing getaway with family and friends.
+            </div>
+            <div class="hotel-footer">
+              <div class="price-section">
+                <span class="original-price">₹3,200</span>
+                <span class="current-price">₹2,800</span>
+                <span class="per-night">per night</span>
+              </div>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hotel-card" data-price="1800" data-rating="3" data-type="homestay">
+          <div class="hotel-image">
+            <img src="https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg" alt="Mountain Lodge" />
+            <div class="hotel-badge">Popular</div>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="hotel-content">
+            <div class="hotel-header">
+              <h3>Mountain Lodge Homestay</h3>
+              <div class="hotel-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="rating-text">4.3 (156 reviews)</span>
+              </div>
+            </div>
+            <div class="hotel-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Manali, Himachal Pradesh</span>
+            </div>
+            <div class="hotel-amenities">
+              <span class="amenity"><i class="fas fa-wifi"></i> WiFi</span>
+              <span class="amenity"><i class="fas fa-mountain"></i> Mountain View</span>
+              <span class="amenity"><i class="fas fa-fire"></i> Fireplace</span>
+              <span class="amenity"><i class="fas fa-car"></i> Parking</span>
+            </div>
+            <div class="hotel-description">
+              Cozy mountain homestay with breathtaking views and authentic local hospitality in the heart of Manali.
+            </div>
+            <div class="hotel-footer">
+              <div class="price-section">
+                <span class="original-price">₹2,200</span>
+                <span class="current-price">₹1,800</span>
+                <span class="per-night">per night</span>
+              </div>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hotel-card" data-price="4200" data-rating="5" data-type="hotel">
+          <div class="hotel-image">
+            <img src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg" alt="City Center Hotel" />
+            <div class="hotel-badge">Luxury</div>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="hotel-content">
+            <div class="hotel-header">
+              <h3>City Center Luxury Hotel</h3>
+              <div class="hotel-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="rating-text">4.9 (312 reviews)</span>
+              </div>
+            </div>
+            <div class="hotel-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Connaught Place, Delhi</span>
+            </div>
+            <div class="hotel-amenities">
+              <span class="amenity"><i class="fas fa-wifi"></i> WiFi</span>
+              <span class="amenity"><i class="fas fa-swimming-pool"></i> Pool</span>
+              <span class="amenity"><i class="fas fa-dumbbell"></i> Gym</span>
+              <span class="amenity"><i class="fas fa-spa"></i> Spa</span>
+            </div>
+            <div class="hotel-description">
+              Premium luxury hotel in Delhi's business district with state-of-the-art facilities and impeccable service.
+            </div>
+            <div class="hotel-footer">
+              <div class="price-section">
+                <span class="original-price">₹5,000</span>
+                <span class="current-price">₹4,200</span>
+                <span class="per-night">per night</span>
+              </div>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hotel-card" data-price="2200" data-rating="4" data-type="apartment">
+          <div class="hotel-image">
+            <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg" alt="Service Apartment" />
+            <div class="hotel-badge">Extended Stay</div>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="hotel-content">
+            <div class="hotel-header">
+              <h3>Premium Service Apartment</h3>
+              <div class="hotel-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="rating-text">4.4 (98 reviews)</span>
+              </div>
+            </div>
+            <div class="hotel-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Koramangala, Bangalore</span>
+            </div>
+            <div class="hotel-amenities">
+              <span class="amenity"><i class="fas fa-wifi"></i> WiFi</span>
+              <span class="amenity"><i class="fas fa-kitchen-set"></i> Kitchen</span>
+              <span class="amenity"><i class="fas fa-washing-machine"></i> Laundry</span>
+              <span class="amenity"><i class="fas fa-car"></i> Parking</span>
+            </div>
+            <div class="hotel-description">
+              Fully furnished service apartment perfect for extended stays with all modern amenities and home comfort.
+            </div>
+            <div class="hotel-footer">
+              <div class="price-section">
+                <span class="original-price">₹2,800</span>
+                <span class="current-price">₹2,200</span>
+                <span class="per-night">per night</span>
+              </div>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hotel-card" data-price="1500" data-rating="3" data-type="homestay">
+          <div class="hotel-image">
+            <img src="https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg" alt="Heritage Homestay" />
+            <div class="hotel-badge">Heritage</div>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="hotel-content">
+            <div class="hotel-header">
+              <h3>Heritage Homestay</h3>
+              <div class="hotel-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="rating-text">4.1 (67 reviews)</span>
+              </div>
+            </div>
+            <div class="hotel-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Old City, Jaipur</span>
+            </div>
+            <div class="hotel-amenities">
+              <span class="amenity"><i class="fas fa-wifi"></i> WiFi</span>
+              <span class="amenity"><i class="fas fa-utensils"></i> Local Cuisine</span>
+              <span class="amenity"><i class="fas fa-camera"></i> Heritage Tours</span>
+              <span class="amenity"><i class="fas fa-car"></i> Parking</span>
+            </div>
+            <div class="hotel-description">
+              Traditional Rajasthani homestay offering authentic cultural experience with warm hospitality and local cuisine.
+            </div>
+            <div class="hotel-footer">
+              <div class="price-section">
+                <span class="original-price">₹1,800</span>
+                <span class="current-price">₹1,500</span>
+                <span class="per-night">per night</span>
+              </div>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="load-more-section">
+        <button class="load-more-btn">
+          <i class="fas fa-plus"></i>
+          Load More Hotels
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Book Hotels with ADIBUS?</h2>
+        <p>Experience the best in hospitality with our premium hotel booking services</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Best Price Guarantee</h3>
+          <p>We guarantee the lowest prices on hotel bookings with instant confirmation</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3>24/7 Support</h3>
+          <p>Round-the-clock customer support for all your hotel booking needs</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <h3>Quality Assured</h3>
+          <p>Handpicked hotels and homestays with verified reviews and ratings</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Easy Booking</h3>
+          <p>Book hotels instantly with our user-friendly platform and secure payments</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">50K+</div>
+          <div class="stat-label">Hotels & Homestays</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">2M+</div>
+          <div class="stat-label">Happy Guests</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Cities Covered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">4.8</div>
+          <div class="stat-label">Average Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="WADIBUS.png" alt="ADIBUS" />
+            <h3>ADIBUS</h3>
+          </div>
+          <p>ADIBUS is your trusted partner for hotel bookings, offering the best accommodations at unbeatable prices across India.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>About ADIBUS</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Investor Relations</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Values</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cancellation Policy</a></li>
+            <li><a href="#">Partner with Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Popular Destinations</h4>
+          <ul>
+            <li><a href="#">Mumbai Hotels</a></li>
+            <li><a href="#">Delhi Hotels</a></li>
+            <li><a href="#">Bangalore Hotels</a></li>
+            <li><a href="#">Goa Hotels</a></li>
+            <li><a href="#">Jaipur Hotels</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 ADIBUS. All Rights Reserved.</p>
+      </div>
+    </div>
   </footer>
+
+  <script src="hotels.js"></script>
 </body>
 </html>
