@@ -232,16 +232,16 @@ document.addEventListener('DOMContentLoaded', function() {
       
       switch(method) {
         case 'Call Now':
-          window.open('tel:+919876543210');
+          window.open('tel:+918296673724');
           break;
         case 'Start Chat':
           openChatWidget();
           break;
         case 'Send Email':
-          window.open('mailto:support@adibus.com?subject=Support Request');
+          window.open('mailto:abhijitdas44719@gmail.com?subject=Support Request');
           break;
         case 'WhatsApp':
-          window.open('https://wa.me/919876543210?text=Hello, I need help with ADIBUS');
+          window.open('https://wa.me/918296673724?text=Hello, I need help with ADIBUS');
           break;
       }
     });
