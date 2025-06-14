@@ -1,7 +1,523 @@
-<html>
-  <head>
-  <body>
-    <h1>Help</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADIBUS Help Center - Get Support & Assistance</title>
+  <link rel="icon" href="https://media-hosting.imagekit.io/3a38ffeb7f3d489e/ChatGPT%20Image%20Apr%2018,%202025,%2003_11_14%20PM.png" type="image/png" />
+  <link rel="stylesheet" href="help.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="ADIBUS.png" alt="ADIBUS" />
+        <span>ADIBUS</span>
+      </div>
+      
+      <div class="nav-menu" id="nav-menu">
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link">
+            <i class="fas fa-bus"></i>
+            Bus Tickets
+            <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-content">
+            <a href="cancellation.html"><i class="fas fa-times-circle"></i>Cancellation</a>
+            <a href="ctdate.html"><i class="fas fa-calendar-alt"></i>Change Travel Date</a>
+            <a href="showmyticket.html"><i class="fas fa-ticket-alt"></i>Show My Ticket</a>
+            <a href="email.html"><i class="fas fa-envelope"></i>Email Ticket</a>
+          </div>
+        </div>
+        <a href="hotels.html" class="nav-link">
+          <i class="fas fa-hotel"></i>
+          Hotels
+        </a>
+        <a href="offers.html" class="nav-link">
+          <i class="fas fa-tags"></i>
+          Offers
+        </a>
+        <a href="help.html" class="nav-link active">
+          <i class="fas fa-question-circle"></i>
+          Help
+        </a>
+        <a href="index.html" class="nav-link">
+          <i class="fas fa-home"></i>
+          Home
+        </a>
+      </div>
+      
+      <div class="nav-auth">
+        <button class="login-btn">
+          <i class="fas fa-user"></i>
+          Login
+        </button>
+      </div>
+      
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
 
-  </body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-background">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          How Can We
+          <span class="gradient-text">Help You?</span>
+        </h1>
+        <p class="hero-subtitle">
+          Find answers to your questions or get in touch with our support team
+        </p>
+      </div>
+      
+      <div class="search-card">
+        <div class="search-header">
+          <h3>Search for Help</h3>
+        </div>
+        <div class="help-search">
+          <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Type your question here..." id="help-search-input" />
+            <button class="search-btn" id="help-search-btn">
+              <i class="fas fa-search"></i>
+              Search
+            </button>
+          </div>
+          <div class="popular-searches">
+            <span>Popular searches:</span>
+            <button class="search-tag" data-query="cancel ticket">Cancel Ticket</button>
+            <button class="search-tag" data-query="refund policy">Refund Policy</button>
+            <button class="search-tag" data-query="change date">Change Date</button>
+            <button class="search-tag" data-query="payment issues">Payment Issues</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Help Categories -->
+  <section class="quick-help">
+    <div class="container">
+      <div class="section-header">
+        <h2>Quick Help Categories</h2>
+        <p>Find instant solutions to common questions</p>
+      </div>
+      <div class="help-categories">
+        <div class="help-category" data-category="booking">
+          <div class="category-icon">
+            <i class="fas fa-ticket-alt"></i>
+          </div>
+          <h3>Booking & Tickets</h3>
+          <p>Book tickets, manage reservations, and ticket-related queries</p>
+          <span class="category-count">15 articles</span>
+        </div>
+        
+        <div class="help-category" data-category="payment">
+          <div class="category-icon">
+            <i class="fas fa-credit-card"></i>
+          </div>
+          <h3>Payment & Refunds</h3>
+          <p>Payment methods, refund policies, and billing questions</p>
+          <span class="category-count">12 articles</span>
+        </div>
+        
+        <div class="help-category" data-category="cancellation">
+          <div class="category-icon">
+            <i class="fas fa-times-circle"></i>
+          </div>
+          <h3>Cancellation & Changes</h3>
+          <p>Cancel bookings, change dates, and modification policies</p>
+          <span class="category-count">8 articles</span>
+        </div>
+        
+        <div class="help-category" data-category="account">
+          <div class="category-icon">
+            <i class="fas fa-user-circle"></i>
+          </div>
+          <h3>Account & Profile</h3>
+          <p>Manage your account, profile settings, and login issues</p>
+          <span class="category-count">10 articles</span>
+        </div>
+        
+        <div class="help-category" data-category="travel">
+          <div class="category-icon">
+            <i class="fas fa-route"></i>
+          </div>
+          <h3>Travel Information</h3>
+          <p>Routes, schedules, boarding points, and travel tips</p>
+          <span class="category-count">20 articles</span>
+        </div>
+        
+        <div class="help-category" data-category="technical">
+          <div class="category-icon">
+            <i class="fas fa-cog"></i>
+          </div>
+          <h3>Technical Support</h3>
+          <p>App issues, website problems, and technical assistance</p>
+          <span class="category-count">7 articles</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers to the most common questions</p>
+      </div>
+      
+      <div class="faq-filters">
+        <button class="faq-filter active" data-filter="all">All Questions</button>
+        <button class="faq-filter" data-filter="booking">Booking</button>
+        <button class="faq-filter" data-filter="payment">Payment</button>
+        <button class="faq-filter" data-filter="cancellation">Cancellation</button>
+        <button class="faq-filter" data-filter="travel">Travel</button>
+      </div>
+      
+      <div class="faq-container">
+        <div class="faq-item" data-category="booking">
+          <div class="faq-question">
+            <span>How do I book a bus ticket on ADIBUS?</span>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>To book a bus ticket: 1) Enter your departure and destination cities, 2) Select your travel date, 3) Choose the number of passengers, 4) Click "Search Buses", 5) Select your preferred bus and seats, 6) Enter passenger details, 7) Make payment. You'll receive your ticket via email and SMS.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item" data-category="payment">
+          <div class="faq-question">
+            <span>What payment methods are accepted?</span>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We accept all major payment methods including Credit Cards (Visa, MasterCard, American Express), Debit Cards, Net Banking, UPI payments (Google Pay, PhonePe, Paytm), and digital wallets. All transactions are secured with 256-bit SSL encryption.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item" data-category="cancellation">
+          <div class="faq-question">
+            <span>How can I cancel my bus ticket?</span>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>You can cancel your ticket by: 1) Going to "Manage Booking" section, 2) Enter your ticket number and mobile number, 3) Select the ticket you want to cancel, 4) Choose passengers to cancel, 5) Confirm cancellation. Refund will be processed according to the cancellation policy.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item" data-category="booking">
+          <div class="faq-question">
+            <span>Can I change my travel date after booking?</span>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, you can change your travel date subject to availability and operator policies. Go to "Change Travel Date" section, enter your ticket details, select new date, and pay any fare difference. Some operators may charge a modification fee.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item" data-category="payment">
+          <div class="faq-question">
+            <span>How long does it take to get a refund?</span>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Refunds are typically processed within 5-7 business days for online payments. The exact time depends on your bank and payment method. For cash payments, refunds may take 7-10 business days. You'll receive SMS and email notifications about refund status.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item" data-category="travel">
+          <div class="faq-question">
+            <span>What should I carry while traveling?</span>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Always carry: 1) Valid government-issued photo ID (Aadhaar, PAN, Driving License, Passport), 2) Your bus ticket (printed or mobile), 3) Boarding pass if provided, 4) Any medical certificates if required. Arrive at the boarding point at least 15 minutes before departure.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item" data-category="booking">
+          <div class="faq-question">
+            <span>Can I book tickets for someone else?</span>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, you can book tickets for family and friends. Just enter their correct details during booking. The passenger must carry valid ID proof matching the name on the ticket. You can book up to 6 passengers in a single transaction.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item" data-category="travel">
+          <div class="faq-question">
+            <span>What if my bus is delayed or cancelled?</span>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>In case of delays or cancellations: 1) You'll be notified via SMS/email, 2) For delays over 2 hours, you can get a full refund, 3) For cancellations, automatic refund is processed, 4) Contact our support team for immediate assistance and alternative arrangements.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Support Section -->
+  <section class="contact-support">
+    <div class="container">
+      <div class="section-header">
+        <h2>Still Need Help?</h2>
+        <p>Our support team is here to assist you 24/7</p>
+      </div>
+      
+      <div class="contact-methods">
+        <div class="contact-method">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <h3>Call Us</h3>
+          <p>Speak directly with our support team</p>
+          <div class="contact-info">
+            <strong>+91-9876543210</strong>
+            <span>Available 24/7</span>
+          </div>
+          <button class="contact-btn">Call Now</button>
+        </div>
+        
+        <div class="contact-method">
+          <div class="contact-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3>Live Chat</h3>
+          <p>Get instant help through live chat</p>
+          <div class="contact-info">
+            <strong>Average response: 2 mins</strong>
+            <span>Available 24/7</span>
+          </div>
+          <button class="contact-btn" id="start-chat">Start Chat</button>
+        </div>
+        
+        <div class="contact-method">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>Email Support</h3>
+          <p>Send us your detailed query</p>
+          <div class="contact-info">
+            <strong>support@adibus.com</strong>
+            <span>Response within 24 hours</span>
+          </div>
+          <button class="contact-btn" id="send-email">Send Email</button>
+        </div>
+        
+        <div class="contact-method">
+          <div class="contact-icon">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <h3>WhatsApp</h3>
+          <p>Message us on WhatsApp</p>
+          <div class="contact-info">
+            <strong>+91-9876543210</strong>
+            <span>Quick responses</span>
+          </div>
+          <button class="contact-btn">WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Help Resources -->
+  <section class="help-resources">
+    <div class="container">
+      <div class="section-header">
+        <h2>Help Resources</h2>
+        <p>Additional resources to help you travel better</p>
+      </div>
+      
+      <div class="resources-grid">
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <h3>User Guide</h3>
+          <p>Complete guide on how to use ADIBUS platform effectively</p>
+          <a href="#" class="resource-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i class="fas fa-video"></i>
+          </div>
+          <h3>Video Tutorials</h3>
+          <p>Step-by-step video tutorials for booking and managing tickets</p>
+          <a href="#" class="resource-link">Watch Videos <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Mobile App</h3>
+          <p>Download our mobile app for easier booking and management</p>
+          <a href="#" class="resource-link">Download App <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <h3>Terms & Policies</h3>
+          <p>Read our terms of service, privacy policy, and cancellation rules</p>
+          <a href="#" class="resource-link">View Policies <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <h3>Route Information</h3>
+          <p>Find detailed information about bus routes and schedules</p>
+          <a href="#" class="resource-link">Explore Routes <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Safety Guidelines</h3>
+          <p>Important safety information and travel guidelines</p>
+          <a href="#" class="resource-link">Safety Info <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feedback Section -->
+  <section class="feedback-section">
+    <div class="container">
+      <div class="feedback-card">
+        <div class="feedback-content">
+          <h2>Help Us Improve</h2>
+          <p>Your feedback helps us provide better support. Rate your experience and share suggestions.</p>
+          <div class="rating-section">
+            <span>How was your help experience?</span>
+            <div class="star-rating">
+              <i class="far fa-star" data-rating="1"></i>
+              <i class="far fa-star" data-rating="2"></i>
+              <i class="far fa-star" data-rating="3"></i>
+              <i class="far fa-star" data-rating="4"></i>
+              <i class="far fa-star" data-rating="5"></i>
+            </div>
+          </div>
+          <div class="feedback-form">
+            <textarea placeholder="Share your feedback or suggestions..." id="feedback-text"></textarea>
+            <button class="submit-feedback">Submit Feedback</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="WADIBUS.png" alt="ADIBUS" />
+            <h3>ADIBUS</h3>
+          </div>
+          <p>ADIBUS is your trusted partner for bus travel, offering 24/7 support and assistance for all your travel needs.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Help</h4>
+          <ul>
+            <li><a href="#booking">Booking Support</a></li>
+            <li><a href="#cancellation">Cancellation Help</a></li>
+            <li><a href="#payment">Payment Issues</a></li>
+            <li><a href="#refund">Refund Status</a></li>
+            <li><a href="#contact">Contact Support</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Support Channels</h4>
+          <ul>
+            <li><a href="tel:+919876543210">Phone: +91-9876543210</a></li>
+            <li><a href="mailto:support@adibus.com">Email: support@adibus.com</a></li>
+            <li><a href="#">Live Chat</a></li>
+            <li><a href="#">WhatsApp Support</a></li>
+            <li><a href="#">Help Center</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">User Guide</a></li>
+            <li><a href="#">Video Tutorials</a></li>
+            <li><a href="#">Mobile App</a></li>
+            <li><a href="#">Safety Guidelines</a></li>
+            <li><a href="#">Terms & Policies</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 ADIBUS. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat Widget -->
+  <div class="chat-widget" id="chat-widget">
+    <div class="chat-header">
+      <div class="chat-avatar">
+        <i class="fas fa-headset"></i>
+      </div>
+      <div class="chat-info">
+        <h4>ADIBUS Support</h4>
+        <span class="chat-status">Online</span>
+      </div>
+      <button class="chat-close" id="chat-close">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="message bot-message">
+        <div class="message-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-content">
+          <p>Hello! I'm here to help you with any questions about ADIBUS. How can I assist you today?</p>
+          <span class="message-time">Just now</span>
+        </div>
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" placeholder="Type your message..." id="chat-input-field" />
+      <button class="chat-send" id="chat-send">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+
+  <script src="help.js"></script>
+</body>
 </html>
