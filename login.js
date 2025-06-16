@@ -2,10 +2,10 @@ class LoginSystem {
   constructor() {
     this.currentStep = 'step-auth-method';
     this.authMethod = 'phone';
-    this.generatedOTP = '';
+    this.userContact = '';
     this.resendTimer = 30;
     this.resendInterval = null;
-    this.userContact = '';
+    this.apiBaseUrl = window.location.origin;
     
     this.init();
   }
@@ -41,6 +41,11 @@ class LoginSystem {
         if (e.key === 'Backspace' && e.target.value === '' && index > 0) {
           otpInputs[index - 1].focus();
         }
+      });
+
+      // Only allow numbers
+      input.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
       });
     });
 
@@ -106,7 +111,7 @@ class LoginSystem {
         const phoneNumber = document.getElementById('phone-number').value;
         
         if (!phoneNumber || phoneNumber.length < 10) {
-          throw new Error('Please enter a valid phone number');
+          throw new Error('Please enter a valid phone number (minimum 10 digits)');
         }
         
         contact = countryCode + phoneNumber;
@@ -122,42 +127,39 @@ class LoginSystem {
 
       this.userContact = contact;
       
-      // Generate OTP
-      this.generatedOTP = this.generateOTP();
-      
-      // Simulate sending OTP (in real implementation, call your backend API)
-      await this.simulateOTPSending(contact, this.generatedOTP);
-      
-      this.showSuccess('auth-success', `OTP sent successfully to ${this.maskContact(contact)}`);
+      // Call backend API to send OTP
+      const response = await fetch(`${this.apiBaseUrl}/api/send-otp`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          contact: this.authMethod === 'phone' ? document.getElementById('phone-number').value : contact,
+          method: this.authMethod
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send OTP');
+      }
+
+      this.showSuccess('auth-success', `OTP sent successfully to ${data.maskedContact || this.maskContact(contact)}`);
       
       setTimeout(() => {
-        document.getElementById('contact-display').textContent = this.maskContact(contact);
+        document.getElementById('contact-display').textContent = data.maskedContact || this.maskContact(contact);
         this.goToStep('step-otp-verification');
         this.startResendTimer();
       }, 1500);
       
     } catch (error) {
+      console.error('Send OTP Error:', error);
       this.showError('auth-error', error.message);
     } finally {
       btn.innerHTML = originalText;
       btn.disabled = false;
     }
-  }
-
-  async simulateOTPSending(contact, otp) {
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // In a real implementation, you would call your backend API here
-    // For demonstration, we'll show the OTP in console and alert
-    console.log(`OTP for ${contact}: ${otp}`);
-    
-    // Show OTP to user for testing (remove in production)
-    setTimeout(() => {
-      alert(`For testing purposes, your OTP is: ${otp}`);
-    }, 500);
-    
-    return true;
   }
 
   async verifyOTP() {
@@ -174,8 +176,22 @@ class LoginSystem {
         throw new Error('Please enter the complete 6-digit OTP');
       }
 
-      if (enteredOTP !== this.generatedOTP) {
-        throw new Error('Invalid OTP. Please try again.');
+      // Call backend API to verify OTP
+      const response = await fetch(`${this.apiBaseUrl}/api/verify-otp`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          contact: this.authMethod === 'phone' ? document.getElementById('phone-number').value : this.userContact,
+          otp: enteredOTP
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Invalid OTP');
       }
 
       // Check if user exists
@@ -198,6 +214,7 @@ class LoginSystem {
       }
       
     } catch (error) {
+      console.error('Verify OTP Error:', error);
       this.showError('otp-error', error.message);
     } finally {
       btn.innerHTML = originalText;
@@ -207,14 +224,28 @@ class LoginSystem {
 
   async resendOTP() {
     try {
-      this.generatedOTP = this.generateOTP();
-      await this.simulateOTPSending(this.userContact, this.generatedOTP);
+      const response = await fetch(`${this.apiBaseUrl}/api/resend-otp`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          contact: this.authMethod === 'phone' ? document.getElementById('phone-number').value : this.userContact
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to resend OTP');
+      }
       
       this.showSuccess('otp-success', 'OTP resent successfully!');
       this.startResendTimer();
       
     } catch (error) {
-      this.showError('otp-error', 'Failed to resend OTP. Please try again.');
+      console.error('Resend OTP Error:', error);
+      this.showError('otp-error', error.message);
     }
   }
 
@@ -239,7 +270,8 @@ class LoginSystem {
         contact: this.userContact,
         authMethod: this.authMethod,
         loginTime: new Date().toISOString(),
-        isLoggedIn: true
+        isLoggedIn: true,
+        verified: true // Mark as verified since OTP was successful
       };
 
       // Save user data
@@ -306,10 +338,6 @@ class LoginSystem {
       clearInterval(this.resendInterval);
       this.resendInterval = null;
     }
-  }
-
-  generateOTP() {
-    return Math.floor(100000 + Math.random() * 900000).toString();
   }
 
   generateUserId() {
