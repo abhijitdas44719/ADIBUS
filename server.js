@@ -11,9 +11,9 @@ const PORT = process.env.PORT || 3000;
 
 // Twilio configuration
 const twilio = require('twilio');
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER;
+const accountSid = process.env.AC05db29568ca686b81325c9ebdbb3ca83;
+const authToken = process.env.74dc16389586633ba5753cf09e894dbc;
+const twilioPhoneNumber = process.env.+919477491613;
 
 if (!accountSid || !authToken || !twilioPhoneNumber) {
   console.error('❌ Missing Twilio credentials. Please check your .env file.');
@@ -37,7 +37,7 @@ app.use(helmet({
 }));
 
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? 'your-domain.com' : true,
+  origin: process.env.NODE_ENV === 'production' ? 'https://abhijitdas44719.github.io/ADIBUS/' : true,
   credentials: true
 }));
 
