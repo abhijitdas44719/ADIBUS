@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 // Twilio configuration
 const twilio = require('twilio');
 const accountSid = process.env.AC05db29568ca686b81325c9ebdbb3ca83;
-const authToken = process.env.74dc16389586633ba5753cf09e894dbc;
+const authToken = process.env.a7efb0eb7018a7780da61eb75e010914;
 const twilioPhoneNumber = process.env.+919477491613;
 
 if (!accountSid || !authToken || !twilioPhoneNumber) {
