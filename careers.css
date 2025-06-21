@@ -1,7 +1,14 @@
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   font-family: Arial, sans-serif;
   padding: 40px;
   background-color: #f9f9f9;
+   overflow-x: hidden;
 }
 
 .info-box {
@@ -38,11 +45,13 @@ body {
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-sizing: border-box;
   height: 70px;
+  width: 100%;
 }
 
 .nav-logo {
@@ -314,6 +323,16 @@ body {
   
   .hotel-rating {
     text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .container, .hero-content, .search-card {
+    width: 100%;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
   }
 }
 
