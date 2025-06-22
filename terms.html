@@ -1,34 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Terms & Conditions - Bus Booking</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f8f9fa;
-      color: #333;
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 30px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    h1, h2 {
-      color: #007BFF;
-    }
-    ul {
-      padding-left: 20px;
-    }
-  </style>
+<head><meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADIBUS - Your Journey Starts Here</title>
+  <link rel="icon" href="https://media-hosting.imagekit.io/3a38ffeb7f3d489e/ChatGPT%20Image%20Apr%2018,%202025,%2003_11_14%20PM.png" type="image/png" />
+  <link rel="stylesheet" href="careers.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="ADIBUS.png" alt="ADIBUS" />
+        <span>ADIBUS</span>
+      </div>
+
+      <div class="nav-menu" id="nav-menu">
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link">
+            <i class="fas fa-bus"></i>
+            Bus Tickets
+            <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-content">
+            <a href="cancellation.html"><i class="fas fa-times-circle"></i>Cancellation</a>
+            <a href="ctdate.html"><i class="fas fa-calendar-alt"></i>Change Travel Date</a>
+            <a href="showmyticket.html"><i class="fas fa-ticket-alt"></i>Show My Ticket</a>
+            <a href="email.html"><i class="fas fa-envelope"></i>Email Ticket</a>
+          </div>
+        </div>
+        <a href="hotels.html" class="nav-link">
+          <i class="fas fa-hotel"></i>
+          Hotels
+        </a>
+        <a href="offers.html" class="nav-link">
+          <i class="fas fa-tags"></i>
+          Offers
+        </a>
+        <a href="help.html" class="nav-link">
+          <i class="fas fa-question-circle"></i>
+          Help
+        </a>
+      </div>
+
+      <div class="nav-auth">
+        <button class="login-btn">
+          <i class="fas fa-user"></i>
+          Login
+        </button>
+      </div>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
   <div class="container">
     <h1>Terms & Conditions</h1>
     <p>Welcome to our Bus Booking Platform. By using our website or app, you agree to the following terms and conditions:</p>
@@ -74,5 +103,62 @@
     <p>By continuing to use our services, you confirm that you have read and accepted these terms.</p>
     <p>Last updated: June 22, 2025</p>
   </div>
+<!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="WADIBUS.png" alt="ADIBUS" />
+            <h3>ADIBUS</h3>
+          </div>
+          <p>ADIBUS is the world's largest online bus ticket booking service trusted by over 25 million happy customers globally.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>About ADIBUS</h4>
+          <ul>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="investorrelations.html">Investor Relations</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="values.html">Values</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Info</h4>
+          <ul>
+            <li><a href="tc.html">Terms & Conditions</a></li>
+            <li><a href="privacypolicy.html">Privacy Policy</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="busoperatorregistration.html">Bus Operator Registration</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Global Sites</h4>
+          <ul>
+            <li><a href="#">India</a></li>
+            <li><a href="#">Singapore</a></li>
+            <li><a href="#">Malaysia</a></li>
+            <li><a href="#">Indonesia</a></li>
+            <li><a href="#">Vietnam</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 ADIBUS. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
