@@ -150,6 +150,91 @@ body {
 }
 
 
+/* Redesigned Info Box Styles */
+.info-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  margin: 25px auto;
+  max-width: 1000px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(211, 47, 47, 0.15);
+  transition: all 0.3s ease;
+}
+
+.info-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+  border-color: rgba(211, 47, 47, 0.3);
+}
+
+.info-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #d32f2f, #f44336);
+}
+
+.info-icon {
+  background: rgba(211, 47, 47, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #d32f2f;
+  font-size: 1.1rem;
+}
+
+.info-text {
+  flex: 1;
+  color: #555;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.info-box strong {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .info-box {
+    padding: 20px;
+    gap: 15px;
+    margin: 20px auto;
+  }
+  
+  .info-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-box {
+    flex-direction: column;
+    padding: 18px;
+    gap: 12px;
+  }
+  
+  .info-icon {
+    align-self: flex-start;
+  }
+}
+
 
 
 /* Footer */
