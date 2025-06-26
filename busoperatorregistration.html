@@ -1,1224 +1,1222 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Registration</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>ADIBUS - Your Journey Starts Here</title>
-        <link rel="icon" href="https://media-hosting.imagekit.io/3a38ffeb7f3d489e/ChatGPT%20Image%20Apr%2018,%202025,%2003_11_14%20PM.png" type="image/png" />
-        
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <style>
-            /* Reset and Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ADIBUS - Bus Operator Registration</title>
+    <link rel="icon" href="https://media-hosting.imagekit.io/3a38ffeb7f3d489e/ChatGPT%20Image%20Apr%2018,%202025,%2003_11_14%20PM.png" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
-  color: #333;
-  overflow-x: hidden;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
 
-/* Navigation */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  transition: all 0.3s ease;
-}
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
 
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 70px;
-}
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 24px;
+            color: #d32f2f;
+        }
 
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 700;
-  font-size: 24px;
-  color: #d32f2f;
-}
+        .nav-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+        }
 
-.nav-logo img {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-}
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
 
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-.nav-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  position: relative;
-}
+        .nav-link:hover {
+            color: #d32f2f;
+        }
 
-.nav-link:hover,
-.nav-link.active {
-  color: #d32f2f;
-}
+        .dropdown {
+            position: relative;
+        }
 
-.dropdown {
-  position: relative;
-}
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 12px 0;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
 
-.dropdown-content {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  padding: 12px 0;
-  min-width: 220px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-}
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
 
-.dropdown:hover .dropdown-content {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
+        .dropdown-content a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: #333;
+            transition: background 0.3s ease;
+        }
 
-.dropdown-content a {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 20px;
-  text-decoration: none;
-  color: #333;
-  transition: background 0.3s ease;
-}
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: #d32f2f;
+        }
 
-.dropdown-content a:hover {
-  background: #f5f5f5;
-  color: #d32f2f;
-}
+        .login-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #d32f2f, #f44336);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-.login-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: linear-gradient(135deg, #d32f2f, #f44336);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 25px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.3);
+        }
 
-.login-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(211, 47, 47, 0.3);
-}
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
 
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 4px;
-}
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            transition: 0.3s;
+        }
 
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: #333;
-  transition: 0.3s;
-}
+        /* Main Container */
+        .main-container {
+            padding-top: 90px;
+            padding-bottom: 50px;
+            min-height: 100vh;
+        }
 
+        .registration-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-/* Hero Section */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
 
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  z-index: -2;
-}
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffd700, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-.hero-background::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('busbackground.jpg') center/cover;
-  opacity: 0.3;
-  z-index: -1;
-}
+        .hero-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
 
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(103, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
-  z-index: -1;
-}
+        .hero-description {
+            font-size: 1rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-.hero-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  text-align: center;
-  color: white;
-  margin-top: 70px;
-}
+        /* Registration Card */
+        .registration-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
 
-.hero-title {
-  font-size: clamp(3rem, 8vw, 5rem);
-  font-weight: 800;
-  margin-bottom: 20px;
-  line-height: 1.1;
-}
+        /* Step Progress */
+        .step-progress {
+            background: linear-gradient(135deg, #d32f2f, #f44336);
+            padding: 30px;
+            color: white;
+        }
 
-.gradient-text {
-  background: linear-gradient(135deg, #ffd700, #ff6b6b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+        .progress-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-.hero-subtitle {
-  font-size: 1.25rem;
-  margin-bottom: 40px;
-  opacity: 0.9;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
+        .progress-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
 
-.search-card {
-  background: rgba(255, 255, 255);
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  padding: 40px;
-  max-width: 800px;
-  margin: 0 auto;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  color: #333;
-}
+        .progress-subtitle {
+            opacity: 0.9;
+        }
 
-.search-header h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 30px;
-  color: #333;
-}
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
 
-.form-row {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
-  align-items: end;
-}
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
 
-.form-group {
-  flex: 1;
-}
+        .step-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
 
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 500;
-  color: #555;
-}
+        .step.active .step-circle {
+            background: white;
+            color: #d32f2f;
+            transform: scale(1.1);
+        }
 
-.input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
+        .step.completed .step-circle {
+            background: #4caf50;
+            color: white;
+        }
 
-.input-wrapper i {
-  position: absolute;
-  left: 15px;
-  color: #999;
-  z-index: 1;
-}
+        .step-label {
+            font-size: 0.9rem;
+            text-align: center;
+            opacity: 0.8;
+        }
 
-.input-wrapper input,
-.input-wrapper select {
-  width: 100%;
-  padding: 15px 15px 15px 45px;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  background: white;
-}
+        .step.active .step-label {
+            opacity: 1;
+            font-weight: 600;
+        }
 
-.input-wrapper input:focus,
-.input-wrapper select:focus {
-  outline: none;
-  border-color: #d32f2f;
-  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
-}
+        .progress-line {
+            position: absolute;
+            top: 25px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            z-index: 1;
+        }
 
-.swap-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  background: #d32f2f;
-  color: white;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-bottom: 5px;
-}
+        .progress-fill {
+            height: 100%;
+            background: white;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
 
-.swap-btn:hover {
-  transform: rotate(180deg);
-  background: #b71c1c;
-}
+        /* Form Content */
+        .form-content {
+            padding: 40px;
+        }
 
-.search-btn {
-  width: 100%;
-  background: linear-gradient(135deg, #d32f2f, #f44336);
-  color: white;
-  border: none;
-  padding: 18px;
-  border-radius: 12px;
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
+        .step-content {
+            display: none;
+        }
 
-.search-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(211, 47, 47, 0.3);
-}
+        .step-content.active {
+            display: block;
+        }
 
-/* Update these styles in your existing CSS */
-    .form-row {
-        display: flex;
-        gap: 15px;
-        align-items: flex-end;
-    }
-    
-    .input-wrapper select {
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
-        background-repeat: no-repeat;
-        background-position: right 15px center;
-        background-size: 12px;
-        padding-right: 35px;
-    }
-    
-    @media (max-width: 768px) {
+        .step-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .step-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .step-description {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Form Styles */
         .form-row {
-            flex-direction: row;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
         }
-        .form-group:first-child {
-            flex: 0.4;
+
+        .form-row.single {
+            grid-template-columns: 1fr;
         }
-        .form-group:last-child {
-            flex: 0.6;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .form-row {
+
+        .form-group {
+            display: flex;
             flex-direction: column;
         }
-        .form-group:first-child,
-        .form-group:last-child {
-            flex: 1;
-            width: 100%;
+
+        .form-group label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
-    }
 
-/* Features Section */
-.features {
-  padding: 100px 0;
-  background: #f8f9fa;
-}
+        .required {
+            color: #d32f2f;
+        }
 
-.section-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
 
-.section-header h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  color: #333;
-}
+        .input-wrapper i {
+            position: absolute;
+            left: 15px;
+            color: #999;
+            z-index: 1;
+        }
 
-.section-header p {
-  font-size: 1.1rem;
-  color: #666;
-  max-width: 600px;
-  margin: 0 auto;
-}
+        .form-input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
 
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-}
+        .form-input:focus {
+            outline: none;
+            border-color: #d32f2f;
+            box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+        }
 
-.feature-card {
-  background: white;
-  padding: 40px 30px;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-}
+        .form-input.error {
+            border-color: #f44336;
+        }
 
-.feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
+        .error-message {
+            color: #f44336;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
 
-.feature-icon {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, #d32f2f, #f44336);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
-  color: white;
-  font-size: 2rem;
-}
+        /* Country Code Selection */
+        .country-phone {
+            display: flex;
+            gap: 10px;
+        }
 
-.feature-card h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: #333;
-}
+        .country-select {
+            min-width: 120px;
+            padding: 15px 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            background: white;
+            cursor: pointer;
+        }
 
-.feature-card p {
-  color: #666;
-  line-height: 1.6;
-}
+        .phone-input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+        }
 
-/* Footer */
-.footer {
-  background: #1a1a1a;
-  color: white;
-  padding: 60px 0 20px;
-}
+        /* OTP Inputs */
+        .otp-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
 
-.footer-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 40px;
-}
+        .otp-input {
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 24px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
 
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
+        .otp-input:focus {
+            outline: none;
+            border-color: #d32f2f;
+            box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+        }
 
-.footer-logo img {
-  width: 50px;
-  height: 50px;
-  border-radius: 8px;
-}
+        /* Checkboxes and Multi-select */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
 
-.footer-logo h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #d32f2f;
-}
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-.footer-section p {
-  color: #ccc;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
+        .checkbox-item:hover {
+            border-color: #d32f2f;
+            background: #fafafa;
+        }
 
-.social-links {
-  display: flex;
-  gap: 15px;
-}
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #d32f2f;
+        }
 
-.social-links a {
-  width: 40px;
-  height: 40px;
-  background: #333;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
+        .checkbox-item.selected {
+            border-color: #d32f2f;
+            background: rgba(211, 47, 47, 0.05);
+        }
 
-.social-links a:hover {
-  background: #d32f2f;
-  transform: translateY(-2px);
-}
+        /* File Upload */
+        .file-upload-area {
+            border: 2px dashed #d0d0d0;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-top: 10px;
+        }
 
-.footer-section h4 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: white;
-}
+        .file-upload-area:hover {
+            border-color: #d32f2f;
+            background: rgba(211, 47, 47, 0.02);
+        }
 
-.footer-section ul {
-  list-style: none;
-}
+        .file-upload-area.dragover {
+            border-color: #d32f2f;
+            background: rgba(211, 47, 47, 0.05);
+        }
 
-.footer-section ul li {
-  margin-bottom: 10px;
-}
+        .upload-icon {
+            font-size: 3rem;
+            color: #d32f2f;
+            margin-bottom: 15px;
+        }
 
-.footer-section ul li a {
-  color: #ccc;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
+        .upload-text {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
 
-.footer-section ul li a:hover {
-  color: #d32f2f;
-}
+        .upload-subtext {
+            color: #666;
+            font-size: 0.9rem;
+        }
 
-.footer-bottom {
-  border-top: 1px solid #333;
-  padding-top: 20px;
-  text-align: center;
-  color: #999;
-}
+        .file-list {
+            margin-top: 20px;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-  
-  .nav-menu {
-    position: fixed;
-    top: 70px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 70px);
-    background: white;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 50px;
-    transition: left 0.3s ease;
-  }
-  
-  .nav-menu.active {
-    left: 0;
-  }
-  
-  
-  
-  .search-card {
-    padding: 30px 20px;
-    margin: 0 20px;
-  }
-  
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  
-  .filters-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .hotels-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .hotel-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .hotel-rating {
-    text-align: left;
-  }
-}
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
 
-@media (max-width: 480px) {
-  .container {
-    padding: 0 15px;
-  }
-  
-  .hero-content {
-    padding: 0 15px;
-  }
-  
-  .search-card {
-    margin: 0 15px;
-    padding: 25px 15px;
-  }
-  
-  .section-header h2 {
-    font-size: 2rem;
-  }
-  
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .hotels-grid {
-    grid-template-columns: 1fr;
-  }
-}
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+        .file-icon {
+            color: #d32f2f;
+        }
 
-.hotel-card,
-.feature-card {
-  animation: fadeInUp 0.6s ease forwards;
-}
+        .remove-file {
+            background: none;
+            border: none;
+            color: #f44336;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+        .remove-file:hover {
+            background: rgba(244, 67, 54, 0.1);
+        }
 
-/* Filter active states */
-.star-filter.active,
-.amenity-filter.active,
-.type-filter.active {
-  background: #d32f2f;
-  color: white;
-  border-color: #d32f2f;
-}
+        /* Buttons */
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+        }
 
-/* Wishlist active state */
-.wishlist-btn.active {
-  color: #d32f2f;
-}
+        .btn {
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-.wishlist-btn.active i {
-  font-weight: 900;
-}
+        .btn-primary {
+            background: linear-gradient(135deg, #d32f2f, #f44336);
+            color: white;
+        }
 
-/* Mobile Responsive Styles */
-@media (max-width: 768px) {
-  /* Navigation */
-  .hamburger {
-    display: flex;
-  }
-  
-  .nav-menu {
-    position: fixed;
-    top: 70px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 70px);
-    background: white;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 50px;
-    transition: left 0.3s ease;
-    gap: 30px;
-  }
-  
-  .nav-menu.active {
-    left: 0;
-  }
-  
-  .nav-auth {
-    display: none;
-  }
-  
-  /* Hero Section */
-  .hero-title {
-    font-size: 2.2rem;
-    padding: 0 15px;
-  }
-  
-  .hero-subtitle {
-    font-size: 1rem;
-    padding: 0 15px;
-  }
-  
-  .search-card {
-    padding: 25px 15px;
-    margin: 0 15px;
-    width: calc(100% - 30px);
-  }
-  
-  /* Registration Form */
-  .form-row {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .form-group {
-    width: 100%;
-    flex: 1 !important;
-  }
-  
-  .input-wrapper input,
-  .input-wrapper select {
-    padding: 12px 12px 12px 40px;
-  }
-  
-  /* Payment Logos */
-  .search-card > div:last-child {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .mmt{
-    height: 400px; 
-    width: 500px; 
-    background-image: url('makemytrip.png'); 
-    background-size: cover; 
-    background-repeat: no-repeat;
-  }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.3);
+        }
 
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #333;
+            border: 2px solid #e0e0e0;
+        }
 
-  .search-card > div:last-child > div {
-    width: 150px;
-    height: 50px;
-    margin: 5px 0;
-  }
-  
-  /* Footer */
-  .footer-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  
-  .footer-logo {
-    justify-content: center;
-  }
-  
-  .social-links {
-    justify-content: center;
-  }
-}
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
 
-@media (max-width: 480px) {
-  /* Smaller devices */
-  .hero-title {
-    font-size: 1.8rem;
-  }
-  
-  .search-header h3 {
-    font-size: 1.2rem;
-  }
-  
-  .search-btn {
-    padding: 15px;
-    font-size: 16px;
-  }
-  
-  .nav-logo span {
-    display: none;
-  }
-  
-  .nav-logo img {
-    width: 35px;
-    height: 35px;
-  }
-}
-        </style>
-    </head>
-    <body>
-        <!-- Navigation -->
-          <nav class="navbar scrolled" style="background: rgba(255, 255, 255, 0.98); box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 20px;">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <img src="ADIBUS.png" alt="ADIBUS">
-        <span>ADIBUS</span>
-      </div>
-      
-      <div class="nav-menu" id="nav-menu">
-        <div class="nav-item dropdown">
-          <a href="#" class="nav-link">
-            <i class="fas fa-bus"></i>
-            Bus Tickets
-            <i class="fas fa-chevron-down"></i>
-          </a>
-          <div class="dropdown-content">
-            <a href="cancellation.html"><i class="fas fa-times-circle"></i>Cancellation</a>
-            <a href="ctdate.html"><i class="fas fa-calendar-alt"></i>Change Travel Date</a>
-            <a href="showmyticket.html"><i class="fas fa-ticket-alt"></i>Show My Ticket</a>
-            <a href="email.html"><i class="fas fa-envelope"></i>Email Ticket</a>
-          </div>
-        </div>
-        <a href="hotels.html" class="nav-link">
-          <i class="fas fa-hotel"></i>
-          Hotels
-        </a>
-        <a href="offers.html" class="nav-link">
-          <i class="fas fa-tags"></i>
-          Offers
-        </a>
-        <a href="help.html" class="nav-link">
-          <i class="fas fa-question-circle"></i>
-          Help
-        </a>
-      </div>
-      
-      <div class="nav-auth">
-        <button class="login-btn">
-          <i class="fas fa-user"></i>
-          Login
-        </button>
-      </div>
-      
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </nav>
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-background">
-      <div class="hero-overlay"></div>
-    </div>
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1 class="hero-title">
-          Access to millions of 
-          <span class="gradient-text">customers</span>
-          who book on 
-          <span class="gradient-text">ADIBUS </span>
-          daily
-        </h1>
-        
-      </div>
-      
-      <div class="search-card">
-    <div class="search-header">
-        <h4 style="color: red;"><b>SIGN IN / SIGN UP</b></h4>
-        <h3>Be part of world's largest bus booking platform</h3>
-    </div>
-    <form class="search-form">
-        <div class="form-row">
-            <div class="form-group" style="flex: 0.3;">
-                <label>Country Code</label>
-                <div class="input-wrapper">
-                    <i class="fas fa-globe"></i>
-                    <select name="country_code">
-  <option value="93">Afghanistan (+93)</option>
-  <option value="355">Albania (+355)</option>
-  <option value="213">Algeria (+213)</option>
-  <option value="1-684">American Samoa (+1-684)</option>
-  <option value="376">Andorra (+376)</option>
-  <option value="244">Angola (+244)</option>
-  <option value="1-264">Anguilla (+1-264)</option>
-  <option value="672">Antarctica (+672)</option>
-  <option value="1-268">Antigua and Barbuda (+1-268)</option>
-  <option value="54">Argentina (+54)</option>
-  <option value="374">Armenia (+374)</option>
-  <option value="297">Aruba (+297)</option>
-  <option value="61">Australia (+61)</option>
-  <option value="43">Austria (+43)</option>
-  <option value="994">Azerbaijan (+994)</option>
-  <option value="1-242">Bahamas (+1-242)</option>
-  <option value="973">Bahrain (+973)</option>
-  <option value="880">Bangladesh (+880)</option>
-  <option value="1-246">Barbados (+1-246)</option>
-  <option value="375">Belarus (+375)</option>
-  <option value="32">Belgium (+32)</option>
-  <option value="501">Belize (+501)</option>
-  <option value="229">Benin (+229)</option>
-  <option value="1-441">Bermuda (+1-441)</option>
-  <option value="975">Bhutan (+975)</option>
-  <option value="591">Bolivia (+591)</option>
-  <option value="387">Bosnia and Herzegovina (+387)</option>
-  <option value="267">Botswana (+267)</option>
-  <option value="55">Brazil (+55)</option>
-  <option value="246">British Indian Ocean Territory (+246)</option>
-  <option value="1-284">British Virgin Islands (+1-284)</option>
-  <option value="673">Brunei (+673)</option>
-  <option value="359">Bulgaria (+359)</option>
-  <option value="226">Burkina Faso (+226)</option>
-  <option value="257">Burundi (+257)</option>
-  <option value="855">Cambodia (+855)</option>
-  <option value="237">Cameroon (+237)</option>
-  <option value="1">Canada (+1)</option>
-  <option value="238">Cape Verde (+238)</option>
-  <option value="1-345">Cayman Islands (+1-345)</option>
-  <option value="236">Central African Republic (+236)</option>
-  <option value="235">Chad (+235)</option>
-  <option value="56">Chile (+56)</option>
-  <option value="86">China (+86)</option>
-  <option value="61">Christmas Island (+61)</option>
-  <option value="61">Cocos Islands (+61)</option>
-  <option value="57">Colombia (+57)</option>
-  <option value="269">Comoros (+269)</option>
-  <option value="682">Cook Islands (+682)</option>
-  <option value="506">Costa Rica (+506)</option>
-  <option value="385">Croatia (+385)</option>
-  <option value="53">Cuba (+53)</option>
-  <option value="599">Curacao (+599)</option>
-  <option value="357">Cyprus (+357)</option>
-  <option value="420">Czech Republic (+420)</option>
-  <option value="243">Democratic Republic of the Congo (+243)</option>
-  <option value="45">Denmark (+45)</option>
-  <option value="253">Djibouti (+253)</option>
-  <option value="1-767">Dominica (+1-767)</option>
-  <option value="1-809">Dominican Republic (+1-809)</option>
-  <option value="1-829">Dominican Republic (+1-829)</option>
-  <option value="1-849">Dominican Republic (+1-849)</option>
-  <option value="670">East Timor (+670)</option>
-  <option value="593">Ecuador (+593)</option>
-  <option value="20">Egypt (+20)</option>
-  <option value="503">El Salvador (+503)</option>
-  <option value="240">Equatorial Guinea (+240)</option>
-  <option value="291">Eritrea (+291)</option>
-  <option value="372">Estonia (+372)</option>
-  <option value="251">Ethiopia (+251)</option>
-  <option value="500">Falkland Islands (+500)</option>
-  <option value="298">Faroe Islands (+298)</option>
-  <option value="679">Fiji (+679)</option>
-  <option value="358">Finland (+358)</option>
-  <option value="33">France (+33)</option>
-  <option value="689">French Polynesia (+689)</option>
-  <option value="241">Gabon (+241)</option>
-  <option value="220">Gambia (+220)</option>
-  <option value="995">Georgia (+995)</option>
-  <option value="49">Germany (+49)</option>
-  <option value="233">Ghana (+233)</option>
-  <option value="350">Gibraltar (+350)</option>
-  <option value="30">Greece (+30)</option>
-  <option value="299">Greenland (+299)</option>
-  <option value="1-473">Grenada (+1-473)</option>
-  <option value="1-671">Guam (+1-671)</option>
-  <option value="502">Guatemala (+502)</option>
-  <option value="44-1481">Guernsey (+44-1481)</option>
-  <option value="224">Guinea (+224)</option>
-  <option value="245">Guinea-Bissau (+245)</option>
-  <option value="592">Guyana (+592)</option>
-  <option value="509">Haiti (+509)</option>
-  <option value="504">Honduras (+504)</option>
-  <option value="852">Hong Kong (+852)</option>
-  <option value="36">Hungary (+36)</option>
-  <option value="354">Iceland (+354)</option>
-  <option value="91" selected>India (+91)</option>
-  <option value="62">Indonesia (+62)</option>
-  <option value="98">Iran (+98)</option>
-  <option value="964">Iraq (+964)</option>
-  <option value="353">Ireland (+353)</option>
-  <option value="44-1624">Isle of Man (+44-1624)</option>
-  <option value="972">Israel (+972)</option>
-  <option value="39">Italy (+39)</option>
-  <option value="225">Ivory Coast (+225)</option>
-  <option value="1-876">Jamaica (+1-876)</option>
-  <option value="81">Japan (+81)</option>
-  <option value="44-1534">Jersey (+44-1534)</option>
-  <option value="962">Jordan (+962)</option>
-  <option value="7">Kazakhstan (+7)</option>
-  <option value="254">Kenya (+254)</option>
-  <option value="686">Kiribati (+686)</option>
-  <option value="383">Kosovo (+383)</option>
-  <option value="965">Kuwait (+965)</option>
-  <option value="996">Kyrgyzstan (+996)</option>
-  <option value="856">Laos (+856)</option>
-  <option value="371">Latvia (+371)</option>
-  <option value="961">Lebanon (+961)</option>
-  <option value="266">Lesotho (+266)</option>
-  <option value="231">Liberia (+231)</option>
-  <option value="218">Libya (+218)</option>
-  <option value="423">Liechtenstein (+423)</option>
-  <option value="370">Lithuania (+370)</option>
-  <option value="352">Luxembourg (+352)</option>
-  <option value="853">Macau (+853)</option>
-  <option value="389">Macedonia (+389)</option>
-  <option value="261">Madagascar (+261)</option>
-  <option value="265">Malawi (+265)</option>
-  <option value="60">Malaysia (+60)</option>
-  <option value="960">Maldives (+960)</option>
-  <option value="223">Mali (+223)</option>
-  <option value="356">Malta (+356)</option>
-  <option value="692">Marshall Islands (+692)</option>
-  <option value="222">Mauritania (+222)</option>
-  <option value="230">Mauritius (+230)</option>
-  <option value="262">Mayotte (+262)</option>
-  <option value="52">Mexico (+52)</option>
-  <option value="691">Micronesia (+691)</option>
-  <option value="373">Moldova (+373)</option>
-  <option value="377">Monaco (+377)</option>
-  <option value="976">Mongolia (+976)</option>
-  <option value="382">Montenegro (+382)</option>
-  <option value="1-664">Montserrat (+1-664)</option>
-  <option value="212">Morocco (+212)</option>
-  <option value="258">Mozambique (+258)</option>
-  <option value="95">Myanmar (+95)</option>
-  <option value="264">Namibia (+264)</option>
-  <option value="674">Nauru (+674)</option>
-  <option value="977">Nepal (+977)</option>
-  <option value="31">Netherlands (+31)</option>
-  <option value="599">Netherlands Antilles (+599)</option>
-  <option value="687">New Caledonia (+687)</option>
-  <option value="64">New Zealand (+64)</option>
-  <option value="505">Nicaragua (+505)</option>
-  <option value="227">Niger (+227)</option>
-  <option value="234">Nigeria (+234)</option>
-  <option value="683">Niue (+683)</option>
-  <option value="850">North Korea (+850)</option>
-  <option value="1-670">Northern Mariana Islands (+1-670)</option>
-  <option value="47">Norway (+47)</option>
-  <option value="968">Oman (+968)</option>
-  <option value="92">Pakistan (+92)</option>
-  <option value="680">Palau (+680)</option>
-  <option value="970">Palestine (+970)</option>
-  <option value="507">Panama (+507)</option>
-  <option value="675">Papua New Guinea (+675)</option>
-  <option value="595">Paraguay (+595)</option>
-  <option value="51">Peru (+51)</option>
-  <option value="63">Philippines (+63)</option>
-  <option value="64">Pitcairn (+64)</option>
-  <option value="48">Poland (+48)</option>
-  <option value="351">Portugal (+351)</option>
-  <option value="1-787">Puerto Rico (+1-787)</option>
-  <option value="1-939">Puerto Rico (+1-939)</option>
-  <option value="974">Qatar (+974)</option>
-  <option value="242">Republic of the Congo (+242)</option>
-  <option value="262">Reunion (+262)</option>
-  <option value="40">Romania (+40)</option>
-  <option value="7">Russia (+7)</option>
-  <option value="250">Rwanda (+250)</option>
-  <option value="590">Saint Barthelemy (+590)</option>
-  <option value="290">Saint Helena (+290)</option>
-  <option value="1-869">Saint Kitts and Nevis (+1-869)</option>
-  <option value="1-758">Saint Lucia (+1-758)</option>
-  <option value="590">Saint Martin (+590)</option>
-  <option value="508">Saint Pierre and Miquelon (+508)</option>
-  <option value="1-784">Saint Vincent and the Grenadines (+1-784)</option>
-  <option value="685">Samoa (+685)</option>
-  <option value="378">San Marino (+378)</option>
-  <option value="239">Sao Tome and Principe (+239)</option>
-  <option value="966">Saudi Arabia (+966)</option>
-  <option value="221">Senegal (+221)</option>
-  <option value="381">Serbia (+381)</option>
-  <option value="248">Seychelles (+248)</option>
-  <option value="232">Sierra Leone (+232)</option>
-  <option value="65">Singapore (+65)</option>
-  <option value="1-721">Sint Maarten (+1-721)</option>
-  <option value="421">Slovakia (+421)</option>
-  <option value="386">Slovenia (+386)</option>
-  <option value="677">Solomon Islands (+677)</option>
-  <option value="252">Somalia (+252)</option>
-  <option value="27">South Africa (+27)</option>
-  <option value="82">South Korea (+82)</option>
-  <option value="211">South Sudan (+211)</option>
-  <option value="34">Spain (+34)</option>
-  <option value="94">Sri Lanka (+94)</option>
-  <option value="249">Sudan (+249)</option>
-  <option value="597">Suriname (+597)</option>
-  <option value="47">Svalbard and Jan Mayen (+47)</option>
-  <option value="268">Swaziland (+268)</option>
-  <option value="46">Sweden (+46)</option>
-  <option value="41">Switzerland (+41)</option>
-  <option value="963">Syria (+963)</option>
-  <option value="886">Taiwan (+886)</option>
-  <option value="992">Tajikistan (+992)</option>
-  <option value="255">Tanzania (+255)</option>
-  <option value="66">Thailand (+66)</option>
-  <option value="228">Togo (+228)</option>
-  <option value="690">Tokelau (+690)</option>
-  <option value="676">Tonga (+676)</option>
-  <option value="1-868">Trinidad and Tobago (+1-868)</option>
-  <option value="216">Tunisia (+216)</option>
-  <option value="90">Turkey (+90)</option>
-  <option value="993">Turkmenistan (+993)</option>
-  <option value="1-649">Turks and Caicos Islands (+1-649)</option>
-  <option value="688">Tuvalu (+688)</option>
-  <option value="1-340">U.S. Virgin Islands (+1-340)</option>
-  <option value="256">Uganda (+256)</option>
-  <option value="380">Ukraine (+380)</option>
-  <option value="971">United Arab Emirates (+971)</option>
-  <option value="44">United Kingdom (+44)</option>
-  <option value="1" >United States (+1)</option>
-  <option value="598">Uruguay (+598)</option>
-  <option value="998">Uzbekistan (+998)</option>
-  <option value="678">Vanuatu (+678)</option>
-  <option value="379">Vatican (+379)</option>
-  <option value="58">Venezuela (+58)</option>
-  <option value="84">Vietnam (+84)</option>
-  <option value="681">Wallis and Futuna (+681)</option>
-  <option value="212">Western Sahara (+212)</option>
-  <option value="967">Yemen (+967)</option>
-  <option value="260">Zambia (+260)</option>
-  <option value="263">Zimbabwe (+263)</option>
-</select>
-                </div>
+        /* Success Message */
+        .success-container {
+            text-align: center;
+            padding: 60px 40px;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+
+        .success-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .success-message {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .success-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 50px;
+                transition: left 0.3s ease;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .country-phone {
+                flex-direction: column;
+            }
+
+            .steps-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .progress-line {
+                display: none;
+            }
+
+            .step {
+                width: 100%;
+            }
+
+            .step-circle {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .otp-container {
+                gap: 10px;
+            }
+
+            .otp-input {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .form-content {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .registration-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Loading States */
+        .loading {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Toast Notifications */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4caf50;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 10000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.error {
+            background: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="ADIBUS.png" alt="ADIBUS">
+                <span>ADIBUS</span>
             </div>
             
-            <div class="form-group" style="flex: 0.7;">
-                <label>Mobile Number</label>
-                <div class="input-wrapper">
-                    <i class="fa-solid fa-phone"></i>
-                    <input type="number" style="width: 100%;" placeholder="Enter mobile number"/>
+            <div class="nav-menu" id="nav-menu">
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-bus"></i>
+                        Bus Tickets
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="cancellation.html"><i class="fas fa-times-circle"></i>Cancellation</a>
+                        <a href="ctdate.html"><i class="fas fa-calendar-alt"></i>Change Travel Date</a>
+                        <a href="showmyticket.html"><i class="fas fa-ticket-alt"></i>Show My Ticket</a>
+                        <a href="email.html"><i class="fas fa-envelope"></i>Email Ticket</a>
+                    </div>
+                </div>
+                <a href="hotels.html" class="nav-link">
+                    <i class="fas fa-hotel"></i>
+                    Hotels
+                </a>
+                <a href="offers.html" class="nav-link">
+                    <i class="fas fa-tags"></i>
+                    Offers
+                </a>
+                <a href="help.html" class="nav-link">
+                    <i class="fas fa-question-circle"></i>
+                    Help
+                </a>
+            </div>
+            
+            <div class="nav-auth">
+                <button class="login-btn">
+                    <i class="fas fa-user"></i>
+                    Login
+                </button>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <div class="registration-container">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <h1 class="hero-title">Join ADIBUS Network</h1>
+                <p class="hero-subtitle">Partner with India's Leading Bus Booking Platform</p>
+                <p class="hero-description">
+                    Connect with millions of travelers and grow your business with our comprehensive operator platform
+                </p>
+            </div>
+
+            <!-- Registration Card -->
+            <div class="registration-card">
+                <!-- Step Progress -->
+                <div class="step-progress">
+                    <div class="progress-header">
+                        <h2 class="progress-title">Bus Operator Registration</h2>
+                        <p class="progress-subtitle">Complete your registration in 4 simple steps</p>
+                    </div>
+                    
+                    <div class="steps-container">
+                        <div class="progress-line">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        
+                        <div class="step active" data-step="1">
+                            <div class="step-circle">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="step-label">Phone Verification</div>
+                        </div>
+                        
+                        <div class="step" data-step="2">
+                            <div class="step-circle">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="step-label">Company Details</div>
+                        </div>
+                        
+                        <div class="step" data-step="3">
+                            <div class="step-circle">
+                                <i class="fas fa-bus"></i>
+                            </div>
+                            <div class="step-label">Fleet Information</div>
+                        </div>
+                        
+                        <div class="step" data-step="4">
+                            <div class="step-circle">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="step-label">Complete</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Content -->
+                <div class="form-content">
+                    <!-- Step 1: Phone Verification -->
+                    <div class="step-content active" id="step-1">
+                        <div class="step-header">
+                            <h3 class="step-title">Verify Your Phone Number</h3>
+                            <p class="step-description">We'll send you a verification code to confirm your identity</p>
+                        </div>
+
+                        <div class="form-row single">
+                            <div class="form-group">
+                                <label>Phone Number <span class="required">*</span></label>
+                                <div class="country-phone">
+                                    <select class="country-select" id="country-code">
+                                        <option value="+91">🇮🇳 +91</option>
+                                        <option value="+1">🇺🇸 +1</option>
+                                        <option value="+44">🇬🇧 +44</option>
+                                        <option value="+86">🇨🇳 +86</option>
+                                        <option value="+81">🇯🇵 +81</option>
+                                        <option value="+49">🇩🇪 +49</option>
+                                        <option value="+33">🇫🇷 +33</option>
+                                        <option value="+39">🇮🇹 +39</option>
+                                        <option value="+34">🇪🇸 +34</option>
+                                        <option value="+7">🇷🇺 +7</option>
+                                        <option value="+55">🇧🇷 +55</option>
+                                        <option value="+52">🇲🇽 +52</option>
+                                        <option value="+61">🇦🇺 +61</option>
+                                        <option value="+82">🇰🇷 +82</option>
+                                        <option value="+65">🇸🇬 +65</option>
+                                        <option value="+60">🇲🇾 +60</option>
+                                        <option value="+62">🇮🇩 +62</option>
+                                        <option value="+66">🇹🇭 +66</option>
+                                        <option value="+84">🇻🇳 +84</option>
+                                        <option value="+63">🇵🇭 +63</option>
+                                    </select>
+                                    <input type="tel" class="phone-input" id="phone-number" placeholder="Enter your phone number" maxlength="15">
+                                </div>
+                                <div class="error-message" id="phone-error"></div>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <div></div>
+                            <button class="btn btn-primary" id="send-otp-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Send OTP
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 1b: OTP Verification -->
+                    <div class="step-content" id="step-1b">
+                        <div class="step-header">
+                            <h3 class="step-title">Enter Verification Code</h3>
+                            <p class="step-description">We've sent a 6-digit code to <span id="phone-display"></span></p>
+                        </div>
+
+                        <div class="otp-container">
+                            <input type="text" class="otp-input" maxlength="1">
+                            <input type="text" class="otp-input" maxlength="1">
+                            <input type="text" class="otp-input" maxlength="1">
+                            <input type="text" class="otp-input" maxlength="1">
+                            <input type="text" class="otp-input" maxlength="1">
+                            <input type="text" class="otp-input" maxlength="1">
+                        </div>
+
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <p>Didn't receive the code? <button type="button" id="resend-otp" style="background: none; border: none; color: #d32f2f; cursor: pointer; text-decoration: underline;">Resend OTP</button></p>
+                        </div>
+
+                        <div class="button-group">
+                            <button class="btn btn-secondary" id="back-to-phone">
+                                <i class="fas fa-arrow-left"></i>
+                                Back
+                            </button>
+                            <button class="btn btn-primary" id="verify-otp-btn">
+                                <i class="fas fa-check"></i>
+                                Verify OTP
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Company Details -->
+                    <div class="step-content" id="step-2">
+                        <div class="step-header">
+                            <h3 class="step-title">Company Information</h3>
+                            <p class="step-description">Tell us about your bus operating business</p>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Company Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-building"></i>
+                                    <input type="text" class="form-input" id="company-name" placeholder="Enter company name">
+                                </div>
+                                <div class="error-message" id="company-name-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>Registration Number <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-certificate"></i>
+                                    <input type="text" class="form-input" id="registration-number" placeholder="Business registration number">
+                                </div>
+                                <div class="error-message" id="registration-number-error"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Contact Person <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" class="form-input" id="contact-person" placeholder="Full name of contact person">
+                                </div>
+                                <div class="error-message" id="contact-person-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" class="form-input" id="email" placeholder="company@example.com">
+                                </div>
+                                <div class="error-message" id="email-error"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Years in Business <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-calendar"></i>
+                                    <select class="form-input" id="years-business">
+                                        <option value="">Select years</option>
+                                        <option value="0-1">0-1 years</option>
+                                        <option value="1-3">1-3 years</option>
+                                        <option value="3-5">3-5 years</option>
+                                        <option value="5-10">5-10 years</option>
+                                        <option value="10+">10+ years</option>
+                                    </select>
+                                </div>
+                                <div class="error-message" id="years-business-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>Fleet Size <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-bus"></i>
+                                    <select class="form-input" id="fleet-size">
+                                        <option value="">Select fleet size</option>
+                                        <option value="1-5">1-5 buses</option>
+                                        <option value="6-15">6-15 buses</option>
+                                        <option value="16-30">16-30 buses</option>
+                                        <option value="31-50">31-50 buses</option>
+                                        <option value="50+">50+ buses</option>
+                                    </select>
+                                </div>
+                                <div class="error-message" id="fleet-size-error"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row single">
+                            <div class="form-group">
+                                <label>Complete Address <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <textarea class="form-input" id="address" placeholder="Enter complete business address" rows="3" style="padding-left: 45px; resize: vertical;"></textarea>
+                                </div>
+                                <div class="error-message" id="address-error"></div>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button class="btn btn-secondary" id="back-to-step1">
+                                <i class="fas fa-arrow-left"></i>
+                                Back
+                            </button>
+                            <button class="btn btn-primary" id="next-to-step3">
+                                <i class="fas fa-arrow-right"></i>
+                                Next
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Fleet Information -->
+                    <div class="step-content" id="step-3">
+                        <div class="step-header">
+                            <h3 class="step-title">Fleet & Route Information</h3>
+                            <p class="step-description">Provide details about your bus fleet and operating routes</p>
+                        </div>
+
+                        <div class="form-row single">
+                            <div class="form-group">
+                                <label>Primary Routes <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-route"></i>
+                                    <textarea class="form-input" id="primary-routes" placeholder="e.g., Delhi - Mumbai, Bangalore - Chennai" rows="2" style="padding-left: 45px;"></textarea>
+                                </div>
+                                <div class="error-message" id="primary-routes-error"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Bus Types <span class="required">*</span></label>
+                            <div class="checkbox-group" id="bus-types">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="ac-sleeper" value="AC Sleeper">
+                                    <label for="ac-sleeper">AC Sleeper</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="non-ac-sleeper" value="Non-AC Sleeper">
+                                    <label for="non-ac-sleeper">Non-AC Sleeper</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="ac-seater" value="AC Seater">
+                                    <label for="ac-seater">AC Seater</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="non-ac-seater" value="Non-AC Seater">
+                                    <label for="non-ac-seater">Non-AC Seater</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="volvo" value="Volvo">
+                                    <label for="volvo">Volvo</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="mercedes" value="Mercedes">
+                                    <label for="mercedes">Mercedes</label>
+                                </div>
+                            </div>
+                            <div class="error-message" id="bus-types-error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Amenities Available</label>
+                            <div class="checkbox-group" id="amenities">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="wifi" value="WiFi">
+                                    <label for="wifi">WiFi</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="charging" value="Charging Points">
+                                    <label for="charging">Charging Points</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="entertainment" value="Entertainment System">
+                                    <label for="entertainment">Entertainment</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="blanket" value="Blanket & Pillow">
+                                    <label for="blanket">Blanket & Pillow</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="water" value="Water Bottle">
+                                    <label for="water">Water Bottle</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="gps" value="GPS Tracking">
+                                    <label for="gps">GPS Tracking</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Average Ticket Price Range <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-rupee-sign"></i>
+                                    <select class="form-input" id="price-range">
+                                        <option value="">Select price range</option>
+                                        <option value="200-500">₹200 - ₹500</option>
+                                        <option value="500-1000">₹500 - ₹1,000</option>
+                                        <option value="1000-2000">₹1,000 - ₹2,000</option>
+                                        <option value="2000+">₹2,000+</option>
+                                    </select>
+                                </div>
+                                <div class="error-message" id="price-range-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>Safety Certifications</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <input type="text" class="form-input" id="safety-cert" placeholder="e.g., ISO 9001, Safety Awards">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button class="btn btn-secondary" id="back-to-step2">
+                                <i class="fas fa-arrow-left"></i>
+                                Back
+                            </button>
+                            <button class="btn btn-primary" id="complete-registration">
+                                <i class="fas fa-check"></i>
+                                Complete Registration
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Success -->
+                    <div class="step-content" id="step-4">
+                        <div class="success-container">
+                            <div class="success-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3 class="success-title">Registration Successful!</h3>
+                            <p class="success-message">
+                                Thank you for registering with ADIBUS! Your application has been submitted successfully. 
+                                Our team will review your information and contact you within 2-3 business days.
+                            </p>
+                            <div class="success-actions">
+                                <button class="btn btn-primary" onclick="window.location.href='index.html'">
+                                    <i class="fas fa-home"></i>
+                                    Go to Homepage
+                                </button>
+                                <button class="btn btn-secondary" onclick="window.location.href='help.html'">
+                                    <i class="fas fa-question-circle"></i>
+                                    Contact Support
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <button type="submit" class="search-btn">
-            GENERATE OTP(One Time Password)
-        </button>
-    </form>
-    <p style="margin-top: 25px;">Maximize your reach with your inventory live on most of the major platforms</p>
-    <div style="display: flex;">
-      <div class="mmt" style="height: 100px; width: 200px; background-image: url('makemytrip.png'); background-size: contain; background-repeat: no-repeat;"></div>
-      <div class="phonepe" style="height: 100px; width: 200px; background-image: url('Phonepe.png'); margin-top: 20px; background-size: contain; background-repeat: no-repeat;"></div>
-      <div class="gpay" style="height: 100px; width: 200px; background-image: url('gpay.jfif'); background-size: contain; background-repeat: no-repeat;"></div>
-      <div class="apay" style="height: 100px; width: 200px; background-image: url('amazonpay.png'); background-size: contain; background-repeat: no-repeat;"></div>
     </div>
-</div>
-    </div>
-  </section>
 
-
-
-
-<!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <div class="footer-logo">
-            <img src="WADIBUS.png" alt="ADIBUS" />
-            <h3>ADIBUS</h3>
-          </div>
-          <p>ADIBUS is the world's largest online bus ticket booking service trusted by over 25 million happy customers globally.</p>
-          <div class="social-links">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </div>
-        
-        <div class="footer-section">
-          <h4>About ADIBUS</h4>
-          <ul>
-            <li><a href="aboutus.html">About Us</a></li>
-            <li><a href="investorrelations.html">Investor Relations</a></li>
-            <li><a href="contactus.html">Contact Us</a></li>
-            <li><a href="careers.html">Careers</a></li>
-            <li><a href="values.html">Values</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-section">
-          <h4>Info</h4>
-          <ul>
-            <li><a href="tc.html">Terms & Conditions</a></li>
-            <li><a href="privacypolicy.html">Privacy Policy</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="busoperatorregistration.html">Bus Operator Registration</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-section">
-          <h4>Global Sites</h4>
-          <ul>
-            <li><a href="#">India</a></li>
-            <li><a href="#">Singapore</a></li>
-            <li><a href="#">Malaysia</a></li>
-            <li><a href="#">Indonesia</a></li>
-            <li><a href="#">Vietnam</a></li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2025 ADIBUS. All Rights Reserved.</p>
-      </div>
-    </div>
-  </footer>
-    </body>
+    <script src="auth.js"></script>
+    <script src="busoperatorregistration.js"></script>
+</body>
 </html>
