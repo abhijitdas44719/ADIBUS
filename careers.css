@@ -234,8 +234,9 @@ body {
     align-self: flex-start;
   }
 }
-
-
+@media { 
+   margin-top: 10px;
+}
 
 /* Footer */
 .footer {
