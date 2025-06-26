@@ -909,15 +909,6 @@ html {
   100% { transform: translateX(100%); }
 }
 
-    .section {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2rem;
-      color: #333;
-    }
-
     .fade-in-section {
       opacity: 0;
       transform: translateY(30px);
@@ -930,9 +921,4 @@ html {
       transform: translateY(0);
     }
 
-    .box {
-      background: white;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
+    
