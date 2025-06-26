@@ -9,18 +9,18 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Twilio configuration
-const twilio = require('twilio');
-const accountSid = process.env.AC05db29568ca686b81325c9ebdbb3ca83;
-const authToken = process.env.a7efb0eb7018a7780da61eb75e010914;
-const twilioPhoneNumber = process.env.+919477491613;
+// Infobip configuration
+const { Infobip, AuthType } = require('@infobip-api/sdk');
+const infobip = new Infobip({
+  baseUrl: process.env.INFOBIP_BASE_URL || 'https://api.infobip.com',
+  apiKey: process.env.INFOBIP_API_KEY,
+  authType: AuthType.ApiKey,
+});
 
-if (!accountSid || !authToken || !twilioPhoneNumber) {
-  console.error('❌ Missing Twilio credentials. Please check your .env file.');
+if (!process.env.INFOBIP_API_KEY || !process.env.INFOBIP_SENDER_ID) {
+  console.error('❌ Missing Infobip credentials. Please check your .env file.');
   process.exit(1);
 }
-
-const client = twilio(accountSid, authToken);
 
 // Security middleware
 app.use(helmet({
@@ -138,7 +138,6 @@ app.post('/api/send-otp', otpLimiter, async (req, res) => {
       }
       
       // For email, we'll simulate OTP for now
-      // In production, integrate with email service like SendGrid
       return res.status(400).json({
         success: false,
         error: 'Email OTP not implemented yet. Please use phone verification.'
@@ -165,15 +164,17 @@ app.post('/api/send-otp', otpLimiter, async (req, res) => {
     // Format phone number
     const formattedPhone = formatPhoneNumber(contact);
 
-    // Send SMS via Twilio
+    // Send SMS via Infobip
     try {
-      const message = await client.messages.create({
-        body: `Your ADIBUS verification code is: ${otp}. This code will expire in 10 minutes. Do not share this code with anyone.`,
-        from: twilioPhoneNumber,
-        to: formattedPhone
+      const smsResponse = await infobip.channels.sms.send({
+        messages: [{
+          destinations: [{ to: formattedPhone }],
+          from: process.env.INFOBIP_SENDER_ID,
+          text: `Your ADIBUS verification code is: ${otp}. This code will expire in 10 minutes. Do not share this code with anyone.`
+        }]
       });
 
-      console.log(`✅ SMS sent successfully to ${formattedPhone}. Message SID: ${message.sid}`);
+      console.log(`✅ SMS sent successfully to ${formattedPhone}. Message ID: ${smsResponse.messages[0].messageId}`);
 
       res.json({
         success: true,
@@ -182,26 +183,24 @@ app.post('/api/send-otp', otpLimiter, async (req, res) => {
         expiresIn: 600 // 10 minutes in seconds
       });
 
-    } catch (twilioError) {
-      console.error('❌ Twilio Error:', twilioError);
+    } catch (infobipError) {
+      console.error('❌ Infobip Error:', infobipError);
       
       // Remove OTP from storage if SMS failed
       otpStorage.delete(contact);
       
       let errorMessage = 'Failed to send SMS';
       
-      if (twilioError.code === 21211) {
+      if (infobipError.response?.status === 400) {
         errorMessage = 'Invalid phone number';
-      } else if (twilioError.code === 21614) {
-        errorMessage = 'Phone number is not valid for SMS';
-      } else if (twilioError.code === 21408) {
+      } else if (infobipError.response?.status === 403) {
         errorMessage = 'Permission denied for this phone number';
       }
 
       res.status(500).json({
         success: false,
         error: errorMessage,
-        details: process.env.NODE_ENV === 'development' ? twilioError.message : undefined
+        details: process.env.NODE_ENV === 'development' ? infobipError.message : undefined
       });
     }
 
@@ -321,13 +320,15 @@ app.post('/api/resend-otp', otpLimiter, async (req, res) => {
     const formattedPhone = formatPhoneNumber(contact);
 
     try {
-      const message = await client.messages.create({
-        body: `Your ADIBUS verification code is: ${otp}. This code will expire in 10 minutes. Do not share this code with anyone.`,
-        from: twilioPhoneNumber,
-        to: formattedPhone
+      const smsResponse = await infobip.channels.sms.send({
+        messages: [{
+          destinations: [{ to: formattedPhone }],
+          from: process.env.INFOBIP_SENDER_ID,
+          text: `Your ADIBUS verification code is: ${otp}. This code will expire in 10 minutes. Do not share this code with anyone.`
+        }]
       });
 
-      console.log(`✅ OTP resent successfully to ${formattedPhone}. Message SID: ${message.sid}`);
+      console.log(`✅ OTP resent successfully to ${formattedPhone}. Message ID: ${smsResponse.messages[0].messageId}`);
 
       res.json({
         success: true,
@@ -335,8 +336,8 @@ app.post('/api/resend-otp', otpLimiter, async (req, res) => {
         expiresIn: 600
       });
 
-    } catch (twilioError) {
-      console.error('❌ Twilio Resend Error:', twilioError);
+    } catch (infobipError) {
+      console.error('❌ Infobip Resend Error:', infobipError);
       
       res.status(500).json({
         success: false,
@@ -393,7 +394,7 @@ setInterval(() => {
 
 app.listen(PORT, () => {
   console.log(`🚀 ADIBUS Server running on port ${PORT}`);
-  console.log(`📱 Twilio SMS service initialized`);
+  console.log(`📱 Infobip SMS service initialized`);
   console.log(`🔐 OTP verification endpoints ready`);
   console.log(`🌐 Visit http://localhost:${PORT} to access the website`);
 });
