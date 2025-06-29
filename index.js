@@ -301,13 +301,17 @@ const handleScroll = debounce(function() {
 }, 10);
 
 window.addEventListener('scroll', handleScroll);
-    document.addEventListener("DOMContentLoaded", function () {
+    
+
+   document.addEventListener("DOMContentLoaded", function () {
       const sections = document.querySelectorAll(".fade-in-section");
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
+          } else {
+            entry.target.classList.remove("visible");
           }
         });
       }, { threshold: 0.1 });
