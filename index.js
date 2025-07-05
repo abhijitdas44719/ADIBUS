@@ -314,7 +314,7 @@ window.addEventListener('scroll', handleScroll);
             entry.target.classList.remove("visible");
           }
         });
-      }, { threshold: 0.25 });
+      }, { threshold: 0.05 });
 
       sections.forEach(section => {
         observer.observe(section);
