@@ -514,13 +514,23 @@ html {
   font-size: 20px;
   cursor: pointer;
 }
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      will-change: opacity, transform;
+    }
 
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
           </style>
       </head>
       <body>
             <!-- Navigation -->
-  <nav class="navbar scrolled" style="background: rgba(255, 255, 255, 0.98); box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 20px;">
+  <nav class="navbar scrolled fade-in-section" style="background: rgba(255, 255, 255, 0.98); box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 20px;">
     <div class="nav-container">
       <div class="nav-logo">
         <img src="ADIBUS.png" alt="ADIBUS">
@@ -572,7 +582,7 @@ html {
           <h2 align="center">Cancel your Ticket</h2>
 
 
-<main class="main-content">
+<main class="main-content fade-in-section">
     <div class="container">
       <div class="section-header">
         <h2>Cancel Your Ticket</h2>
@@ -979,6 +989,23 @@ const handleScroll = debounce(function() {
 }, 10);
 
 window.addEventListener('scroll', handleScroll);
+   document.addEventListener("DOMContentLoaded", function () {
+      const sections = document.querySelectorAll(".fade-in-section");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          } else {
+            entry.target.classList.remove("visible");
+          }
+        });
+      }, { threshold: 0.05 });
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
           </script>
       </body>
   </html>
