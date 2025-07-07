@@ -525,6 +525,15 @@ html {
       opacity: 1;
       transform: translateY(0);
     }
+            .zoom-input {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .zoom-input:focus {
+      transform: scale(1.1);
+      box-shadow: 0 0 8px rgba(0,123,255,0.6);
+      outline: none;
+    }
 
           </style>
       </head>
@@ -595,7 +604,7 @@ html {
             <label>Ticket Number</label>
             <div class="input-wrapper">
               <i class="fas fa-ticket-alt"></i>
-              <input type="text" placeholder="Enter your ticket number" />
+              <input type="text" class="zoom-input" placeholder="Enter your ticket number" />
             </div>
           </div>
           
@@ -603,7 +612,7 @@ html {
             <label>Mobile Number</label>
             <div class="input-wrapper">
               <i class="fas fa-mobile-alt"></i>
-              <input type="text" placeholder="Enter registered mobile number" />
+              <input type="text"class="zoom-input" placeholder="Enter registered mobile number" />
             </div>
           </div>
         </div>
@@ -613,7 +622,7 @@ html {
             <label>Email Address</label>
             <div class="input-wrapper">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Enter your email address" />
+              <input type="email"class="zoom-input" placeholder="Enter your email address" />
             </div>
           </div>
         </div>
