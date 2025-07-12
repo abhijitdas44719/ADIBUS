@@ -449,7 +449,144 @@ html {
   </nav>
 
 
+<div class="mainpart" style="background: linear-gradient(135deg, #f8fafc 0%, #ffe5e5 100%); min-height: 100vh; padding-top: 90px;">
+  <div style="
+    max-width: 950px;
+    margin: 0 auto 40px auto;
+    background: rgba(255,255,255,0.92);
+    border-radius: 28px;
+    box-shadow: 0 8px 40px rgba(211,47,47,0.18), 0 2px 8px rgba(0,0,0,0.10);
+    padding: 48px 40px 40px 40px;
+    backdrop-filter: blur(4px);
+    position: relative;
+    overflow: hidden;
+  ">
+    
+    <h2 style="color:#d32f2f; font-size:2.5rem; font-weight:800; margin-bottom:22px; text-align:center; letter-spacing:1px; z-index:1; position:relative;">
+      Investor Relations
+      <span style="display:block;font-size:1.1rem;color:#d32f2f99;font-weight:500;margin-top:6px;">Empowering Growth & Innovation</span>
+    </h2>
+    <p style="font-size:1.15rem; color:#444; margin-bottom:32px; text-align:center; z-index:1; position:relative;">
+      Welcome to ADIBUS Investor Relations. Explore our vision for the future, access exclusive opportunities, and join us in revolutionizing travel and transport.
+    </p>
+    <div style="display:flex; flex-wrap:wrap; gap:32px; justify-content:center; margin-bottom:36px; z-index:1; position:relative;">
+      <div style="flex:1 1 340px; background:linear-gradient(120deg,#fff 80%,#ffe5e5 100%); border-radius:18px; box-shadow:0 2px 16px #d32f2f22; padding:24px;">
+        <h3 style="color:#d32f2f; font-size:1.3rem; font-weight:700; margin-bottom:12px;">Financial Reports</h3>
+        <p style="color:#555;">Annual & quarterly statements, investor presentations, and performance highlights at your fingertips.</p>
+      </div>
+      <div style="flex:1 1 340px; background:linear-gradient(120deg,#fff 80%,#ffe5e5 100%); border-radius:18px; box-shadow:0 2px 16px #d32f2f22; padding:24px;">
+        <h3 style="color:#d32f2f; font-size:1.3rem; font-weight:700; margin-bottom:12px;">Corporate Governance</h3>
+        <p style="color:#555;">Meet our leadership, board, and discover our commitment to ethical business practices.</p>
+      </div>
+      <div style="flex:1 1 340px; background:linear-gradient(120deg,#fff 80%,#ffe5e5 100%); border-radius:18px; box-shadow:0 2px 16px #d32f2f22; padding:24px;">
+        <h3 style="color:#d32f2f; font-size:1.3rem; font-weight:700; margin-bottom:12px;">Shareholder Information</h3>
+        <p style="color:#555;">Shareholding patterns, dividends, and direct investor support for your queries.</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:32px; justify-content:center; margin-bottom:36px; z-index:1; position:relative;">
+      <div style="flex:1 1 340px; background:linear-gradient(120deg,#fff 80%,#ffe5e5 100%); border-radius:18px; box-shadow:0 2px 16px #d32f2f22; padding:24px;">
+        <h3 style="color:#d32f2f; font-size:1.3rem; font-weight:700; margin-bottom:12px;">Growth Strategy</h3>
+        <p style="color:#555;">Our roadmap for expansion, innovation, and sustainable growth in travel and transport.</p>
+      </div>
+      <div style="flex:1 1 340px; background:linear-gradient(120deg,#fff 80%,#ffe5e5 100%); border-radius:18px; box-shadow:0 2px 16px #d32f2f22; padding:24px;">
+        <h3 style="color:#d32f2f; font-size:1.3rem; font-weight:700; margin-bottom:12px;">Multi-Purpose Opportunities</h3>
+        <ul style="color:#555; margin-left:18px; margin-bottom:0;">
+          <li>Exclusive investor webinars & Q&A with ADIBUS leadership</li>
+          <li>Market research, industry insights, and analytics</li>
+          <li>Equity, bonds, and partnership investment options</li>
+          <li>Online dashboard to track investments & returns</li>
+          <li>Updates on new projects, tech, and sustainability</li>
+        </ul>
+      </div>
+    </div>
+    <div style="background:linear-gradient(120deg,#fff 80%,#ffe5e5 100%); border-radius:18px; box-shadow:0 2px 16px #d32f2f22; padding:32px; margin-bottom:32px; z-index:1; position:relative;">
+      <h3 style="color:#d32f2f; font-size:1.3rem; font-weight:700; margin-bottom:18px; text-align:center;">Invest Now</h3>
+      <!-- PhonePe Payment Gateway (UPI) -->
+      <form id="investForm" style="margin-top:10px; display:flex; flex-direction:column; gap:14px; max-width:400px; margin:0 auto;" onsubmit="return false;">
+        <label for="investorName" style="font-weight:500;">Name:</label>
+        <input type="text" id="investorName" name="investorName" required style="padding:10px; border-radius:8px; border:1px solid #d32f2f44; font-size:1rem;">
+        <label for="investorEmail" style="font-weight:500;">Email:</label>
+        <input type="email" id="investorEmail" name="investorEmail" required style="padding:10px; border-radius:8px; border:1px solid #d32f2f44; font-size:1rem;">
+        <label for="amount" style="font-weight:500;">Investment Amount (INR):</label>
+        <input type="number" id="amount" name="amount" min="1" required style="padding:10px; border-radius:8px; border:1px solid #d32f2f44; font-size:1rem;">
+        <button type="button" onclick="payWithRazorpay()" style="background:linear-gradient(90deg,#d32f2f 70%,#f44336 100%); color:#fff; border:none; border-radius:8px; padding:12px 0; font-weight:700; font-size:1.1rem; cursor:pointer; box-shadow:0 2px 8px #d32f2f33;">Pay via Razorpay (Test)</button>
+      </form>
+      <div id="paymentSlip" style="display:none; margin-top:24px; background:#fff; border-radius:12px; box-shadow:0 2px 12px #d32f2f22; padding:24px; max-width:400px; margin:24px auto 0 auto; text-align:center;">
+        <h4 style="color:#d32f2f; margin-bottom:12px;">Payment Successful</h4>
+        <div id="slipDetails" style="color:#444; font-size:1.05rem; margin-bottom:10px;"></div>
+        <div style="color:#888; font-size:0.95rem;">Thank you for investing with ADIBUS!</div>
+        <button id="downloadSlipBtn" style="margin-top:18px; background:#d32f2f; color:#fff; border:none; border-radius:6px; padding:10px 24px; font-weight:600; cursor:pointer;">Download Slip</button>
+      </div>
+      <span style="display:block; margin-top:12px; color:#888; font-size:1rem; text-align:center;">Your investment is secured and processed through trusted payment gateways.</span>
+      <!-- Razorpay Test Payment Gateway Script -->
+      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+      <script>
+        function payWithRazorpay() {
+          var name = document.getElementById('investorName').value;
+          var email = document.getElementById('investorEmail').value;
+          var amount = document.getElementById('amount').value;
+          if (!name || !email || !amount || amount < 1) {
+            alert('Please fill all fields and enter a valid amount.');
+            return;
+          }
+          var options = {
+            "key": "rzp_test_1DP5mmOlF5G5ag", // Razorpay test key
+            "amount": amount * 100, // Amount in paise
+            "currency": "INR",
+            "name": "ADIBUS Investment",
+            "description": "Investor Payment (Test Mode)",
+            "handler": function (response){
+              showPaymentSlip(name, email, amount, response.razorpay_payment_id);
+            },
+            "prefill": {
+              "name": name,
+              "email": email
+            },
+            "theme": {
+              "color": "#d32f2f"
+            }
+          };
+          var rzp1 = new Razorpay(options);
+          rzp1.open();
+        }
 
+        function showPaymentSlip(name, email, amount, paymentId) {
+          var slip = document.getElementById('paymentSlip');
+          var details = document.getElementById('slipDetails');
+          details.innerHTML =
+            "<b>Name:</b> " + name + "<br>" +
+            "<b>Email:</b> " + email + "<br>" +
+            "<b>Amount:</b> ₹" + amount + "<br>" +
+            "<b>Payment ID:</b> " + paymentId;
+          slip.style.display = "block";
+          document.getElementById('downloadSlipBtn').onclick = function() {
+            downloadSlip(name, email, amount, paymentId);
+          };
+        }
+
+        function downloadSlip(name, email, amount, paymentId) {
+          var content =
+            "ADIBUS Investment Payment Slip\n\n" +
+            "Name: " + name + "\n" +
+            "Email: " + email + "\n" +
+            "Amount: ₹" + amount + "\n" +
+            "Payment ID: " + paymentId + "\n" +
+            "Thank you for investing with ADIBUS!";
+          var blob = new Blob([content], { type: "text/plain" });
+          var link = document.createElement("a");
+          link.href = window.URL.createObjectURL(blob);
+          link.download = "ADIBUS_Payment_Slip.txt";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
+      </script>
+    </div>
+    <p style="font-size:1.05rem; color:#666; text-align:center; z-index:1; position:relative;">
+      For further information or investor queries, please contact us at <a href="mailto:investors@adibus.com" style="color:#d32f2f; text-decoration:underline;">investors@adibus.com</a>
+    </p>
+  </div>
+</div>
 
 
 <!-- Footer -->
