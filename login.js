@@ -91,14 +91,36 @@ class LoginSystem {
         e.target.value = e.target.value.replace(/[^0-9]/g, '');
       });
     }
+
+    // Email validation
+    const emailInput = document.getElementById('email-address');
+    if (emailInput) {
+      emailInput.addEventListener('input', (e) => {
+        this.validateEmail(e.target);
+      });
+    }
+  }
+
+  validateEmail(input) {
+    const email = input.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (email && !emailRegex.test(email)) {
+      input.style.borderColor = '#f44336';
+    } else {
+      input.style.borderColor = '#e0e0e0';
+    }
   }
 
   checkExistingSession() {
     try {
       const userData = localStorage.getItem('adibus_user');
       if (userData) {
-        // User is already logged in, redirect to home
-        window.location.href = 'index.html';
+        const user = JSON.parse(userData);
+        if (user.isLoggedIn) {
+          // User is already logged in, redirect to home
+          window.location.href = 'index.html';
+        }
       }
     } catch (error) {
       console.error('Session check error:', error);
@@ -136,14 +158,14 @@ class LoginSystem {
 
       let contact = '';
       if (this.authMethod === 'phone') {
-        const countryCode = document.getElementById('country-code')?.value || '+1';
+        const countryCode = document.getElementById('country-code')?.value || '+91';
         const phoneNumber = document.getElementById('phone-number')?.value || '';
         
         if (!phoneNumber || phoneNumber.length < 10) {
           throw new Error('Please enter a valid phone number (minimum 10 digits)');
         }
         
-        contact = countryCode + phoneNumber;
+        contact = phoneNumber; // Send without country code to backend
       } else {
         const email = document.getElementById('email-address')?.value || '';
         
@@ -156,26 +178,30 @@ class LoginSystem {
 
       this.userContact = contact;
       
-      // Simulate API call (replace with actual fetch)
-      console.log(`Sending OTP to ${contact} via ${this.authMethod}`);
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Mock response
-      const mockResponse = {
-        ok: true,
-        maskedContact: this.maskContact(contact)
-      };
+      // Call backend API to send OTP
+      const response = await fetch('/api/send-otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          contact: contact,
+          method: this.authMethod
+        })
+      });
 
-      if (!mockResponse.ok) {
-        throw new Error('Failed to send OTP');
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send OTP');
       }
 
-      this.showSuccess('auth-success', `OTP sent successfully to ${mockResponse.maskedContact}`);
+      this.showSuccess('auth-success', `OTP sent successfully to ${data.maskedContact}`);
       
       setTimeout(() => {
         const contactDisplay = document.getElementById('contact-display');
         if (contactDisplay) {
-          contactDisplay.textContent = mockResponse.maskedContact;
+          contactDisplay.textContent = data.maskedContact;
         }
         this.goToStep('step-otp-verification');
         this.startResendTimer();
@@ -206,17 +232,22 @@ class LoginSystem {
         throw new Error('Please enter the complete 6-digit OTP');
       }
 
-      // Simulate API call (replace with actual fetch)
-      console.log(`Verifying OTP for ${this.userContact}`);
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Mock response
-      const mockResponse = {
-        ok: true
-      };
+      // Call backend API to verify OTP
+      const response = await fetch('/api/verify-otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          contact: this.userContact,
+          otp: enteredOTP
+        })
+      });
 
-      if (!mockResponse.ok) {
-        throw new Error('Invalid OTP');
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Invalid OTP');
       }
 
       // Check if user exists
@@ -249,17 +280,21 @@ class LoginSystem {
 
   async resendOTP() {
     try {
-      // Simulate API call (replace with actual fetch)
-      console.log(`Resending OTP to ${this.userContact}`);
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Mock response
-      const mockResponse = {
-        ok: true
-      };
+      // Call backend API to resend OTP
+      const response = await fetch('/api/resend-otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          contact: this.userContact
+        })
+      });
 
-      if (!mockResponse.ok) {
-        throw new Error('Failed to resend OTP');
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to resend OTP');
       }
       
       this.showSuccess('otp-success', 'OTP resent successfully!');
@@ -387,20 +422,6 @@ class LoginSystem {
     if (firstInput) firstInput.focus();
   }
 
-  maskContact(contact) {
-    if (contact.includes('@')) {
-      // Email
-      const [username, domain] = contact.split('@');
-      const maskedUsername = username.charAt(0) + '*'.repeat(Math.max(0, username.length - 2)) + (username.length > 1 ? username.charAt(username.length - 1) : '');
-      return maskedUsername + '@' + domain;
-    } else {
-      // Phone
-      return contact.length > 6 
-        ? contact.slice(0, 3) + '****' + contact.slice(-3)
-        : '******';
-    }
-  }
-
   isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -480,20 +501,3 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('Initialization error:', error);
   }
 });
-   document.addEventListener("DOMContentLoaded", function () {
-      const sections = document.querySelectorAll(".fade-in-section");
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          } else {
-            entry.target.classList.remove("visible");
-          }
-        });
-      }, { threshold: 0.05 });
-
-      sections.forEach(section => {
-        observer.observe(section);
-      });
-    });
