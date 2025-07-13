@@ -320,10 +320,31 @@
         height: 45px;
       }
     }
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      will-change: opacity, transform;
+    }
+
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .zoom-input {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .zoom-input:focus {
+      transform: scale(1.1);
+      box-shadow: 0 0 8px rgba(0,123,255,0.6);
+      outline: none;
+    }
+
   </style>
 </head>
 <body>
-  <div class="login-container">
+  <div class="login-container fade-in-section">
     <div class="login-header">
       <img src="ADIBUS.png" alt="ADIBUS" />
       <h1>Welcome to ADIBUS</h1>
@@ -359,7 +380,7 @@
                 <option value="+86">+86</option>
                 <option value="+81">+81</option>
               </select>
-              <input type="tel" class="phone-input" id="phone-number" placeholder="Enter your phone number" maxlength="10" />
+              <input type="tel" class="phone-input zoom-input" id="phone-number" placeholder="Enter your phone number" maxlength="10" />
             </div>
           </div>
         </div>
@@ -370,7 +391,7 @@
             <label>Email Address</label>
             <div class="input-wrapper">
               <i class="fas fa-envelope"></i>
-              <input type="email" id="email-address" placeholder="Enter your email address" />
+              <input type="email" id="email-address" class="zoom-input" placeholder="Enter your email address" />
             </div>
           </div>
         </div>
