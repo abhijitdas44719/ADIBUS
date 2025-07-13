@@ -394,6 +394,16 @@ html {
 .wishlist-btn.active i {
   font-weight: 900;
 }
+    .zoom-input {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .zoom-input:focus {
+      transform: scale(1.1);
+      box-shadow: 0 0 8px rgba(0,123,255,0.6);
+      outline: none;
+    }
+
         </style>
     </head>
     <body>
@@ -504,11 +514,11 @@ html {
       <!-- PhonePe Payment Gateway (UPI) -->
       <form id="investForm" style="margin-top:10px; display:flex; flex-direction:column; gap:14px; max-width:400px; margin:0 auto;" onsubmit="return false;">
         <label for="investorName" style="font-weight:500;">Name:</label>
-        <input type="text" id="investorName" name="investorName" required style="padding:10px; border-radius:8px; border:1px solid #d32f2f44; font-size:1rem;">
+        <input type="text" class="zoom-input" id="investorName" name="investorName" required style="padding:10px; border-radius:8px; border:1px solid #d32f2f44; font-size:1rem;">
         <label for="investorEmail" style="font-weight:500;">Email:</label>
-        <input type="email" id="investorEmail" name="investorEmail" required style="padding:10px; border-radius:8px; border:1px solid #d32f2f44; font-size:1rem;">
+        <input type="email" class="zoom-input" id="investorEmail" name="investorEmail" required style="padding:10px; border-radius:8px; border:1px solid #d32f2f44; font-size:1rem;">
         <label for="amount" style="font-weight:500;">Investment Amount (INR):</label>
-        <input type="number" id="amount" name="amount" min="1" required style="padding:10px; border-radius:8px; border:1px solid #d32f2f44; font-size:1rem;">
+        <input type="number" class="zoom-input" id="amount" name="amount" min="1" required style="padding:10px; border-radius:8px; border:1px solid #d32f2f44; font-size:1rem;">
         <button type="button" onclick="payWithRazorpay()" style="background:linear-gradient(90deg,#d32f2f 70%,#f44336 100%); color:#fff; border:none; border-radius:8px; padding:12px 0; font-weight:700; font-size:1.1rem; cursor:pointer; box-shadow:0 2px 8px #d32f2f33;">Pay via Razorpay (Test)</button>
       </form>
       <div id="paymentSlip" style="display:none; margin-top:24px; background:#fff; border-radius:12px; box-shadow:0 2px 12px #d32f2f22; padding:24px; max-width:400px; margin:24px auto 0 auto; text-align:center;">
