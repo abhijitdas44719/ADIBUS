@@ -1036,3 +1036,19 @@ html {
     
   }
 }
+
+span > h1 {
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.alert {
+  color: #fca903;
+ 
+}
+
+article{
+  font-size: 40px;
+  color: white;
+  top: 0px;
+}
