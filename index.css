@@ -1000,3 +1000,39 @@ html {
   color: white;
   text-decoration: none;
 }
+
+@media (max-width: 480px) {
+  .mobile_background {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .mobile_border {
+    
+    height: auto;
+  }
+
+  .screen {
+    width: 100%;
+    
+  }
+}
+
+@media (max-width: 786px) {
+  .mobile_background {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .mobile_border {
+    
+    height: auto;
+  }
+
+  .screen {
+    width: 100%;
+    
+  }
+}
