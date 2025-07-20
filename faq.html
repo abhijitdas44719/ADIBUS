@@ -1,119 +1,115 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>ADIBUS</title>
-        <style>
-            .e-card {
-  margin: 100px auto;
-  background: violet;
-  box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
-  position: relative;
-  width: 250px;
-  height: 200px;
-  border-radius: 16px;
-  overflow: hidden;
-}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bus Booking - FAQ</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 20px;
+    }
 
-.wave {
-  position: absolute;
-  width: 500px;
-  height: 700px;
-  opacity: 0.6;
-  left: 0;
-  top: 0;
-  margin-left: -40%;
-  margin-top: -20%;
-  background: linear-gradient(744deg,#af40ff,#5b42f3 60%,#00ddeb);
-}
+    .faq-container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
 
-.icon {
-  width: 3em;
-  margin-top: -1em;
-  padding-bottom: 1em;
-}
+    .faq-title {
+      text-align: center;
+      margin-bottom: 20px;
+      color:red;
+    }
 
-.infotop {
-  text-align: center;
-  font-size: 20px;
-  position: absolute;
-  top: 5.6em;
-  left: 0;
-  right: 0;
-  color: rgb(255, 255, 255);
-  font-weight: 600;
-}
+    .faq-item {
+      border-bottom: 1px solid #ccc;
+      padding: 15px 0;
+    }
 
-.name {
-  font-size: 14px;
-  font-weight: 100;
-  position: relative;
-  top: 1em;
-  text-transform: lowercase;
-}
+    .faq-question {
+      font-weight: bold;
+      color:red;
+      cursor: pointer;
+      position: relative;
+      padding-right: 25px;
+    }
 
-.wave:nth-child(2),
-.wave:nth-child(3) {
-  top: 210px;
-}
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 20px;
+      transition: transform 0.3s;
+    }
 
-.playing .wave {
-  border-radius: 40%;
-  animation: wave 3000ms infinite linear;
-}
+    .faq-question.active::after {
+      content: '-';
+    }
 
-.wave {
-  border-radius: 40%;
-  animation: wave 55s infinite linear;
-}
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      font-size: 15px;
+      padding-top: 8px;
+      color: #555;
+    }
 
-.playing .wave:nth-child(2) {
-  animation-duration: 4000ms;
-}
+    .faq-answer.open {
+      max-height: 200px; /* adjust as needed */
+    }
+  </style>
+</head>
+<body>
 
-.wave:nth-child(2) {
-  animation-duration: 50s;
-}
+  <div class="faq-container">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
 
-.playing .wave:nth-child(3) {
-  animation-duration: 5000ms;
-}
+    <div class="faq-item">
+      <div class="faq-question">How do I book a bus ticket?</div>
+      <div class="faq-answer">Go to our homepage, select your route and date, and follow the on-screen instructions to book your ticket.</div>
+    </div>
 
-.wave:nth-child(3) {
-  animation-duration: 45s;
-}
+    <div class="faq-item">
+      <div class="faq-question">Can I cancel or reschedule my ticket?</div>
+      <div class="faq-answer">Yes, you can cancel or reschedule by logging into your account and accessing 'My Bookings'. Cancellation fees may apply.</div>
+    </div>
 
-@keyframes wave {
-  0% {
-    transform: rotate(0deg);
-  }
+    <div class="faq-item">
+      <div class="faq-question">What payment methods are accepted?</div>
+      <div class="faq-answer">We accept credit/debit cards, UPI, net banking, and popular wallets like Paytm, PhonePe, and Google Pay.</div>
+    </div>
 
-  100% {
-    transform: rotate(360deg);
-  }
-}
-        </style>
-    </head>
-    <body>
-        <p style="font-size: 100px; text-align: center; ">404</p>
-        <p style="font-size: 20px; text-align: center; margin-top: -100px;">Page Not Found</p>
-        <div style="display: flex; margin-left: 20%; margin-right: 20%;">
-            <p style="font-size: 120px; text-align: center; color: rgb(239, 51, 22); margin-bottom: -100px;">ADIBUS</p>
-            <div class="e-card playing">
-                <div class="image"></div>
-  
-                <div class="wave"></div>
-                <div class="wave"></div>
-                <div class="wave"></div>
-  
+    <div class="faq-item">
+      <div class="faq-question">Will I get a refund if I cancel the ticket?</div>
+      <div class="faq-answer">Refunds depend on the cancellation policy of the bus operator. The refund amount will be shown before you confirm cancellation.</div>
+    </div>
 
-                <div class="infotop">
+    <div class="faq-item">
+      <div class="faq-question">How do I contact customer support?</div>
+      <div class="faq-answer">You can reach us via our 24/7 chat support or call our helpline at 1800-123-4567.</div>
+    </div>
+  </div>
 
-          
-                    NOW IN DEVELOPMENT
-                    <br>
-                    <div class="name"></div>
-                </div>
-            </div>
-        </div>
-    </body>
+  <script>
+    const questions = document.querySelectorAll('.faq-question');
+
+    questions.forEach(q => {
+      q.addEventListener('click', () => {
+        const answer = q.nextElementSibling;
+        q.classList.toggle('active');
+        answer.classList.toggle('open');
+      });
+    });
+  </script>
+
+</body>
 </html>
+
