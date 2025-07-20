@@ -80,6 +80,57 @@
   </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav class="navbar fade-in-section">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="ADIBUS.png" alt="ADIBUS" />
+        <span>ADIBUS</span>
+      </div>
+      
+      <div class="nav-menu" id="nav-menu">
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link">
+            <i class="fas fa-bus"></i>
+            Bus Tickets
+            <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-content">
+            <a href="cancellation.html"><i class="fas fa-times-circle"></i>Cancellation</a>
+            <a href="ctdate.html"><i class="fas fa-calendar-alt"></i>Change Travel Date</a>
+            <a href="showmyticket.html"><i class="fas fa-ticket-alt"></i>Show My Ticket</a>
+            <a href="email.html"><i class="fas fa-envelope"></i>Email Ticket</a>
+          </div>
+        </div>
+        <a href="hotels.html" class="nav-link">
+          <i class="fas fa-hotel"></i>
+          Hotels
+        </a>
+        <a href="offers.html" class="nav-link">
+          <i class="fas fa-tags"></i>
+          Offers
+        </a>
+        <a href="help.html" class="nav-link">
+          <i class="fas fa-question-circle"></i>
+          Help
+        </a>
+      </div>
+      
+      <div class="nav-auth">
+        <button class="login-btn">
+          <i class="fas fa-user"></i>
+          Login
+        </button>
+      </div>
+      
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+  
   <section class="fade-in-section">
   <div class="faq-container">
     <h2 class="faq-title">Frequently Asked Questions</h2>
@@ -110,6 +161,64 @@
     </div>
   </div>
   </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="WADIBUS.png" alt="ADIBUS" />
+            <h3>ADIBUS</h3>
+          </div>
+          <p>ADIBUS is the world's largest online bus ticket booking service trusted by over 25 million happy customers globally.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>About ADIBUS</h4>
+          <ul>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="investorrelations.html">Investor Relations</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="values.html">Values</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Info</h4>
+          <ul>
+            <li><a href="tc.html">Terms & Conditions</a></li>
+            <li><a href="privacypolicy.html">Privacy Policy</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="busoperatorregistration.html">Bus Operator Registration</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Global Sites</h4>
+          <ul>
+            <li><a href="#">India</a></li>
+            <li><a href="#">Singapore</a></li>
+            <li><a href="#">Malaysia</a></li>
+            <li><a href="#">Indonesia</a></li>
+            <li><a href="#">Vietnam</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 ADIBUS. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
 
   <script>
     const questions = document.querySelectorAll('.faq-question');
