@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponsorship - Bus Booking</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    /* Hero */
+    .hero {
+      background: #0073e6;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    /* Sponsorship Section */
+    .sponsorship {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+    .sponsorship h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+    .tiers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .tier {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 25px;
+      text-align: center;
+      border-top: 5px solid #ccc;
+    }
+    .tier h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    .tier p {
+      font-size: 15px;
+      margin-bottom: 20px;
+      color: #555;
+    }
+    .price {
+      font-size: 26px;
+      font-weight: bold;
+      color: #0073e6;
+      margin-bottom: 20px;
+    }
+    .tier ul {
+      text-align: left;
+      margin: 0 auto 25px;
+      padding: 0;
+      list-style: none;
+      max-width: 220px;
+    }
+    .tier ul li {
+      margin-bottom: 8px;
+      padding-left: 18px;
+      position: relative;
+    }
+    .tier ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: green;
+    }
+    .tier a {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .bronze {
+      border-color: #d4af37;
+    }
+    .bronze a {
+      background: #d4af37;
+      color: white;
+    }
+    .bronze a:hover {
+      background: #b9972b;
+    }
+    .silver {
+      border-color: #999;
+    }
+    .silver a {
+      background: #666;
+      color: white;
+    }
+    .silver a:hover {
+      background: #444;
+    }
+    .gold {
+      border-color: #ffcc00;
+    }
+    .gold a {
+      background: #ffcc00;
+      color: black;
+    }
+    .gold a:hover {
+      background: #e6b800;
+    }
+    /* Contact Section */
+    .contact {
+      background: #0073e6;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      margin-top: 50px;
+    }
+    .contact h2 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+    .contact p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+    .contact a {
+      background: white;
+      color: #0073e6;
+      padding: 12px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .contact a:hover {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Partner with Us</h1>
+    <p>Support smart travel and showcase your brand to thousands of daily passengers.</p>
+  </section>
+
+  <!-- Sponsorship Plans -->
+  <section class="sponsorship">
+    <h2>Sponsorship Opportunities</h2>
+    <div class="tiers">
+
+      <!-- Bronze -->
+      <div class="tier bronze">
+        <h3>Bronze</h3>
+        <p>Get your logo featured on our website and app footer.</p>
+        <div class="price">₹10,000 / month</div>
+        <ul>
+          <li>Logo on Website</li>
+          <li>Mention in Newsletter</li>
+        </ul>
+        <a href="#contact">Choose Bronze</a>
+      </div>
+
+      <!-- Silver -->
+      <div class="tier silver">
+        <h3>Silver</h3>
+        <p>Feature your brand in app banners and booking emails.</p>
+        <div class="price">₹25,000 / month</div>
+        <ul>
+          <li>Everything in Bronze</li>
+          <li>Banner in App</li>
+          <li>Mention in Booking Emails</li>
+        </ul>
+        <a href="#contact">Choose Silver</a>
+      </div>
+
+      <!-- Gold -->
+      <div class="tier gold">
+        <h3>Gold</h3>
+        <p>Premium sponsorship with full visibility across platform.</p>
+        <div class="price">₹50,000 / month</div>
+        <ul>
+          <li>Everything in Silver</li>
+          <li>Logo on Bus Tickets</li>
+          <li>Exclusive Campaigns</li>
+        </ul>
+        <a href="#contact">Choose Gold</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Ready to Sponsor?</h2>
+    <p>Fill out our sponsorship form and our team will contact you shortly.</p>
+    <a href="mailto:sponsorship@busbooking.com">Contact Us</a>
+  </section>
+
+</body>
+</html>
