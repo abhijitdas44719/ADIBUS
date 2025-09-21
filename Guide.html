@@ -1,69 +1,225 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BusGo — User Guide</title>
-  <meta name="description" content="User guide for BusGo bus booking platform: how to search, book, manage bookings, payments, cancellations and support." />
+  <meta name="description"
+    content="User guide for BusGo bus booking platform: how to search, book, manage bookings, payments, cancellations and support." />
   <style>
-    :root{--bg:#f7f9fc;--card:#ffffff;--muted:#6b7280;--accent:#2563eb;--radius:12px}
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:var(--bg);color:#0f172a;line-height:1.6}
-    .container{max-width:980px;margin:28px auto;padding:20px}
-    header{display:flex;align-items:center;gap:16px}
-    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:grid;place-items:center;color:white;font-weight:800}
-    h1{margin:0;font-size:22px}
-    p.lead{color:var(--muted);margin-top:6px}
+    :root {
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --radius: 12px
+    }
 
-    nav.toc{margin-top:20px;background:var(--card);border-radius:var(--radius);padding:14px;border:1px solid #e6eefb}
-    nav.toc h3{margin:0 0 8px}
-    nav.toc ul{padding-left:16px;margin:0}
-    nav.toc a{color:var(--accent);text-decoration:none}
+    * {
+      box-sizing: border-box
+    }
 
-    section.card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(13,27,60,.04);margin-top:18px;border:1px solid #eef6ff}
-    section.card h2{margin-top:0}
-    .step{display:flex;gap:12px;margin:12px 0}
-    .step .num{width:36px;height:36px;border-radius:8px;background:#eef3ff;color:var(--accent);display:grid;place-items:center;font-weight:700}
-    .muted{color:var(--muted)}
+    body {
+      font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: #0f172a;
+      line-height: 1.6
+    }
 
-    .grid-2{display:grid;grid-template-columns:1fr 320px;gap:18px}
-    .keyboard{font-family:monospace;background:#f3f6fb;padding:8px;border-radius:8px;border:1px solid #e6eefb}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px
+    }
 
-    table{width:100%;border-collapse:collapse;margin-top:10px}
-    table th,table td{padding:8px;border:1px solid #eef6ff;text-align:left}
-    .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none}
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px
+    }
 
-    footer{margin-top:28px;color:var(--muted);font-size:13px}
+    .logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), #60a5fa);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 800
+    }
 
-    @media (max-width:880px){.grid-2{grid-template-columns:1fr}nav.toc{position:sticky;top:0;z-index:5}}
+    h1 {
+      margin: 0;
+      font-size: 22px
+    }
+
+    p.lead {
+      color: var(--muted);
+      margin-top: 6px
+    }
+
+    nav.toc {
+      margin-top: 18px;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 14px;
+      border: 1px solid #e6eefb;
+      position: sticky;
+      top: 18px;
+    }
+
+    nav.toc h3 {
+      margin: 0 0 8px
+    }
+
+    nav.toc ul {
+      padding-left: 16px;
+      margin: 0
+    }
+
+    nav.toc a {
+      color: var(--accent);
+      text-decoration: none
+    }
+
+    section.card {
+      background: var(--card);
+      padding: 18px;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 18px rgba(13, 27, 60, .04);
+      margin-top: 18px;
+      border: 1px solid #eef6ff;
+    }
+
+    section.card h2 {
+      margin-top: 0
+    }
+
+    .step {
+      display: flex;
+      gap: 12px;
+      margin: 12px 0
+    }
+
+    .step .num {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: #eef3ff;
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      font-weight: 700
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .keyboard {
+      font-family: monospace;
+      background: #f3f6fb;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #e6eefb
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px
+    }
+
+    table th,
+    table td {
+      padding: 8px;
+      border: 1px solid #eef6ff;
+      text-align: left
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none
+    }
+
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    @media (max-width:1024px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+      h1 {
+        font-size: 20px;
+      }
+      .logo {
+        width: 48px;
+        height: 48px;
+      }
+    }
 
     /* Print-friendly tweaks */
-    @media print{
-      body{background:white}
-      nav.toc, .btn{display:none}
-      .container{max-width:100%;margin:0;padding:0}
+    @media print {
+      body {
+        background: white
+      }
+
+      nav.toc,
+      .btn {
+        display: none
+      }
+
+      .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0
+      }
     }
   </style>
   <script>
     // Smooth scroll for table of contents
-    document.addEventListener('DOMContentLoaded', ()=>{
-      document.querySelectorAll('a[href^="#"]').forEach(a=>{
-        a.addEventListener('click', e=>{
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
           const target = document.querySelector(a.getAttribute('href'));
-          if(target){e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'});}
+          if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
         })
       })
     })
 
-    function printGuide(){ window.print(); }
+    function printGuide() { window.print(); }
   </script>
 </head>
+
 <body>
   <div class="container">
     <header>
-      <div class="logo">🚍</div>
+      <div class="logo"><img style="height: 60px; width: 60px;" src="ADIBUS.png"></div>
       <div>
-        <h1>BusGo — User Guide</h1>
+        <h1><span style="color: #d32f2f;">ADIBUS</span> — User Guide</h1>
         <p class="lead">Step-by-step instructions to search, book, pay and manage your bus trips.</p>
       </div>
     </header>
@@ -72,12 +228,14 @@
       <main>
         <section id="getting-started" class="card">
           <h2>1. Getting started</h2>
-          <p class="muted">Create an account to save passengers, get offers, and manage bookings. You can also continue as a guest for quick bookings.</p>
+          <p class="muted">Create an account to save passengers, get offers, and manage bookings. You can also continue
+            as a guest for quick bookings.</p>
           <div class="step">
             <div class="num">1</div>
             <div>
               <strong>Sign up</strong>
-              <p class="muted">Tap <em>Sign up</em> and enter email or mobile. Verify via OTP. Set a password and complete your profile.</p>
+              <p class="muted">Tap <em>Sign up</em> and enter email or mobile. Verify via OTP. Set a password and
+                complete your profile.</p>
             </div>
           </div>
           <div class="step">
@@ -91,7 +249,8 @@
 
         <section id="search" class="card">
           <h2>2. Search routes</h2>
-          <p class="muted">Use the search bar on the homepage to enter origin, destination and travel date. Add return date for round trips.</p>
+          <p class="muted">Use the search bar on the homepage to enter origin, destination and travel date. Add return
+            date for round trips.</p>
           <ol>
             <li>Select origin and destination cities. Use the suggestions or enter city/station names.</li>
             <li>Choose departure date (and return date if needed).</li>
@@ -109,7 +268,8 @@
 
         <section id="select" class="card">
           <h2>3. Select a bus & seat</h2>
-          <p class="muted">After choosing a bus, select preferred seats from the seat map. Prices may vary by seat type (lower/upper, window/aisle).</p>
+          <p class="muted">After choosing a bus, select preferred seats from the seat map. Prices may vary by seat type
+            (lower/upper, window/aisle).</p>
           <div class="step">
             <div class="num">1</div>
             <div>
@@ -121,14 +281,16 @@
             <div class="num">2</div>
             <div>
               <strong>Passenger details</strong>
-              <p class="muted">Add passenger name(s), age, and gender. Save frequent passengers to your profile for faster bookings.</p>
+              <p class="muted">Add passenger name(s), age, and gender. Save frequent passengers to your profile for
+                faster bookings.</p>
             </div>
           </div>
         </section>
 
         <section id="payment" class="card">
           <h2>4. Payment</h2>
-          <p class="muted">We accept debit/credit cards, net banking, UPI and popular wallets. Payment is secured using industry-standard encryption.</p>
+          <p class="muted">We accept debit/credit cards, net banking, UPI and popular wallets. Payment is secured using
+            industry-standard encryption.</p>
           <h3>Steps to pay</h3>
           <ol>
             <li>Review fare breakdown: base fare, taxes, convenience fee.</li>
@@ -138,13 +300,15 @@
           <h3>Common payment issues</h3>
           <ul>
             <li class="muted">Transaction failed — check bank notifications, retry or try another method.</li>
-            <li class="muted">Amount debited but booking not confirmed — contact support with transaction reference.</li>
+            <li class="muted">Amount debited but booking not confirmed — contact support with transaction reference.
+            </li>
           </ul>
         </section>
 
         <section id="tickets" class="card">
           <h2>5. Ticket & boarding</h2>
-          <p class="muted">After successful payment, you’ll receive a confirmation email and SMS containing your ticket (e-ticket) and PNR/booking ID.</p>
+          <p class="muted">After successful payment, you’ll receive a confirmation email and SMS containing your ticket
+            (e-ticket) and PNR/booking ID.</p>
           <ul>
             <li>Show e-ticket or booking ID at boarding along with a valid photo ID.</li>
             <li>Some operators may require printed tickets—check your booking details.</li>
@@ -153,33 +317,56 @@
 
         <section id="manage" class="card">
           <h2>6. Manage bookings</h2>
-          <p class="muted">View upcoming and past trips from <em>My Bookings</em>. Actions may include view ticket, cancel, reschedule (if allowed), and download invoice.</p>
+          <p class="muted">View upcoming and past trips from <em>My Bookings</em>. Actions may include view ticket,
+            cancel, reschedule (if allowed), and download invoice.</p>
           <h3>Cancel & refund policy</h3>
-          <p class="muted">Cancellation rules vary by operator and fare type. Refund processing typically takes 3–7 business days after deduction of cancellation charges.</p>
+          <p class="muted">Cancellation rules vary by operator and fare type. Refund processing typically takes 3–7
+            business days after deduction of cancellation charges.</p>
           <table>
-            <thead><tr><th>When</th><th>Charge</th><th>Note</th></tr></thead>
+            <thead>
+              <tr>
+                <th>When</th>
+                <th>Charge</th>
+                <th>Note</th>
+              </tr>
+            </thead>
             <tbody>
-              <tr><td>More than 48 hrs before</td><td>10% or min ₹50</td><td>Higher refund</td></tr>
-              <tr><td>24–48 hrs before</td><td>25%</td><td>Moderate refund</td></tr>
-              <tr><td>Under 24 hrs</td><td>50% or no refund</td><td>Depends on operator</td></tr>
+              <tr>
+                <td>More than 48 hrs before</td>
+                <td>10% or min ₹50</td>
+                <td>Higher refund</td>
+              </tr>
+              <tr>
+                <td>24–48 hrs before</td>
+                <td>25%</td>
+                <td>Moderate refund</td>
+              </tr>
+              <tr>
+                <td>Under 24 hrs</td>
+                <td>50% or no refund</td>
+                <td>Depends on operator</td>
+              </tr>
             </tbody>
           </table>
         </section>
 
         <section id="offers" class="card">
           <h2>7. Offers & Coupons</h2>
-          <p class="muted">Apply coupon codes during checkout. Only one coupon may be applied per booking unless stated otherwise. Coupons have expiry and eligibility criteria.</p>
+          <p class="muted">Apply coupon codes during checkout. Only one coupon may be applied per booking unless stated
+            otherwise. Coupons have expiry and eligibility criteria.</p>
         </section>
 
         <section id="faq" class="card">
           <h2>8. FAQ</h2>
           <details>
             <summary>What IDs are accepted at boarding?</summary>
-            <p class="muted">Government-issued photo IDs: Aadhaar, Passport, Voter ID, Driving License; some operators accept college or company ID with photo.</p>
+            <p class="muted">Government-issued photo IDs: Aadhaar, Passport, Voter ID, Driving License; some operators
+              accept college or company ID with photo.</p>
           </details>
           <details>
             <summary>Can I change passenger name?</summary>
-            <p class="muted">Name changes are not allowed in most cases. Contact support for operator-specific exceptions.</p>
+            <p class="muted">Name changes are not allowed in most cases. Contact support for operator-specific
+              exceptions.</p>
           </details>
           <details>
             <summary>How long is my ticket valid?</summary>
@@ -191,8 +378,8 @@
           <h2>9. Contact & support</h2>
           <p class="muted">If you need help, reach out via:</p>
           <ul>
-            <li>Email: <strong>support@busgo.example</strong></li>
-            <li>Phone: <strong>+91 80 1234 5678</strong> (9:00–21:00 IST)</li>
+            <li>Email: <strong>support@adibus.com</strong></li>
+            <li>Phone: <strong>+91 82966 73724</strong> (9:00–21:00 IST)</li>
             <li>In-app chat: Open <em>Help</em> → <em>Chat with us</em></li>
           </ul>
           <p class="muted">For payment issues, provide booking ID and transaction reference for faster help.</p>
@@ -208,12 +395,31 @@
         </section>
 
       </main>
+      <aside>
+        <nav class="toc">
+          <h3>On this page</h3>
+          <ul>
+            <li><a href="#getting-started">1. Getting started</a></li>
+            <li><a href="#search">2. Search routes</a></li>
+            <li><a href="#select">3. Select a bus & seat</a></li>
+            <li><a href="#payment">4. Payment</a></li>
+            <li><a href="#tickets">5. Ticket & boarding</a></li>
+            <li><a href="#manage">6. Manage bookings</a></li>
+            <li><a href="#offers">7. Offers & Coupons</a></li>
+            <li><a href="#faq">8. FAQ</a></li>
+            <li><a href="#support">9. Contact & support</a></li>
+            <li><a href="#tips">10. Travel tips</a></li>
+          </ul>
+          <a href="javascript:printGuide()" class="btn" style="width:100%;text-align:center;margin-top:12px; color: white;">Print Full Guide</a>
+        </nav>
+      </aside>
     </div>
 
     <footer>
-      <p class="muted">This user guide is for the BusGo platform. Policies and features vary by operator and region—always check your booking confirmation for operator-specific rules.</p>
+      <p class="muted">This user guide is for the ADIBUS platform. Policies and features vary by operator and
+        region—always check your booking confirmation for operator-specific rules.</p>
     </footer>
   </div>
 </body>
-</html>
 
+</html>
