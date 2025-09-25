@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="https://media-hosting.imagekit.io/3a38ffeb7f3d489e/ChatGPT%20Image%20Apr%2018,%202025,%2003_11_14%20PM.png"
+        type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Safety Guidelines | City Transit Bus Service</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+            margin-top: 40px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 24px;
+            color: #d32f2f;
+        }
+
+        .nav-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #d32f2f;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 12px 0;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: #333;
+            transition: background 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: #d32f2f;
+        }
+
+        .login-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #d32f2f, #f44336);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.3);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            transition: 0.3s;
+        }
+
+        .page-title {
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+
+        .page-title h2 {
+            font-size: 2.5rem;
+            color: #d32f2f;
+            margin-bottom: 10px;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+        }
+
+        .safety-guidelines {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 30px 0 60px;
+        }
+
+        .guideline-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .guideline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            padding: 20px;
+            background: #d32f2f;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+        }
+
+        .card-header h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content ul {
+            list-style: none;
+        }
+
+        .card-content li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .card-content li:before {
+            content: "•";
+            color: #2e86c1;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .emergency-section {
+            background: #e8f4fc;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 40px 0;
+            border-left: 5px solid #e74c3c;
+        }
+
+        .emergency-section h3 {
+            color: #e74c3c;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .emergency-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .emergency-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .emergency-item h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .emergency-icon {
+            color: #e74c3c;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #d32f2f;
+        }
+
+        .footer-section p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #d32f2f;
+            transform: translateY(-2px);
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #d32f2f;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 50px;
+                transition: left 0.3s ease;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .swap-btn {
+                align-self: center;
+                margin: 0;
+            }
+
+            .search-card {
+                padding: 30px 20px;
+                margin: 0 20px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .features-grid,
+            .offers-slider,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .page-title h2 {
+                font-size: 2rem;
+            }
+
+            .safety-guidelines {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feature-card,
+        .offer-card,
+        .testimonial-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation for images */
+        .offer-image {
+            background-color: #f0f0f0;
+            position: relative;
+        }
+
+        .offer-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar fade-in-section">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="ADIBUS.png" alt="ADIBUS" />
+                <span>ADIBUS</span>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-bus"></i>
+                        Bus Tickets
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="cancellation.html"><i class="fas fa-times-circle"></i>Cancellation</a>
+                        <a href="ctdate.html"><i class="fas fa-calendar-alt"></i>Change Travel Date</a>
+                        <a href="showmyticket.html"><i class="fas fa-ticket-alt"></i>Show My Ticket</a>
+                        <a href="email.html"><i class="fas fa-envelope"></i>Email Ticket</a>
+                    </div>
+                </div>
+                <a href="hotels.html" class="nav-link">
+                    <i class="fas fa-hotel"></i>
+                    Hotels
+                </a>
+                <a href="offers.html" class="nav-link">
+                    <i class="fas fa-tags"></i>
+                    Offers
+                </a>
+                <a href="help.html" class="nav-link active">
+                    <i class="fas fa-question-circle"></i>
+                    Help
+                </a>
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+            </div>
+
+            <div class="nav-auth">
+                <button class="login-btn">
+                    <i class="fas fa-user"></i>
+                    Login
+                </button>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="page-title">
+            <h2>Safety Guidelines</h2>
+            <p>Your safety and the safety of our drivers is our top priority. Please review these guidelines to ensure a
+                safe journey for everyone.</p>
+        </section>
+
+        <section class="safety-guidelines">
+            <div class="guideline-card">
+                <div class="card-header">
+                    <div class="card-icon">🚏</div>
+                    <h3>At the Bus Stop</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Arrive at least 5 minutes before the scheduled departure time</li>
+                        <li>Wait on the sidewalk, well back from the curb</li>
+                        <li>Wear light-colored or reflective clothing at night</li>
+                        <li>Never cross the street directly in front of or behind a stopped bus</li>
+                        <li>Keep personal belongings close to you</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guideline-card">
+                <div class="card-header">
+                    <div class="card-icon">🚌</div>
+                    <h3>Boarding the Bus</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Allow passengers to exit before you board</li>
+                        <li>Have your fare, pass, or ticket ready before boarding</li>
+                        <li>Use handrails when climbing steps</li>
+                        <li>Secure large items like strollers or carts</li>
+                        <li>Move toward the rear of the bus to make room for others</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guideline-card">
+                <div class="card-header">
+                    <div class="card-icon">💺</div>
+                    <h3>While Onboard</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Remain seated whenever possible</li>
+                        <li>Wear seatbelts if available</li>
+                        <li>Keep aisles and exits clear at all times</li>
+                        <li>Hold handrails firmly if standing</li>
+                        <li>Be courteous to fellow passengers and the driver</li>
+                        <li>Use headphones for audio devices</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guideline-card">
+                <div class="card-header">
+                    <div class="card-icon">🚪</div>
+                    <h3>Exiting the Bus</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Signal your stop in advance by pulling the cord or pressing the button</li>
+                        <li>Remain seated until the bus comes to a complete stop</li>
+                        <li>Check for personal belongings before exiting</li>
+                        <li>Use handrails when going down the steps</li>
+                        <li>Wait for the bus to pull away before crossing the street</li>
+                        <li>Cross at designated crosswalks only</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guideline-card">
+                <div class="card-header">
+                    <div class="card-icon">🚫</div>
+                    <h3>Prohibited Items & Behaviors</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Smoking, vaping, or tobacco use of any kind</li>
+                        <li>Alcohol or illegal substances</li>
+                        <li>Flammable, explosive, or hazardous materials</li>
+                        <li>Weapons of any kind</li>
+                        <li>Unsecured animals (service animals welcome)</li>
+                        <li>Disruptive or abusive behavior</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guideline-card">
+                <div class="card-header">
+                    <div class="card-icon">♿</div>
+                    <h3>Special Assistance</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Priority seating for seniors and passengers with disabilities</li>
+                        <li>Wheelchair ramps and securement areas available</li>
+                        <li>Stop announcements for visually impaired passengers</li>
+                        <li>Ask the driver for assistance if needed</li>
+                        <li>Designated areas for strollers and mobility devices</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="emergency-section">
+            <h3><span class="emergency-icon">⚠️</span> Emergency Procedures</h3>
+            <div class="emergency-content">
+                <div class="emergency-item">
+                    <h4><span class="emergency-icon">🆘</span> In Case of Emergency</h4>
+                    <p>Stay calm and follow the driver's instructions. Emergency exits are located at the front, rear,
+                        and windows of the bus.</p>
+                </div>
+                <div class="emergency-item">
+                    <h4><span class="emergency-icon">📞</span> Emergency Contacts</h4>
+                    <p>For immediate assistance during your trip, speak to the driver. For general emergencies, call
+                        911.</p>
+                </div>
+                <div class="emergency-item">
+                    <h4><span class="emergency-icon">🧯</span> Emergency Equipment</h4>
+                    <p>Do not tamper with emergency hammers, fire extinguishers, or first-aid kits unless in a genuine
+                        emergency.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="WADIBUS.png" alt="ADIBUS" />
+                        <h3>ADIBUS</h3>
+                    </div>
+                    <p>ADIBUS is the world's largest online bus ticket booking service trusted by over 25 million happy
+                        customers globally.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>About ADIBUS</h4>
+                    <ul>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="investorrelations.html">Investor Relations</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="values.html">Values</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Info</h4>
+                    <ul>
+                        <li><a href="tc.html">Terms & Conditions</a></li>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="busoperatorregistration.html">Bus Operator Registration</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Global Sites</h4>
+                    <ul>
+                        <li><a href="#">India</a></li>
+                        <li><a href="#">Singapore</a></li>
+                        <li><a href="#">Malaysia</a></li>
+                        <li><a href="#">Indonesia</a></li>
+                        <li><a href="#">Vietnam</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 ADIBUS. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
