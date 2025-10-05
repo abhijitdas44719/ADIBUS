@@ -84,15 +84,16 @@ body {
   position: absolute;
   top: 100%;
   left: 0;
-  background: white;
+  background: rgb(99, 99, 99);
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   padding: 12px 0;
   min-width: 220px;
-  opacity: 0;
+  opacity:1;
   visibility: hidden;
   transform: translateY(-10px);
   transition: all 0.3s ease;
+  
 }
 
 .dropdown:hover .dropdown-content {
@@ -107,8 +108,9 @@ body {
   gap: 12px;
   padding: 12px 20px;
   text-decoration: none;
-  color: #333;
-  transition: background 0.3s ease;
+  color: #ffffff;
+  transition: 0.3s ease;
+  border-radius: 5px;
 }
 
 .dropdown-content a:hover {
@@ -116,6 +118,18 @@ body {
   color: #d32f2f;
 }
 
+@media (max-width: 768px) {
+  .dropdown-content {
+    position: absolute;
+    transform: translateY(-10px);
+    /* opacity: 1; */
+    visibility: hidden;
+    box-shadow: none;
+    background-color: #1a1a1a;
+    padding: 0;
+    min-width: auto;
+  }
+}
 .login-btn {
   display: flex;
   align-items: center;
@@ -816,8 +830,23 @@ body {
     margin: 0;
   }
   
+  .form-group {
+    width: 100%;
+  }
+
+  .flx{
+    flex-direction: row;
+  
+    gap: 10px;
+
+  }
+
+  .sz {
+    width: 50%;
+  }
   .search-card {
-    padding: 30px 20px;
+    
+    padding: 30px 80px;
     margin: 0 20px;
   }
   
@@ -841,6 +870,19 @@ body {
   }
 }
 
+@media (max-width: 580px) {
+  .form-group {
+    width: 100%;
+  }
+
+  .flx{
+    flex-direction: column;
+  
+    gap: 10px;
+
+  }
+}
+
 @media (max-width: 480px) {
   .container {
     padding: 0 15px;
@@ -851,7 +893,7 @@ body {
   }
   
   .search-card {
-    margin: 0 15px;
+    margin: auto;
     padding: 25px 15px;
   }
   

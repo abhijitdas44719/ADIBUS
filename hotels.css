@@ -260,6 +260,12 @@ body {
   color: #555;
 }
 
+.date-group, .guests-rooms{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+  }
+
 .input-wrapper {
   position: relative;
   display: flex;
@@ -852,6 +858,17 @@ body {
     flex-direction: column;
     gap: 15px;
   }
+  .form-group{
+    width: 100%;
+  }
+  .sz{
+    width: 100%;
+  }
+  .date-group, .guests-rooms{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+  }
   
   .search-card {
     padding: 30px 20px;
@@ -905,6 +922,12 @@ body {
   .search-card {
     margin: 0 15px;
     padding: 25px 15px;
+  }
+
+  .date-group, .guests-rooms{
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
   }
   
   .section-header h2 {
