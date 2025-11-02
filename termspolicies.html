@@ -122,6 +122,99 @@ a:hover {text-decoration: underline;}
   color: #d32f2f;
 }
 
+ .footer {
+  background: #1a1a1a;
+  color: white;
+  padding: 60px 0 20px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.footer-logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.footer-logo h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d32f2f;
+}
+
+.footer-section p {
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  background: #333;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: #d32f2f;
+  transform: translateY(-2px);
+}
+
+.footer-section h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #d32f2f;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  padding-top: 20px;
+  text-align: center;
+  color: #999;
+    }
+
 .login-btn {
   display: flex;
   align-items: center;
@@ -254,6 +347,61 @@ a:hover {text-decoration: underline;}
 </ul>
 <p>We aim to respond within 24 hours to all queries.</p>
 </section>
-
+<footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="WADIBUS.png" alt="ADIBUS" />
+            <h3>ADIBUS</h3>
+          </div>
+          <p>ADIBUS is the world's largest online bus ticket booking service trusted by over 25 million happy customers globally.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>About ADIBUS</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Investor Relations</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Values</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Info</h4>
+          <ul>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Bus Operator Registration</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Global Sites</h4>
+          <ul>
+            <li><a href="#">India</a></li>
+            <li><a href="#">Singapore</a></li>
+            <li><a href="#">Malaysia</a></li>
+            <li><a href="#">Indonesia</a></li>
+            <li><a href="#">Vietnam</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 ADIBUS. All Rights Reserved.</p>
+      </div>
+    </div>
+</footer>
 </body>
 </html>
