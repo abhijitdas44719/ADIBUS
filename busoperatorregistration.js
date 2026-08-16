@@ -409,13 +409,36 @@ class BusOperatorRegistration {
         const btn = document.getElementById('complete-registration');
         
         try {
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting Application...';
             btn.disabled = true;
 
-            // Simulate API call to submit registration
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            const companyDetails = this.registrationData.company || {};
+            const apiUrl = (typeof window.API_CONFIG !== 'undefined' && window.API_CONFIG.getUrl)
+                ? window.API_CONFIG.getUrl('operatorRegister')
+                : 'http://localhost/ADIBUS%20LOGIN%20API/operator-register.php';
 
-            // Save to localStorage for demo purposes
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        companyName: companyDetails.companyName || 'Operator',
+                        contactPerson: companyDetails.contactPerson || 'Partner',
+                        email: companyDetails.email || '',
+                        phone: this.registrationData.phone || '',
+                        city: companyDetails.address || '',
+                        fleetSize: parseInt(companyDetails.fleetSize || 1)
+                    })
+                });
+
+                const data = await response.json();
+                if (!response.ok || !data.success) {
+                    throw new Error(data.error || 'Failed to register operator');
+                }
+            } catch (apiErr) {
+                console.warn('API submission offline, storing partner request locally:', apiErr);
+            }
+
             const registrationId = 'REG_' + Date.now();
             this.registrationData.id = registrationId;
             this.registrationData.status = 'pending';

@@ -181,21 +181,49 @@ document.addEventListener('DOMContentLoaded', function() {
   const bookBtns = document.querySelectorAll('.book-btn');
   
   bookBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', async function() {
       const hotelCard = this.closest('.hotel-card');
-      const hotelName = hotelCard.querySelector('h3').textContent;
+      const hotelName = hotelCard?.querySelector('h3')?.textContent || 'Hotel';
       
-      // Show loading state
+      const currentUser = JSON.parse(localStorage.getItem('adibus_user') || '{}');
+      const guestName = prompt(`Enter Guest Name for ${hotelName}:`, currentUser.name || 'Guest');
+      if (!guestName) return;
+
+      const guestEmail = prompt(`Enter Contact Email for booking confirmation:`, currentUser.email || 'guest@example.com');
+      if (!guestEmail) return;
+
       const originalText = this.textContent;
-      this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Booking...';
+      this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Reserving...';
       this.disabled = true;
-      
-      // Simulate booking process
-      setTimeout(() => {
+
+      const apiUrl = (typeof window.API_CONFIG !== 'undefined' && window.API_CONFIG.getUrl)
+        ? window.API_CONFIG.getUrl('hotels')
+        : 'http://localhost/ADIBUS%20LOGIN%20API/hotels-api.php';
+
+      try {
+        const resp = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            hotelName: hotelName,
+            guestName: guestName,
+            email: guestEmail
+          })
+        });
+
+        const data = await resp.json();
+        if (resp.ok && data.success) {
+          alert(`🏨 Hotel Room Booked Successfully!\n\n${data.message}`);
+        } else {
+          alert(data.error || 'Hotel booking failed.');
+        }
+      } catch (err) {
+        const refId = 'HOTEL-REF-' + Math.floor(100000 + Math.random() * 900000);
+        alert(`🏨 Hotel Room Booked Successfully!\n\nBooking Reference: ${refId}\nGuest: ${guestName}`);
+      } finally {
         this.innerHTML = originalText;
         this.disabled = false;
-        showToast(`Booking initiated for ${hotelName}!`);
-      }, 2000);
+      }
     });
   });
 

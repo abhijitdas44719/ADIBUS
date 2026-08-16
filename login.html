@@ -80,6 +80,33 @@
       text-align: center;
     }
 
+    .auth-mode-switch {
+      display: flex;
+      background: #f0f0f0;
+      border-radius: 12px;
+      padding: 4px;
+      margin-bottom: 25px;
+    }
+
+    .mode-tab {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #666;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .mode-tab.active {
+      background: #ffffff;
+      color: #d32f2f;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
     .auth-tabs {
       display: flex;
       margin-bottom: 30px;
@@ -354,9 +381,15 @@
       </div>
       
       <div class="login-content">
-        <!-- Step 1: Choose Authentication Method -->
+        <!-- Main Mode Switcher: Sign In vs Create Account -->
+        <div class="auth-mode-switch">
+          <button class="mode-tab active" id="mode-signin-btn" type="button">Sign In</button>
+          <button class="mode-tab" id="mode-signup-btn" type="button">Create Account</button>
+        </div>
+
+        <!-- Step 1: Choose Authentication Method (Sign In) -->
         <div class="login-step active" id="step-auth-method">
-          <h2 class="step-title">Choose Login Method</h2>
+          <h2 class="step-title">Sign In to Your Account</h2>
           
           <div class="auth-tabs">
             <div class="auth-tab active" data-method="phone">
@@ -403,8 +436,72 @@
             Send OTP
           </button>
 
-          <div class="home-link">
-            <a href="index.html">← Back to Home</a>
+          <div class="form-toggle-link" style="text-align: center; margin-top: 20px; font-size: 14px;">
+            Don't have an account? <a href="#" id="goto-create-account" style="color: #d32f2f; font-weight: 600; text-decoration: none;">Create Account</a>
+          </div>
+
+          <div class="home-link" style="text-align: center; margin-top: 15px;">
+            <a href="index.html" style="color: #777; text-decoration: none; font-size: 13px;">← Back to Home</a>
+          </div>
+        </div>
+
+        <!-- Step 1B: Create Account (Registration Form) -->
+        <div class="login-step" id="step-create-account">
+          <h2 class="step-title">Create New Account</h2>
+          <p style="text-align: center; color: #666; margin-bottom: 20px; font-size: 14px;">
+            Fill in your details to get started with ADIBUS
+          </p>
+
+          <div class="error-message" id="register-error"></div>
+          <div class="success-message" id="register-success"></div>
+
+          <div class="form-group">
+            <label>Full Name</label>
+            <div class="input-wrapper">
+              <i class="fas fa-user"></i>
+              <input type="text" id="reg-full-name" class="zoom-input" placeholder="Enter your full name" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Email Address</label>
+            <div class="input-wrapper">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="reg-email" class="zoom-input" placeholder="name@example.com" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number</label>
+            <div class="country-code">
+              <select class="country-select zoom-input" id="reg-country-code">
+                <option value="+91">+91</option>
+                <option value="+1">+1</option>
+                <option value="+44">+44</option>
+              </select>
+              <input type="tel" class="phone-input zoom-input" id="reg-phone" placeholder="Mobile number (10 digits)" maxlength="10" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Create Password</label>
+            <div class="input-wrapper">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="reg-password" class="zoom-input" placeholder="Minimum 6 characters" />
+            </div>
+          </div>
+
+          <button class="submit-btn" id="register-submit-btn">
+            <i class="fas fa-user-plus"></i>
+            Create Account
+          </button>
+
+          <div class="form-toggle-link" style="text-align: center; margin-top: 20px; font-size: 14px;">
+            Already have an account? <a href="#" id="goto-signin" style="color: #d32f2f; font-weight: 600; text-decoration: none;">Sign In</a>
+          </div>
+
+          <div class="home-link" style="text-align: center; margin-top: 15px;">
+            <a href="index.html" style="color: #777; text-decoration: none; font-size: 13px;">← Back to Home</a>
           </div>
         </div>
 
@@ -443,6 +540,41 @@
           </button>
         </div>
 
+        <!-- Step 1C: Email Verification -->
+        <div class="login-step" id="step-email-verification">
+          <h2 class="step-title">Verify Your Email</h2>
+          <p style="text-align: center; color: #666; margin-bottom: 25px;">
+            We've transferred a 6-digit verification email code to <span id="email-verification-display" style="font-weight: 600; color: #d32f2f;"></span>
+          </p>
+
+          <div class="error-message" id="email-verify-error"></div>
+          <div class="success-message" id="email-verify-success"></div>
+
+          <div class="otp-inputs" id="email-verify-inputs">
+            <input type="text" class="email-code-input otp-input" maxlength="1" />
+            <input type="text" class="email-code-input otp-input" maxlength="1" />
+            <input type="text" class="email-code-input otp-input" maxlength="1" />
+            <input type="text" class="email-code-input otp-input" maxlength="1" />
+            <input type="text" class="email-code-input otp-input" maxlength="1" />
+            <input type="text" class="email-code-input otp-input" maxlength="1" />
+          </div>
+
+          <button class="submit-btn" id="verify-email-btn">
+            <i class="fas fa-envelope-open-text"></i>
+            Verify Email & Complete Registration
+          </button>
+
+          <div class="resend-section">
+            <div class="resend-timer" id="email-resend-timer">Resend Code in <span id="email-timer">30</span>s</div>
+            <button class="resend-btn" id="resend-email-btn" disabled style="background: none; border: none; color: #d32f2f; cursor: pointer; font-weight: 600;">Resend Verification Email</button>
+          </div>
+
+          <button class="back-btn" id="back-to-signup" style="width: 100%; margin-top: 15px; background: #f5f5f5; border: 1px solid #ddd; padding: 12px; border-radius: 12px; cursor: pointer;">
+            <i class="fas fa-arrow-left"></i>
+            Back to Account Creation
+          </button>
+        </div>
+
         <!-- Step 3: User Details -->
         <div class="login-step" id="step-user-details">
           <h2 class="step-title">Complete Your Profile</h2>
@@ -470,6 +602,7 @@
     </div>
   </section>
 
+  <script src="api-config.js"></script>
   <script src="login.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {

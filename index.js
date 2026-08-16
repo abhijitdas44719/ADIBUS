@@ -151,15 +151,18 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Searching...';
         submitBtn.disabled = true;
         
-        // Simulate search (replace with actual search logic)
+        // Redirect to Seatmap.html with real search parameters
+        sessionStorage.setItem('adibus_search', JSON.stringify({
+          source: fromInput.value.trim(),
+          destination: toInput.value.trim(),
+          date: dateInput.value
+        }));
+
         setTimeout(() => {
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-          alert('Search functionality would be implemented here!');
-        }, 2000);
+          window.location.href = `Seatmap.html?source=${encodeURIComponent(fromInput.value.trim())}&destination=${encodeURIComponent(toInput.value.trim())}&date=${encodeURIComponent(dateInput.value)}`;
+        }, 500);
       } else {
-        // Show error message
-        alert('Please fill in all required fields');
+        alert('Please fill in Source, Destination, and Travel Date.');
       }
     });
   }

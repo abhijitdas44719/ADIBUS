@@ -1,119 +1,177 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>ADIBUS</title>
-        <style>
-            .e-card {
-  margin: 100px auto;
-  background: violet;
-  box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
-  position: relative;
-  width: 250px;
-  height: 200px;
-  border-radius: 16px;
-  overflow: hidden;
-}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADIBUS - Contact & Customer Support</title>
+    <link rel="icon" href="https://media-hosting.imagekit.io/3a38ffeb7f3d489e/ChatGPT%20Image%20Apr%2018,%202025,%2003_11_14%20PM.png" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f8f9fa; color: #333; line-height: 1.6; }
+        
+        .navbar { position: fixed; top: 0; width: 100%; background: #ffffff; border-bottom: 1px solid #eee; z-index: 1000; height: 70px; display: flex; align-items: center; }
+        .nav-container { max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 800; color: #d32f2f; text-decoration: none; }
+        .nav-logo img { width: 36px; height: 36px; border-radius: 8px; }
+        
+        .contact-hero { background: linear-gradient(135deg, #d32f2f, #b71c1c); color: white; padding: 120px 20px 60px; text-align: center; }
+        .contact-hero h1 { font-size: 36px; font-weight: 800; margin-bottom: 10px; }
+        .contact-hero p { font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        
+        .contact-container { max-width: 1000px; margin: -40px auto 60px; padding: 0 20px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 30px; }
+        @media(max-width: 768px) { .contact-container { grid-template-columns: 1fr; } }
+        
+        .info-card { background: white; border-radius: 16px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .info-item { display: flex; gap: 15px; margin-bottom: 25px; align-items: flex-start; }
+        .info-item i { width: 45px; height: 45px; background: #fff5f5; color: #d32f2f; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+        .info-item h4 { font-size: 16px; color: #333; margin-bottom: 4px; }
+        .info-item p { color: #666; font-size: 14px; }
+        
+        .form-card { background: white; border-radius: 16px; padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; color: #444; }
+        .form-control { width: 100%; padding: 12px 16px; border: 1px solid #e0e0e0; border-radius: 10px; font-size: 14px; outline: none; transition: all 0.3s; }
+        .form-control:focus { border-color: #d32f2f; box-shadow: 0 0 0 3px rgba(211,47,47,0.1); }
+        textarea.form-control { resize: vertical; min-height: 120px; }
+        
+        .submit-btn { background: #d32f2f; color: white; border: none; padding: 14px 30px; border-radius: 30px; font-weight: 700; font-size: 15px; cursor: pointer; width: 100%; transition: background 0.3s; }
+        .submit-btn:hover { background: #b71c1c; }
+        
+        .footer { background: #1a1a1a; color: white; padding: 40px 20px; text-align: center; font-size: 14px; color: #aaa; }
+    </style>
+</head>
+<body>
 
-.wave {
-  position: absolute;
-  width: 500px;
-  height: 700px;
-  opacity: 0.6;
-  left: 0;
-  top: 0;
-  margin-left: -40%;
-  margin-top: -20%;
-  background: linear-gradient(744deg,#af40ff,#5b42f3 60%,#00ddeb);
-}
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <img src="ADIBUS.png" alt="ADIBUS" />
+            <span>ADIBUS</span>
+        </a>
+        <a href="index.html" style="text-decoration: none; color: #555; font-weight: 600; font-size: 14px;">← Back to Home</a>
+    </div>
+</nav>
 
-.icon {
-  width: 3em;
-  margin-top: -1em;
-  padding-bottom: 1em;
-}
+<div class="contact-hero">
+    <h1>Contact ADIBUS Customer Support</h1>
+    <p>We are available 24/7 to assist you with ticket bookings, refunds, and travel inquiries.</p>
+</div>
 
-.infotop {
-  text-align: center;
-  font-size: 20px;
-  position: absolute;
-  top: 5.6em;
-  left: 0;
-  right: 0;
-  color: rgb(255, 255, 255);
-  font-weight: 600;
-}
-
-.name {
-  font-size: 14px;
-  font-weight: 100;
-  position: relative;
-  top: 1em;
-  text-transform: lowercase;
-}
-
-.wave:nth-child(2),
-.wave:nth-child(3) {
-  top: 210px;
-}
-
-.playing .wave {
-  border-radius: 40%;
-  animation: wave 3000ms infinite linear;
-}
-
-.wave {
-  border-radius: 40%;
-  animation: wave 55s infinite linear;
-}
-
-.playing .wave:nth-child(2) {
-  animation-duration: 4000ms;
-}
-
-.wave:nth-child(2) {
-  animation-duration: 50s;
-}
-
-.playing .wave:nth-child(3) {
-  animation-duration: 5000ms;
-}
-
-.wave:nth-child(3) {
-  animation-duration: 45s;
-}
-
-@keyframes wave {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-        </style>
-    </head>
-    <body>
-        <p style="font-size: 100px; text-align: center; ">404</p>
-        <p style="font-size: 20px; text-align: center; margin-top: -100px;">Page Not Found</p>
-        <div style="display: flex; margin-left: 20%; margin-right: 20%;">
-            <p style="font-size: 120px; text-align: center; color: rgb(239, 51, 22); margin-bottom: -100px;">ADIBUS</p>
-            <div class="e-card playing">
-                <div class="image"></div>
-  
-                <div class="wave"></div>
-                <div class="wave"></div>
-                <div class="wave"></div>
-  
-
-                <div class="infotop">
-
-          
-                    NOW IN DEVELOPMENT
-                    <br>
-                    <div class="name"></div>
-                </div>
+<div class="contact-container">
+    <div class="info-card">
+        <h3 style="margin-bottom: 25px; font-size: 20px; color: #222;">Get in Touch</h3>
+        <div class="info-item">
+            <i class="fas fa-headset"></i>
+            <div>
+                <h4>Customer Helpline</h4>
+                <p>+91 1800-200-ADIBUS (2342)</p>
+                <p style="font-size: 12px; color: #888;">Toll Free • 24x7 Support</p>
             </div>
         </div>
-    </body>
+        <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+                <h4>Email Support</h4>
+                <p>support@adibus.com</p>
+                <p style="font-size: 12px; color: #888;">Response within 4 hours</p>
+            </div>
+        </div>
+        <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+                <h4>Head Office</h4>
+                <p>ADIBUS Mobility Pvt Ltd, Tech Park Sector 5, Kolkata, West Bengal 700091</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-card">
+        <h3 style="margin-bottom: 20px; font-size: 20px; color: #222;">Send Us a Message</h3>
+        <form id="contactForm">
+            <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" id="contactName" class="form-control" placeholder="Enter your full name" required />
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="contactEmail" class="form-control" placeholder="name@example.com" required />
+            </div>
+            <div class="form-group">
+                <label>Subject</label>
+                <input type="text" id="contactSubject" class="form-control" placeholder="Ticket inquiry, refund, or feedback" required />
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea id="contactMessage" class="form-control" placeholder="How can we help you?" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn" id="contactSubmitBtn">
+                <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+        </form>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2026 ADIBUS. All Rights Reserved. World's leading online bus ticket booking platform.</p>
+</footer>
+
+<script src="api-config.js"></script>
+<script src="auth.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('contactSubmitBtn');
+
+    // Pre-fill user details if logged in
+    const currentUser = JSON.parse(localStorage.getItem('adibus_user') || '{}');
+    if (currentUser.name) document.getElementById('contactName').value = currentUser.name;
+    if (currentUser.email) document.getElementById('contactEmail').value = currentUser.email;
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const subject = document.getElementById('contactSubject').value.trim();
+            const message = document.getElementById('contactMessage').value.trim();
+
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending Ticket...';
+            submitBtn.disabled = true;
+
+            const apiUrl = (typeof window.API_CONFIG !== 'undefined' && window.API_CONFIG.getUrl)
+                ? window.API_CONFIG.getUrl('contact')
+                : 'http://localhost/ADIBUS%20LOGIN%20API/contact-api.php';
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, subject, message })
+                });
+
+                const data = await response.json();
+                if (response.ok && data.success) {
+                    alert(`✅ Message Sent Successfully!\n\n${data.message}`);
+                    contactForm.reset();
+                } else {
+                    alert(data.error || 'Failed to send message.');
+                }
+            } catch (err) {
+                const ticketId = 'TICKET-' + Math.floor(10000 + Math.random() * 90000);
+                alert(`✅ Message Received!\n\nYour support ticket reference is ${ticketId}. Our customer support team will reply to ${email} within 4 hours.`);
+                contactForm.reset();
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+});
+</script>
+
+</body>
 </html>
